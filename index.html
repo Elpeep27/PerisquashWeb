@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>PeriSquash — Canchas de squash en Coapa, Tlalpan CDMX</title>
-  <meta name="description" content="Club de squash en Coapa con +13 años. Canchas de piso de madera en excelente estado, buen ambiente and el trato de Don Roger. Reserva por WhatsApp.">
+  <meta name="description" content="Club de squash en Coapa con +13 años. Canchas de piso de madera en excelente estado, buen ambiente y el trato de Don Roger. Reserva por WhatsApp.">
   <link rel="canonical" href="https://elpeep27.github.io/perisquash-web/">
   <meta name="theme-color" content="#1E3A6B">
   
@@ -1512,43 +1512,7 @@ footer {
   }
   </script>
 </head>
-<body class="racket-on">
-
-  <!-- RACKET CURSOR -->
-  <div class="racket-cursor" id="racketCursor" aria-hidden="true">
-    <svg width="60" height="60" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-      <g fill="none" stroke-linecap="round">
-        <!-- Racket frame -->
-        <ellipse cx="50" cy="35" rx="18" ry="24" stroke="var(--blue-deep)" stroke-width="3.5" transform="rotate(-15 50 35)"/>
-        <!-- Racket handle / shaft -->
-        <line x1="50" y1="59" x2="50" y2="88" stroke="var(--charcoal)" stroke-width="4.5"/>
-        <!-- Handle grip decoration -->
-        <line x1="50" y1="78" x2="50" y2="88" stroke="var(--blue)" stroke-width="5"/>
-        <!-- Racket strings (cyan) -->
-        <g stroke="var(--cyan)" stroke-width="0.8" opacity="0.7">
-          <!-- Verticals -->
-          <line x1="38" y1="20" x2="38" y2="50"/>
-          <line x1="44" y1="14" x2="44" y2="56"/>
-          <line x1="50" y1="12" x2="50" y2="58"/>
-          <line x1="56" y1="14" x2="56" y2="56"/>
-          <line x1="62" y1="20" x2="62" y2="50"/>
-          <!-- Horizontals -->
-          <line x1="34" y1="25" x2="66" y2="25"/>
-          <line x1="32" y1="31" x2="68" y2="31"/>
-          <line x1="32" y1="37" x2="68" y2="37"/>
-          <line x1="32" y1="43" x2="68" y2="43"/>
-          <line x1="34" y1="49" x2="66" y2="49"/>
-        </g>
-      </g>
-    </svg>
-  </div>
-
-  <!-- BALL COMPANION -->
-  <div class="ball-companion" id="ballCompanion" aria-hidden="true">
-    <!-- Squash ball usually has two yellow dots -->
-    <div class="ball-dot dot-1"></div>
-    <div class="ball-dot dot-2"></div>
-  </div>
+<body>
 
   <!-- NAV -->
   <nav id="mainNav">
@@ -1871,16 +1835,7 @@ footer {
     </div>
   </section>
 
-  <!-- FRANJA MARCADOR (Blue Section) -->
-  <section class="marcador-banner" id="marcador">
-    <div class="banner-container">
-      <div class="banner-content reveal">
-        <h2>App Oficial PeriSquash</h2>
-        <p>Lleva el marcador de tus partidos fácilmente de forma digital con la app Marcador.</p>
-        <button class="btn btn-cyan" id="btnMarcador">Más información</button>
-      </div>
-    </div>
-  </section>
+  <!-- FRANJA MARCADOR removed -->
 
   <!-- FOOTER (Dark Section) -->
   <footer>
@@ -1942,7 +1897,7 @@ footer {
             <tbody>
               <tr>
                 <td><strong>Renta de Cancha (por hora)</strong></td>
-                <td>$180.00 — $200.00 <span class="badge-confirmar">por confirmar</span></td>
+                <td>$350.00 MXN</td>
               </tr>
               <tr>
                 <td><strong>Clase con Instructor (por hora)</strong></td>
@@ -1963,28 +1918,7 @@ footer {
     </div>
   </div>
 
-  <!-- Popover 3: Marcador -->
-  <div class="popover-modal" id="modalMarcador" role="dialog" aria-modal="true" aria-labelledby="modalMarcadorTitle">
-    <div class="modal-backdrop" onclick="closeModal('modalMarcador')"></div>
-    <div class="modal-card">
-      <button class="modal-close" aria-label="Cerrar modal" onclick="closeModal('modalMarcador')">&times;</button>
-      <div class="modal-content">
-        <h2 id="modalMarcadorTitle">App Marcador PeriSquash</h2>
-        <div class="marcador-showcase">
-          <p class="modal-intro">La aplicación oficial para llevar el marcador digital de tus juegos directo en la cancha.</p>
-          <ul class="modal-list">
-            <li><strong>Zonas táctiles divididas:</strong> Coloca tu celular en horizontal y cada jugador toca su lado de la pantalla para sumar puntos.</li>
-            <li><strong>Física e historial:</strong> Control de partidos, estadísticas individuales y tabla de posiciones de la comunidad.</li>
-            <li><strong>Varios jugadores:</strong> Gestiona automáticamente rotaciones estilo "el ganador se queda" para retas de 3 o más personas.</li>
-          </ul>
-          <div class="pl-status">
-            <span class="status-badge">Próximamente</span>
-            <p>Disponible muy pronto en Google Play Store para Android (Kotlin + Jetpack Compose).</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!-- Popover 3: Marcador removed -->
 
   <!-- Main Scripts (deferred to prevent render blocking - Rule 3) -->
   <script src="js/main.js" defer></script>

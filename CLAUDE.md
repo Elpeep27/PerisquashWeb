@@ -138,7 +138,7 @@ perisquash-web/
 - Mapa de Google embebido con filtro oscuro
 - Hover en días: indent sutil
 
-### 7. App Marcador (showcase)
+### 7. App Marcador (showcase) — DESHABILITADO POR AHORA
 - Grid 2 columnas: Features (izq) | Phone landscape mockup (der)
 - Se presenta como "La app oficial de PeriSquash" — NO como producto de BridgeNode
 - 4 features: Toca y Suma | Varios Jugadores | Tus Reglas | Tabla de Posiciones
@@ -170,7 +170,7 @@ perisquash-web/
 
 ## Elementos Interactivos
 
-### Raqueta animada (solo desktop > 1024px)
+### Raqueta animada (solo desktop > 1024px) — DESHABILITADO POR AHORA
 - SVG fixed position, pointer-events none
 - Aparece después del hero (scrollY > 80% del hero height)
 - Se mueve con funciones seno/coseno basadas en scroll progress
@@ -262,7 +262,7 @@ WhatsApp:   https://wa.me/5554173456?text=Hola%2C%20quiero%20reservar%20una%20ca
 3. Google Business Profile link bidireccional
 4. Formulario de contacto real (si el cliente lo pide — por ahora WhatsApp es el CTA)
 
-## Referencia de la App Marcador (contexto para la sección de showcase)
+## Referencia de la App Marcador (contexto para la sección de showcase) — DESHABILITADO POR AHORA
 
 La app es una aplicación Android nativa (Kotlin + Jetpack Compose) que permite:
 - Marcador en tiempo real (landscape, zonas táctiles divididas)
