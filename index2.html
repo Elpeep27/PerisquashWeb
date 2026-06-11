@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>PeriSquash — Propuesta Alternativa (Squash en Coapa, CDMX)</title>
+  <meta name="description" content="Club de squash en Coapa con +13 años. Canchas de madera en excelente estado, buen ambiente y el trato de Don Roger. Reserva por WhatsApp.">
+  <link rel="canonical" href="https://elpeep27.github.io/perisquash-web/index2.html">
+  <meta name="theme-color" content="#0A0B0E">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="PeriSquash — Club de Squash en Coapa">
+  <meta property="og:description" content="Canchas de madera, buen ambiente y el trato de Don Roger. No es lujo — es squash bien hecho.">
+  <meta property="og:image" content="https://elpeep27.github.io/perisquash-web/assets/images/fachada.jpg">
+  <meta property="og:url" content="https://elpeep27.github.io/perisquash-web/index2.html">
+  <meta property="og:locale" content="es_MX">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PeriSquash — Club de Squash en Coapa">
+  <meta name="twitter:description" content="Canchas de madera, buen ambiente y el trato de Don Roger. No es lujo — es squash bien hecho.">
+  <meta name="twitter:image" content="https://elpeep27.github.io/perisquash-web/assets/images/fachada.jpg">
+
+  <!-- Favicons -->
+  <link rel="icon" href="assets/images/logo-perisquash.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/images/logo-perisquash.png">
+
+  <!-- Preload LCP Hero Image (WebP format matches rendered source) -->
+  <link rel="preload" as="image" href="assets/images/cancha-juego.webp" type="image/webp">
+
+  <!-- Preconnect to external services -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Async Google Fonts Loading (display=optional to avoid layout shifts) -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&display=optional" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&display=optional">
+  </noscript>
+
+  <!-- Alternative Stylesheet Injected Inline (Zero Render-Blocking) -->
+  <style>
+/* ==========================================================================
+   PeriSquash Alternative Design System (High-Energy Modern Athletic Dark Mode)
+   ========================================================================== */
+
+:root {
+  /* Dynamic High-Energy Colors */
+  --bg-base:       #08090C; /* Deep space black */
+  --bg-surface:    #11141C; /* Elevated dark container */
+  --bg-surface-2:  #181D2A; /* Highlighted card */
+  
+  --accent-neon:   #D4FF13; /* Neon yellow-green (Squash Ball Dot/High energy) */
+  --accent-cyan:   #00F0FF; /* Electric Cyan */
+  --accent-blue:   #2563EB; /* Vibrant Royal Blue */
+  --accent-purple: #7C3AED; /* Deep violet for back glow */
+  
+  /* Text values */
+  --text-primary:  #F3F4F6; /* Off-white */
+  --text-muted:    #9CA3AF; /* Light steel gray */
+  --text-dark:     #08090C; /* Contrast text on bright backgrounds */
+  
+  --border:        rgba(255, 255, 255, 0.08);
+  --border-glow:   rgba(0, 240, 255, 0.2);
+
+  /* Layout and motion */
+  --transition:    all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Global Reset & Defaults */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Hanken Grotesk', sans-serif;
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+p {
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+a {
+  color: var(--accent-cyan);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--accent-neon);
+}
+
+/* Floating Navigation Header (Glassmorphic) */
+nav {
+  position: fixed;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1200px;
+  padding: 0.8rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  background: rgba(17, 20, 28, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 50px;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  transition: var(--transition);
+}
+
+nav.scrolled {
+  top: 0;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  background: rgba(8, 9, 12, 0.9);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.nav-logo img {
+  height: 38px;
+  width: auto;
+  filter: drop-shadow(0 2px 10px rgba(0, 240, 255, 0.2));
+}
+
+.nav-logo-text {
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.nav-logo-text .peri {
+  color: var(--text-primary);
+}
+
+.nav-logo-text .squash {
+  color: var(--accent-neon);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.nav-links a:hover {
+  color: var(--text-primary);
+}
+
+.nav-cta {
+  background-color: var(--accent-neon) !important;
+  color: var(--text-dark) !important;
+  padding: 0.5rem 1.2rem;
+  border-radius: 30px;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(212, 255, 19, 0.3);
+}
+
+.nav-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 255, 19, 0.5);
+}
+
+.mobile-menu {
+  display: none;
+  font-size: 1.6rem;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+/* High-Contrast Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 2rem;
+  border-radius: 30px;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: none;
+  transition: var(--transition);
+}
+
+.btn-primary {
+  background-color: var(--accent-neon);
+  color: var(--text-dark);
+  box-shadow: 0 5px 20px rgba(212, 255, 19, 0.25);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(212, 255, 19, 0.45);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--text-primary);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+.btn-outline:hover {
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+  background-color: rgba(0, 240, 255, 0.05);
+}
+
+/* Hero Section (Modern Sport Look) */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 8rem 6vw 4rem;
+  background-color: var(--bg-base);
+  overflow: hidden;
+}
+
+.hero-photo-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.hero-photo-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.15; /* Dark background with subtle image overlay */
+}
+
+/* Ambient glow system */
+.hero-glow {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(150px);
+  opacity: 0.25;
+}
+
+.orb-left {
+  width: 500px;
+  height: 500px;
+  background-color: var(--accent-cyan);
+  top: -10%;
+  left: -10%;
+}
+
+.orb-right {
+  width: 600px;
+  height: 600px;
+  background-color: var(--accent-purple);
+  bottom: -10%;
+  right: -10%;
+}
+
+.hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.hero-content {
+  text-align: left;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  color: var(--accent-neon);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-neon);
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 8px var(--accent-neon);
+}
+
+.hero h1 {
+  font-size: clamp(3rem, 6vw, 4.8rem);
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 .highlight {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--accent-cyan);
+  display: block;
+}
+
+.hero-subtitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.hero-desc {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: 2.5rem;
+  max-width: 580px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+/* Hero Badge Mockup (Right Side) */
+.hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.badge-card {
+  background: rgba(17, 20, 28, 0.6);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 2.5rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+  width: 100%;
+  max-width: 380px;
+  position: relative;
+}
+
+.badge-card::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 20%;
+  right: 20%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+}
+
+.badge-header {
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.badge-header .stars {
+  color: #FFB800;
+  font-size: 1.1rem;
+}
+
+.badge-stat {
+  margin-bottom: 1.2rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.badge-stat:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.badge-stat-num {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--accent-neon);
+  line-height: 1;
+}
+
+.badge-stat-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.2rem;
+}
+
+/* Visual Court Lines Decorator (Subtle) */
+.court-lines-visual {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0.15;
+}
+
+.visual-line-left {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 5%;
+  width: 1px;
+  background: var(--accent-cyan);
+}
+
+.visual-line-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 5%;
+  width: 1px;
+  background: var(--accent-cyan);
+}
+
+/* Sections Global Container */
+section.dark-section {
+  position: relative;
+  padding: 8rem 6vw;
+  background-color: var(--bg-base);
+  overflow: hidden;
+}
+
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.section-header {
+  margin-bottom: 5rem;
+  text-align: center;
+}
+
+.section-header h2 {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  color: var(--text-primary);
+  margin-bottom: 1.2rem;
+}
+
+.section-header h2 span {
+  color: var(--accent-neon);
+}
+
+.section-desc {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   Circular Gallery Layout over Blurred Squash Ball (Design Proposal #2)
+   ========================================================================== */
+.gallery-section {
+  position: relative;
+  background-color: #0A0B0E;
+}
+
+/* Circular layout wrapper */
+.circular-gallery-wrapper {
+  position: relative;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 4rem auto;
+  max-width: 900px;
+}
+
+/* Central Squash Ball */
+.squash-ball-bg {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  background-color: #12141A;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 80px rgba(0, 240, 255, 0.15), inset 0 0 40px rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  z-index: 15;
+}
+
+.squash-ball-dots {
+  display: flex;
+  gap: 12px;
+}
+
+.squash-ball-dot {
+  width: 12px;
+  height: 12px;
+  background-color: var(--accent-neon);
+  border-radius: 50%;
+  box-shadow: 0 0 15px var(--accent-neon);
+  animation: glowAnimation 3s infinite alternate;
+}
+
+@keyframes glowAnimation {
+  0% { transform: scale(0.9); opacity: 0.7; box-shadow: 0 0 8px var(--accent-neon); }
+  100% { transform: scale(1.1); opacity: 1; box-shadow: 0 0 20px var(--accent-neon); }
+}
+
+/* Circular photo cards */
+.gallery-circle-item {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  background-color: var(--bg-surface);
+  z-index: 20;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  will-change: transform, border-color, box-shadow;
+}
+
+.gallery-circle-item picture, 
+.gallery-circle-item img,
+.gallery-circle-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  pointer-events: none; /* Let clicks pass to the card itself */
+}
+
+/* Circle Positions on Desktop (trigonometric orbit) */
+.circle-fachada {
+  top: 0;
+  left: 15%;
+}
+
+.circle-cancha {
+  top: 0;
+  right: 15%;
+}
+
+.circle-clase {
+  bottom: 0;
+  left: 15%;
+}
+
+.circle-video {
+  bottom: 0;
+  right: 15%;
+}
+
+/* Hover Zoom & Pop Up Mechanics */
+.gallery-circle-item:hover {
+  transform: scale(1.15) translateY(-10px);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 20px 40px rgba(0, 240, 255, 0.3);
+  z-index: 30;
+}
+
+.gallery-circle-item:hover img,
+.gallery-circle-item:hover video {
+  transform: scale(1.08);
+}
+
+/* Inline Dynamic Captions */
+.gallery-captions {
+  text-align: center;
+  max-width: 600px;
+  margin: 3rem auto 0;
+  min-height: 80px;
+  background-color: var(--bg-surface);
+  padding: 1.5rem 2rem;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+}
+
+.gallery-caption-item {
+  display: none;
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.gallery-caption-item.active {
+  display: block;
+}
+
+.gallery-caption-item h3 {
+  color: var(--accent-cyan);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.gallery-caption-item p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Horarios & Ubicación Integration */
+.info-section {
+  background-color: var(--bg-surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 4rem;
+  align-items: stretch;
+}
+
+.schedule-card {
+  background-color: var(--bg-base);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.schedule-card h3 {
+  font-size: 1.6rem;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+}
+
+.schedule-list {
+  list-style: none;
+}
+
+.schedule-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.schedule-row:last-child {
+  border-bottom: none;
+}
+
+.schedule-day {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.schedule-time {
+  font-weight: 600;
+  color: var(--accent-neon);
+  background-color: rgba(212, 255, 19, 0.06);
+  padding: 0.4rem 1rem;
+  border-radius: 30px;
+  border: 1px solid rgba(212, 255, 19, 0.15);
+}
+
+.map-card {
+  background-color: var(--bg-base);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.map-iframe-wrapper {
+  height: 260px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.map-iframe-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  filter: invert(90%) hue-rotate(180deg) brightness(0.9) contrast(1.1); /* Stylized dark map */
+}
+
+.map-info-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.map-detail-block h4 {
+  font-size: 1rem;
+  color: var(--accent-cyan);
+  margin-bottom: 0.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.map-detail-block p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.map-ctas {
+  display: flex;
+  gap: 1.5rem;
+}
+
+/* Reviews Section */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.review-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  transition: var(--transition);
+}
+
+.review-card::before {
+  content: '“';
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-size: 5rem;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  color: rgba(255, 255, 255, 0.02);
+  line-height: 1;
+}
+
+.review-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--border-glow);
+  box-shadow: 0 15px 30px rgba(0, 240, 255, 0.05);
+}
+
+.review-stars {
+  color: #FFB800;
+  margin-bottom: 1.2rem;
+  font-size: 1.05rem;
+}
+
+.review-text {
+  font-style: italic;
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.review-author {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+/* Footer Section */
+footer {
+  background-color: #060709;
+  border-top: 1px solid var(--border);
+  padding: 5rem 6vw 4rem;
+}
+
+.footer-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 4rem;
+}
+
+.footer-brand h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.footer-brand h3 .peri {
+  color: var(--text-primary);
+}
+
+.footer-brand h3 .squash {
+  color: var(--accent-neon);
+}
+
+.footer-brand p {
+  max-width: 320px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1.2rem;
+}
+
+.footer-links a {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.footer-links a:hover {
+  color: var(--accent-cyan);
+}
+
+.footer-copyright {
+  max-width: 1200px;
+  margin: 2.5rem auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.footer-copyright a {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Scroll Reveal System & Modal styling
+   ========================================================================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Popover Modals */
+.popover-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.popover-modal.open {
+  pointer-events: all;
+  opacity: 1;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(4, 5, 7, 0.85);
+  backdrop-filter: blur(8px);
+}
+
+.modal-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border);
+  width: 90%;
+  max-width: 600px;
+  border-radius: 24px;
+  position: relative;
+  z-index: 10002;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+  transform: scale(0.95);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.popover-modal.open .modal-card {
+  transform: scale(1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.5rem;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  z-index: 10;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+
+.modal-close:hover {
+  color: var(--text-primary);
+}
+
+.modal-content {
+  padding: 3rem 2.5rem;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.modal-content h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.modal-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.modal-list li {
+  position: relative;
+  padding-left: 1.8rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.modal-list li::before {
+  content: '🎾';
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  font-size: 0.9rem;
+}
+
+.modal-table-wrapper {
+  margin-top: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.modal-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--bg-base);
+}
+
+.modal-table th,
+.modal-table td {
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+.modal-table th {
+  background-color: rgba(255, 255, 255, 0.03);
+  color: var(--accent-cyan);
+  font-weight: 700;
+}
+
+.badge-confirmar {
+  font-size: 0.7rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-left: 0.5rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.modal-note {
+  margin-top: 1.2rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .hero-content {
+    text-align: center;
+  }
+  
+  .hero-desc {
+    margin: 0 auto 2.5rem;
+  }
+  
+  .hero-buttons {
+    justify-content: center;
+  }
+  
+  .hero-visual {
+    justify-content: center;
+  }
+  
+  .circular-gallery-wrapper {
+    height: 500px;
+    max-width: 700px;
+  }
+  
+  .squash-ball-bg {
+    width: 260px;
+    height: 260px;
+  }
+  
+  .gallery-circle-item {
+    width: 170px;
+    height: 170px;
+  }
+  
+  .info-grid {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+  }
+  
+  .nav-links {
+    position: fixed;
+    top: 5rem;
+    left: 50%;
+    transform: translateX(-50%) scale(0.9);
+    width: 90%;
+    background-color: rgba(17, 20, 28, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    flex-direction: column;
+    padding: 2.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition);
+  }
+  
+  .nav-links.open {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+    pointer-events: all;
+  }
+  
+  .mobile-menu {
+    display: block;
+  }
+  
+  /* Circular Gallery Collapse on Mobile */
+  .circular-gallery-wrapper {
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 1rem;
+    margin: 2rem 0 0;
+  }
+  
+  .squash-ball-bg {
+    display: none; /* Hide the background ball on mobile to save space */
+  }
+  
+  .gallery-circle-item {
+    position: static; /* Let them flow in grid */
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%; /* Make circles square-bound responsive */
+    border-radius: 50%;
+    margin: 0 auto;
+  }
+  
+  .gallery-circle-item picture,
+  .gallery-circle-item img,
+  .gallery-circle-item video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .gallery-captions {
+    margin-top: 2rem;
+    padding: 1.2rem;
+  }
+  
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  
+  .reviews-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .footer-links {
+    align-items: flex-start;
+  }
+  
+  .footer-copyright {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-delay: 0s !important;
+    animation-duration: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0s !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .squash-ball-dot {
+    animation: none !important;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <!-- FLOATING NAVBAR -->
+  <nav id="mainNav">
+    <a href="#" class="nav-logo" aria-label="PeriSquash Inicio">
+      <picture>
+        <source srcset="assets/images/logo-perisquash.webp" type="image/webp">
+        <img src="assets/images/logo-perisquash.png" alt="Logo de PeriSquash" class="logo-img" width="38" height="38">
+      </picture>
+      <span class="nav-logo-text"><span class="peri">Peri</span><span class="squash">Squash</span></span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#instalaciones">Instalaciones</a>
+      <a href="#informacion">Horarios y Mapa</a>
+      <a href="#comunidad">Comunidad</a>
+      <a href="https://wa.me/525541739456?text=Hola%2C%20quiero%20reservar%20una%20cancha%20en%20PeriSquash" target="_blank" class="nav-cta" id="navReserveBtn">Reservar</a>
+    </div>
+    <button class="mobile-menu" aria-label="Abrir menú" aria-expanded="false" onclick="const nl = document.getElementById('navLinks'); nl.classList.toggle('open'); this.setAttribute('aria-expanded', nl.classList.contains('open'));">☰</button>
+  </nav>
+
+  <!-- HERO SECTION (High-Contrast Dark Theme) -->
+  <section class="hero" id="inicio">
+    <div class="hero-photo-bg">
+      <picture>
+        <source srcset="assets/images/cancha-juego.webp" type="image/webp">
+        <img src="assets/images/cancha-juego.jpg" alt="Cancha de juego PeriSquash" width="1094" height="736">
+      </picture>
+    </div>
+    <div class="hero-glow">
+      <div class="glow-orb orb-left"></div>
+      <div class="glow-orb orb-right"></div>
+    </div>
+    <div class="court-lines-visual">
+      <div class="visual-line-left"></div>
+      <div class="visual-line-right"></div>
+    </div>
+
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-eyebrow reveal">Squash en Coapa · Desde 2011</div>
+        <h1 class="reveal">Pisa la cancha. <span class="highlight">Juega real.</span></h1>
+        <p class="hero-subtitle reveal">No es lujo — es squash bien hecho.</p>
+        <p class="hero-desc reveal">Piso de duela de madera en excelentes condiciones, pared trasera de vidrio y la atención personalizada de Don Roger en la zona sur de la CDMX.</p>
+        <div class="hero-buttons reveal">
+          <a href="https://wa.me/525541739456?text=Hola%2C%20quiero%20reservar%20una%20cancha%20en%20PeriSquash" target="_blank" class="btn btn-primary" id="heroReserveBtn">Reservar Cancha</a>
+          <a href="#instalaciones" class="btn btn-outline">Instalaciones</a>
+        </div>
+      </div>
+
+      <!-- Glowing Stats Badge on Hero Right -->
+      <div class="hero-visual reveal">
+        <div class="badge-card">
+          <div class="badge-header">
+            <span>Google Reviews</span>
+            <span class="stars">★★★★★</span>
+          </div>
+          <div class="badge-stat">
+            <div class="badge-stat-num">4.6</div>
+            <div class="badge-stat-label">Calificación Promedio</div>
+          </div>
+          <div class="badge-stat">
+            <div class="badge-stat-num">13+</div>
+            <div class="badge-stat-label">Años de Trayectoria</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY SECTION (Circular Layout over Blurred Squash Ball - Design Proposal 2) -->
+  <section class="dark-section gallery-section" id="instalaciones">
+    <div class="section-container">
+      <header class="section-header">
+        <h2 class="reveal">Explora <span>Nuestras Instalaciones</span></h2>
+        <p class="section-desc reveal">Interactúa con los círculos para ver nuestras fotos y video reales del club.</p>
+      </header>
+
+      <!-- Circular interactive grid -->
+      <div class="circular-gallery-wrapper reveal">
+        
+        <!-- Center Squash Ball representation -->
+        <div class="squash-ball-bg">
+          <div class="squash-ball-dots">
+            <div class="squash-ball-dot"></div>
+            <div class="squash-ball-dot"></div>
+          </div>
+        </div>
+
+        <!-- 4 circular items -->
+        <!-- Item 1: Fachada -->
+        <div class="gallery-circle-item circle-fachada" tabindex="0" aria-label="Ver fachada de PeriSquash" data-index="0" role="button">
+          <picture>
+            <source srcset="assets/images/fachada.webp" type="image/webp">
+            <img src="assets/images/fachada.jpg" alt="Fachada del club" loading="lazy" width="200" height="200" decoding="async">
+          </picture>
+        </div>
+
+        <!-- Item 2: Cancha -->
+        <div class="gallery-circle-item circle-cancha" tabindex="0" aria-label="Ver cancha de PeriSquash" data-index="1" role="button">
+          <picture>
+            <source srcset="assets/images/cancha-juego.webp" type="image/webp">
+            <img src="assets/images/cancha-juego.jpg" alt="Partido en cancha" loading="lazy" width="200" height="200" decoding="async">
+          </picture>
+        </div>
+
+        <!-- Item 3: Clases -->
+        <div class="gallery-circle-item circle-clase" tabindex="0" aria-label="Ver clases de PeriSquash" data-index="2" role="button">
+          <picture>
+            <source srcset="assets/images/cancha-clase.webp" type="image/webp">
+            <img src="assets/images/cancha-clase.jpg" alt="Clase de squash" loading="lazy" width="200" height="200" decoding="async">
+          </picture>
+        </div>
+
+        <!-- Item 4: Video -->
+        <div class="gallery-circle-item circle-video" tabindex="0" aria-label="Ver video en acción de PeriSquash" data-index="3" role="button">
+          <video data-src="assets/video/perisquash-action.mp4" muted loop playsinline preload="none" width="200" height="200"></video>
+        </div>
+
+      </div>
+
+      <!-- Gallery Interactive Captions Block -->
+      <div class="gallery-captions reveal">
+        <!-- Caption 0 -->
+        <div class="gallery-caption-item active" id="caption-0">
+          <h3>Fachada del Club</h3>
+          <p>Nuestra clásica entrada amarilla ubicada en Vicente Guerrero 7, Coapa, San Bartolo el Chico, Tlalpan. Un punto de referencia de squash en el sur desde 2011.</p>
+        </div>
+        <!-- Caption 1 -->
+        <div class="gallery-caption-item" id="caption-1">
+          <h3>Nuestras Canchas</h3>
+          <p>Piso de duela de madera en excelentes condiciones para proteger tus articulaciones y ofrecer el rebote de competencia real. Vidrio trasero templado para espectadores.</p>
+        </div>
+        <!-- Caption 2 -->
+        <div class="gallery-caption-item" id="caption-2">
+          <h3>Clases y Práctica</h3>
+          <p>Entrenamiento y tips para principiantes, intermedios o avanzados. Si estás empezando, en PeriSquash te damos la bienvenida con asesoría y juego amigable.</p>
+        </div>
+        <!-- Caption 3 -->
+        <div class="gallery-caption-item" id="caption-3">
+          <h3>Video en Acción</h3>
+          <p>Siente el ritmo del squash. Un deporte rápido, demandante y sumamente divertido dentro de un ambiente de respeto y pasión local.</p>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 3rem;" class="reveal">
+        <button class="btn btn-outline" id="btnReglas">Reglas en 1 minuto</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- HORARIOS & UBICACIÓN SECTION (Integrated modern layout) -->
+  <section class="dark-section info-section" id="informacion">
+    <div class="section-container">
+      <div class="info-grid">
+        
+        <!-- Schedule card -->
+        <div class="schedule-card reveal">
+          <div>
+            <h3>Horarios de Apertura</h3>
+            <div class="schedule-list">
+              <div class="schedule-row">
+                <span class="schedule-day">Lunes a Viernes</span>
+                <span class="schedule-time">6:30 — 23:00</span>
+              </div>
+              <div class="schedule-row">
+                <span class="schedule-day">Sábado</span>
+                <span class="schedule-time">8:00 — 14:00</span>
+              </div>
+              <div class="schedule-row">
+                <span class="schedule-day">Domingo</span>
+                <span class="schedule-time">7:00 — 15:00</span>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top: 2rem;">
+            <button class="btn btn-primary" style="width: 100%;" id="btnTarifas">Ver Tarifas de Cancha</button>
+          </div>
+        </div>
+
+        <!-- Map card -->
+        <div class="map-card reveal">
+          <div class="map-iframe-wrapper">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d940.7!2d-99.1316249!3d19.2836816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce010efd1b238b%3A0xd99a99c5a1b9020a!2sPerisquash!5e0!3m2!1ses!2smx!4v1711000000000!5m2!1ses!2smx" 
+              title="Ubicación de PeriSquash en Google Maps" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"
+              width="600"
+              height="260">
+            </iframe>
+          </div>
+          <div class="map-info-details">
+            <div class="map-detail-block">
+              <h4>Dirección</h4>
+              <p>Vicente Guerrero 7, Coapa, San Bartolo el Chico, Tlalpan, 14380, CDMX</p>
+            </div>
+            <div class="map-detail-block">
+              <h4>Contacto Directo</h4>
+              <p>Fijo: <a href="tel:5541739456">55 4173 9456</a> | WhatsApp: <a href="https://wa.me/525541739456?text=Hola%2C%20quiero%20reservar%20una%20cancha%20en%20PeriSquash" target="_blank" id="contactWhatsAppLink">55 4173 9456</a></p>
+            </div>
+          </div>
+          <div class="map-ctas">
+            <a href="https://maps.app.goo.gl/ChIJiyMb_Q4BzoURCgK5ocWZmtk" target="_blank" class="btn btn-outline" style="flex: 1;" id="mapsDirectionsBtn">Cómo llegar</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMUNITY REVIEWS SECTION -->
+  <section class="dark-section" id="comunidad">
+    <div class="section-container">
+      <header class="section-header">
+        <h2 class="reveal">¿Qué dice la <span>comunidad?</span></h2>
+        <p class="section-desc reveal">Opiniones reales de jugadores habituales sobre las canchas y la atención de Don Roger.</p>
+      </header>
+
+      <div class="reviews-grid">
+        <!-- Review 1 -->
+        <div class="review-card reveal">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"Instalaciones excelentes, las canchas de madera están muy bien cuidadas y los baños impecables. El trato de Don Roger le da un toque familiar y cómodo único."</p>
+          </div>
+          <span class="review-author">— Reseña en Google</span>
+        </div>
+        <!-- Review 2 -->
+        <div class="review-card reveal">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"Las canchas tienen un gran rebote por su piso de duela. Tienen un servicio increíble, si vas empezando te dan muy buenos consejos."</p>
+          </div>
+          <span class="review-author">— Reseña en Google</span>
+        </div>
+        <!-- Review 3 -->
+        <div class="review-card reveal">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"Gran ambiente y excelente atención. Las canchas de madera están en perfecto estado y todo está muy limpio."</p>
+          </div>
+          <span class="review-author">— Reseña en Google</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3><span class="peri">Peri</span><span class="squash">Squash</span></h3>
+        <p>Club de Squash en Coapa desde 2011 — No es lujo, es squash bien hecho.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#inicio">Inicio</a>
+        <a href="#instalaciones">Instalaciones</a>
+        <a href="#informacion">Horarios y Mapa</a>
+        <a href="#comunidad">Comunidad</a>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <p>© 2026 PeriSquash. Vicente Guerrero 7, San Bartolo el Chico, Tlalpan, CDMX.</p>
+      <p>Desarrollado por <a href="https://bridgenode.com" target="_blank" rel="noopener">BridgeNode</a></p>
+    </div>
+  </footer>
+
+  <!-- ==================== POPUPS / MODALS ==================== -->
+  
+  <!-- Popover 1: Reglas -->
+  <div class="popover-modal" id="modalReglas" role="dialog" aria-modal="true" aria-labelledby="modalReglasTitle">
+    <div class="modal-backdrop" onclick="closeModal('modalReglas')"></div>
+    <div class="modal-card">
+      <button class="modal-close" aria-label="Cerrar modal" onclick="closeModal('modalReglas')">&times;</button>
+      <div class="modal-content">
+        <h2 id="modalReglasTitle">Reglas Básicas en 1 Minuto</h2>
+        <ul class="modal-list">
+          <li><strong>La Pared Frontal:</strong> Toda pelota debe golpear la pared frontal por encima de la línea metálica inferior (tin) y por debajo de la línea superior antes de tocar el suelo.</li>
+          <li><strong>Un Bote Máximo:</strong> El jugador debe golpear la pelota antes de que bote por segunda vez en el suelo.</li>
+          <li><strong>Bote en Paredes:</strong> La pelota puede rebotar en las paredes laterales o trasera antes de llegar a la pared frontal, siempre y cuando no toque el suelo primero.</li>
+          <li><strong>Puntuación:</strong> Se juegan sets a 11 puntos con sistema directo (suma punto quien gana el rally). Si empatan a 10, es necesario ganar por 2 de diferencia.</li>
+          <li><strong>Cuidado del Swing:</strong> Si tu oponente se encuentra en la trayectoria de tu golpe o tu swing, detén la jugada por seguridad y repite el punto (let).</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popover 2: Tarifas -->
+  <div class="popover-modal" id="modalTarifas" role="dialog" aria-modal="true" aria-labelledby="modalTarifasTitle">
+    <div class="modal-backdrop" onclick="closeModal('modalTarifas')"></div>
+    <div class="modal-card">
+      <button class="modal-close" aria-label="Cerrar modal" onclick="closeModal('modalTarifas')">&times;</button>
+      <div class="modal-content">
+        <h2 id="modalTarifasTitle">Tarifas del Club</h2>
+        <div class="modal-table-wrapper">
+          <table class="modal-table">
+            <thead>
+              <tr>
+                <th>Servicio</th>
+                <th>Costo Estimado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Renta de Cancha (por hora)</strong></td>
+                <td>$350.00 MXN</td>
+              </tr>
+              <tr>
+                <td><strong>Clase con Instructor (por hora)</strong></td>
+                <td>$250.00 — $300.00 <span class="badge-confirmar">por confirmar</span></td>
+              </tr>
+              <tr>
+                <td><strong>Renta de Raqueta (por partido)</strong></td>
+                <td>$30.00 <span class="badge-confirmar">por confirmar</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="modal-note">Precios sujetos a confirmación con Don Roger. Contáctanos para conocer tarifas vigentes y reservar.</p>
+        <div style="text-align: center; margin-top: 1.5rem;">
+          <a href="https://wa.me/525541739456?text=Hola%2C%20quiero%20consultar%20las%20tarifas%20de%20canchas%20y%20clases" target="_blank" class="btn btn-primary" id="tarifasWhatsAppBtn">Consultar por WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SCRIPTS ==================== -->
+  
+  <script>
+    // 1. Navbar shrink
+    const mainNav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      if (mainNav) {
+        mainNav.classList.toggle('scrolled', window.scrollY > 30);
+      }
+    }, { passive: true });
+
+    // 2. Intersection Observer for Scroll Reveals
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -20px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // 3. Mobile Navigation Menu Toggle
+    const navLinks = document.getElementById('navLinks');
+    document.addEventListener('click', (e) => {
+      if (navLinks && navLinks.classList.contains('open') && !e.target.closest('#mainNav')) {
+        navLinks.classList.remove('open');
+      }
+    });
+
+    // 4. Circular Gallery Interactive Captions
+    const circleItems = document.querySelectorAll('.gallery-circle-item');
+    const captionItems = document.querySelectorAll('.gallery-caption-item');
+
+    circleItems.forEach(item => {
+      // Mouseover / focus switches the active caption matching the index
+      const triggerCaption = () => {
+        const index = item.dataset.index;
+        captionItems.forEach(cap => cap.classList.remove('active'));
+        const activeCaption = document.getElementById(`caption-${index}`);
+        if (activeCaption) activeCaption.classList.add('active');
+        
+        // Handle Video Slide playback on activation
+        const video = item.querySelector('video');
+        if (video && video.dataset.src && !video.src) {
+          video.src = video.dataset.src;
+          video.removeAttribute('data-src');
+          video.load();
+        }
+        if (video && video.src) {
+          video.play().catch(err => console.log('Video play interrupted:', err));
+        }
+      };
+
+      item.addEventListener('mouseenter', triggerCaption);
+      item.addEventListener('focus', triggerCaption);
+    });
+
+    // 5. Popover Modals Controller
+    const activeModals = new Set();
+
+    function openModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) {
+        modal.classList.add('open');
+        activeModals.add(id);
+        document.body.style.overflow = 'hidden';
+        const closeBtn = modal.querySelector('.modal-close');
+        if (closeBtn) closeBtn.focus();
+      }
+    }
+
+    function closeModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) {
+        modal.classList.remove('open');
+        activeModals.delete(id);
+        if (activeModals.size === 0) {
+          document.body.style.overflow = '';
+        }
+      }
+    }
+
+    document.getElementById('btnReglas')?.addEventListener('click', () => openModal('modalReglas'));
+    document.getElementById('btnTarifas')?.addEventListener('click', () => openModal('modalTarifas'));
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && activeModals.size > 0) {
+        activeModals.forEach(id => closeModal(id));
+      }
+    });
+
+    // 6. GA4 Conversion Tracking Events Simulation
+    function trackConversion(label) {
+      if (window.gtag) {
+        gtag('event', 'contacto_whatsapp', {
+          'event_category': 'engagement',
+          'event_label': label
+        });
+      } else {
+        console.log(`GA4 Track Event (Simulation): contacto_whatsapp [${label}]`);
+      }
+    }
+
+    document.getElementById('navReserveBtn')?.addEventListener('click', () => trackConversion('nav_reservar'));
+    document.getElementById('heroReserveBtn')?.addEventListener('click', () => trackConversion('hero_reservar'));
+    document.getElementById('contactWhatsAppLink')?.addEventListener('click', () => trackConversion('contact_whatsapp'));
+    document.getElementById('tarifasWhatsAppBtn')?.addEventListener('click', () => trackConversion('modal_tarifas'));
+
+    document.getElementById('mapsDirectionsBtn')?.addEventListener('click', () => {
+      if (window.gtag) {
+        gtag('event', 'como_llegar', {
+          'event_category': 'engagement',
+          'event_label': 'google_maps'
+        });
+      } else {
+        console.log('GA4 Track Event (Simulation): como_llegar [google_maps]');
+      }
+    });
+
+    // 7. Viewport Lazy Load for Videos (for circles / mobile gallery)
+    const videoObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const v = e.target;
+          if (v.dataset.src) {
+            v.src = v.dataset.src;
+            v.removeAttribute('data-src');
+            v.load();
+            v.play().catch(err => console.log('Video play interrupted:', err));
+            observer.unobserve(v);
+          }
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '100px' });
+
+    document.querySelectorAll('video[data-src]').forEach(v => videoObserver.observe(v));
+
+    // Dynamic dynamic load of GA4 script
+    window.addEventListener('load', () => {
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
+      document.head.appendChild(script);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    });
+  </script>
+</body>
+</html>
