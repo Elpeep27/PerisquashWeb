@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://perisquash.com/sitemap.xml
+Sitemap: https://elpeep27.github.io/perisquash-web/sitemap.xml

@@ -1,20 +1,39 @@
-const CACHE_NAME = 'perisquash-cache-v1';
+const CACHE_NAME = 'perisquash-cache-v4';
 const ASSETS = [
-  '/',
-  '/index.html',
-  '/css/styles.css',
-  '/js/main.js',
-  '/assets/images/logo-perisquash.png',
-  '/assets/images/cancha-juego.jpg',
-  '/assets/images/cancha-clase.jpg',
-  '/assets/images/fachada.jpg',
-  'https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap'
+  './',
+  'index.html',
+  'css/styles.css',
+  'js/main.js',
+  'assets/images/logo-perisquash.png',
+  'assets/images/logo-perisquash.webp',
+  'assets/images/cancha-juego.jpg',
+  'assets/images/cancha-juego.webp',
+  'assets/images/cancha-clase.jpg',
+  'assets/images/cancha-clase.webp',
+  'assets/images/fachada.jpg',
+  'assets/images/fachada.webp',
+  'https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600&display=optional'
 ];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       return cache.addAll(ASSETS);
+    })
+  );
+});
+
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys().then((cacheNames) => {
+      return Promise.all(
+        cacheNames.map((cache) => {
+          if (cache !== CACHE_NAME) {
+            console.log('Service Worker: Clearing Old Cache', cache);
+            return caches.delete(cache);
+          }
+        })
+      );
     })
   );
 });
