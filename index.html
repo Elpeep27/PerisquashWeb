@@ -3,1940 +3,459 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <title>PeriSquash — Canchas de squash en Coapa, Tlalpan CDMX</title>
-  <meta name="description" content="Club de squash en Coapa con +13 años. Canchas de piso de madera en excelente estado, buen ambiente y el trato de Don Roger. Reserva por WhatsApp.">
-  <link rel="canonical" href="https://elpeep27.github.io/perisquash-web/">
-  <meta name="theme-color" content="#1E3A6B">
-  
-  <!-- Open Graph / Facebook (para compartir en WhatsApp y redes) -->
+  <meta name="description" content="Club de squash en Coapa, Tlalpan. Canchas con piso de madera en excelente estado, limpieza y el trato de Don Roger. Más de 13 años. Reserva por WhatsApp.">
+  <link rel="canonical" href="https://perisquash.mx/">
+  <meta name="theme-color" content="#15181B">
+
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="PeriSquash — Squash en Coapa">
-  <meta property="og:description" content="Canchas de madera, buen ambiente y 13 años en Coapa. No es lujo — es squash bien hecho.">
-  <meta property="og:image" content="https://elpeep27.github.io/perisquash-web/assets/images/fachada.jpg">
-  <meta property="og:url" content="https://elpeep27.github.io/perisquash-web/">
+  <meta property="og:title" content="PeriSquash — Squash en Coapa, CDMX">
+  <meta property="og:description" content="Canchas de madera, limpieza y buen ambiente en Coapa. No es lujo — es squash bien hecho.">
+  <meta property="og:image" content="https://perisquash.mx/assets/images/fachada.jpg">
+  <meta property="og:url" content="https://perisquash.mx/">
   <meta property="og:locale" content="es_MX">
-  
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="PeriSquash — Squash en Coapa">
-  <meta name="twitter:description" content="Canchas de madera, buen ambiente y 13 años en Coapa. No es lujo — es squash bien hecho.">
-  <meta name="twitter:image" content="https://elpeep27.github.io/perisquash-web/assets/images/fachada.jpg">
 
   <!-- Favicons -->
   <link rel="icon" href="assets/images/logo-perisquash.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/images/logo-perisquash.png">
 
-  <!-- Preload LCP Hero Image (WebP format matches rendered source) -->
-  <link rel="preload" as="image" href="assets/images/cancha-juego.webp" type="image/webp">
+  <!-- LCP hero image preload -->
+  <link rel="preload" as="image" href="assets/images/cancha-juego.webp" type="image/webp" fetchpriority="high">
 
-  <!-- Preconnect to external services -->
+  <!-- Fuentes (se auto-hospedan en Fase 3; por ahora carga asíncrona) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap"></noscript>
 
-  <!-- Async Google Fonts Loading to prevent render blocking -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600&display=optional" media="print" onload="this.media='all'">
-  <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600&display=optional">
-  </noscript>
+  <link rel="stylesheet" href="css/styles.css">
 
-  <!-- Critical CSS Injected Inline for Instant Hero Rendering -->
-  <style>
-/* ==========================================================================
-   PeriSquash Redesign Stylesheet
-   "La Página es la Cancha"
-   ========================================================================== */
-
-/* 1. Design Tokens & Variables */
-:root {
-  /* Primarios - logo */
-  --blue:      #2E5FBF;   /* Acción y estructura: botones, links, texto destacado */
-  --blue-deep: #1E3A6B;   /* Títulos, énfasis */
-  --cyan:      #3CC8E8;   /* Acento principal (la gota del logo) */
-  --teal:      #19707D;   /* Secciones oscuras, hover, texto-acento sobre claro */
-
-  /* Neutros */
-  --bone:      #FAF9F5;   /* Fondo de página (cálido, paredes de cancha) */
-  --surface:   #F1F0EB;   /* Tarjetas, secciones */
-  --border:    #DDDBD3;
-  --gray:      #6B6E70;   /* Texto secundario */
-  --ink:       #1E2224;   /* Texto de cuerpo */
-  --charcoal:  #26292B;   /* Footer, fondos oscuros */
-  --white:     #FFFFFF;
-
-  /* Hover derivados */
-  --blue-hover: #234C9C;
-  --cyan-hover: #2BB4D4;
-
-  /* Acento cálido - guiño puntual */
-  --yellow:    #F4B400;
-
-  /* Semánticos */
-  --success:   #2E9E5B;
-  --error:     #D64545;
-  
-  /* Layout constraints */
-  --court-line-color: rgba(60, 200, 232, 0.25);
-  --court-line-width: 2px;
-}
-
-/* 2. Global Defaults & Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-  font-size: 16px;
-}
-
-body {
-  font-family: 'Hanken Grotesk', sans-serif;
-  background-color: var(--charcoal); /* Matches dark hero initially */
-  color: var(--ink);
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-  position: relative;
-}
-
-/* Disable default cursor if racket is active (on desktop devices with hover support) */
-@media (hover: hover) and (pointer: fine) {
-  body.racket-on {
-    cursor: none;
-  }
-  body.racket-on a,
-  body.racket-on button,
-  body.racket-on select,
-  body.racket-on input,
-  body.racket-on [role="button"],
-  body.racket-on .photo-card {
-    cursor: none;
-  }
-}
-
-/* 3. Typography */
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Bricolage Grotesque', sans-serif;
-  font-weight: 800;
-  line-height: 1.04;
-  letter-spacing: -0.02em;
-  color: var(--blue-deep);
-}
-
-p {
-  line-height: 1.7;
-  font-weight: 400;
-}
-
-a {
-  color: var(--blue);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-a:hover {
-  color: var(--blue-hover);
-}
-
-/* 4. Racket Cursor & Ball Companion */
-.racket-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 60px;
-  height: 60px;
-  pointer-events: none;
-  z-index: 10000;
-  transform: translate3d(-100px, -100px, 0) rotate(22deg);
-  transform-origin: 50% 70%;
-  display: none;
-  filter: drop-shadow(0 4px 10px rgba(30, 58, 107, 0.25));
-  transition: transform 0.08s cubic-bezier(0.25, 0.8, 0.25, 1);
-  will-change: transform;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .racket-cursor {
-    display: block;
-  }
-}
-
-.ball-companion {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 26px;
-  height: 26px;
-  background-color: #1a1a1a;
-  border: 1px solid #000;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate3d(-13px, -13px, 0);
-  box-shadow: inset -4px -4px 8px rgba(0,0,0,0.6), 0 8px 16px rgba(0, 0, 0, 0.2);
-  will-change: transform;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.ball-dot {
-  position: absolute;
-  width: 2.5px;
-  height: 2.5px;
-  background-color: var(--yellow);
-  border-radius: 50%;
-  box-shadow: 0 0 2px var(--yellow);
-}
-
-.ball-dot.dot-1 {
-  top: 8px;
-  left: 7px;
-}
-
-.ball-dot.dot-2 {
-  top: 9px;
-  left: 14px;
-}
-
-.ball-companion.squashed {
-  animation: squashAnim 0.15s ease-out;
-}
-
-@keyframes squashAnim {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.3, 0.7); }
-  100% { transform: scale(1); }
-}
-
-/* 5. Squash Court Lines System ("La Cancha") */
-.court-line {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: var(--court-line-width);
-  background-color: var(--court-line-color);
-  z-index: 10;
-  pointer-events: none;
-}
-
-.line-left {
-  left: 6vw;
-}
-
-.line-right {
-  right: 6vw;
-}
-
-.court-divider {
-  width: calc(100% - 12vw);
-  margin: 0 auto;
-  border-top: var(--court-line-width) dashed var(--court-line-color);
-  padding-top: 4rem;
-  z-index: 10;
-}
-
-/* Ripple effect on ball collision */
-.ripple-effect {
-  position: fixed;
-  border: 2px solid var(--cyan);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9998;
-  transform: translate(-50%, -50%) scale(0);
-  opacity: 0.8;
-  animation: rippleAnim 0.6s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
-}
-
-@keyframes rippleAnim {
-  to {
-    transform: translate(-50%, -50%) scale(6);
-    opacity: 0;
-  }
-}
-
-/* 6. Fixed Header / Nav */
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: 1.5rem 3rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 500;
-  background: transparent;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-nav.scrolled {
-  padding: 1rem 3rem;
-  background-color: rgba(250, 249, 245, 0.9);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border);
-  box-shadow: 0 4px 30px rgba(30, 58, 107, 0.04);
-}
-
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-}
-
-.nav-logo img {
-  height: 40px;
-  width: auto;
-  filter: drop-shadow(0 2px 5px rgba(30, 58, 107, 0.15));
-  transition: transform 0.3s ease;
-}
-
-.nav-logo:hover img {
-  transform: rotate(-8deg) scale(1.05);
-}
-
-.nav-logo-text {
-  font-family: 'Bricolage Grotesque', sans-serif;
-  font-weight: 800;
-  font-size: 1.4rem;
-  letter-spacing: -0.03em;
-  color: var(--white);
-  transition: color 0.3s ease;
-}
-
-nav.scrolled .nav-logo-text {
-  color: var(--blue-deep);
-}
-
-.nav-logo-text .peri {
-  color: var(--blue);
-}
-
-.nav-logo-text .squash {
-  color: var(--cyan);
-}
-
-.nav-links {
-  display: flex;
-  gap: 2.5rem;
-  align-items: center;
-}
-
-.nav-links a {
-  color: rgba(255, 255, 255, 0.7);
-  font-weight: 600;
-  font-size: 0.95rem;
-  transition: color 0.2s ease;
-}
-
-nav.scrolled .nav-links a {
-  color: var(--ink);
-}
-
-nav.scrolled .nav-links a:hover {
-  color: var(--blue);
-}
-
-.nav-links a:hover {
-  color: var(--cyan);
-}
-
-.nav-cta {
-  background-color: var(--blue) !important;
-  color: var(--white) !important;
-  padding: 0.6rem 1.4rem;
-  border-radius: 6px;
-  font-weight: 600;
-  box-shadow: 0 4px 14px rgba(46, 95, 191, 0.3);
-  transition: all 0.3s ease !important;
-}
-
-.nav-cta:hover {
-  background-color: var(--blue-hover) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(46, 95, 191, 0.45);
-}
-
-.mobile-menu {
-  display: none;
-  font-size: 1.8rem;
-  background: none;
-  border: none;
-  color: var(--white);
-  cursor: pointer;
-}
-
-nav.scrolled .mobile-menu {
-  color: var(--blue-deep);
-}
-
-/* 7. Hero Section (Dark Theme) */
-.hero {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding: 8rem 6vw 4rem;
-  overflow: hidden;
-  background-color: var(--charcoal);
-  z-index: 20;
-}
-
-.hero-photo-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-}
-
-.hero-photo-bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 1;
-}
-
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.hero-bg .orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(120px);
-  opacity: 0.18;
-}
-
-.orb-1 {
-  width: 600px;
-  height: 600px;
-  background-color: var(--blue);
-  top: -10%;
-  right: -5%;
-  animation: floatOrb1 15s ease-in-out infinite alternate;
-}
-
-.orb-2 {
-  width: 400px;
-  height: 400px;
-  background-color: var(--cyan);
-  bottom: -5%;
-  left: -5%;
-  animation: floatOrb2 20s ease-in-out infinite alternate;
-}
-
-@keyframes floatOrb1 {
-  0% { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(-50px, 40px) scale(1.1); }
-}
-
-@keyframes floatOrb2 {
-  0% { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(60px, -30px) scale(1.05); }
-}
-
-.hero-grid-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  background-image: 
-    linear-gradient(rgba(255,255,255,0.01) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.01) 1px, transparent 1px);
-  background-size: 60px 60px;
-  opacity: 0.3;
-}
-
-.hero-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
-  position: relative;
-  z-index: 10;
-}
-
-.hero-content {
-  max-width: 680px;
-}
-
-.hero-eyebrow {
-  display: inline-block;
-  color: var(--cyan);
-  font-family: 'Hanken Grotesk', sans-serif;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  font-size: 0.85rem;
-  margin-bottom: 1rem;
-}
-
-.hero h1 {
-  font-size: clamp(3.2rem, 8vw, 5.5rem);
-  color: var(--white);
-  margin-bottom: 1.5rem;
-  line-height: 0.95;
-}
-
-.hero h1 .highlight {
-  color: var(--cyan);
-  display: block;
-}
-
-.hero-subtitle {
-  font-size: 1.5rem;
-  font-weight: 500;
-  color: var(--bone);
-  margin-bottom: 1rem;
-}
-
-.hero-desc {
-  font-size: 1.1rem;
-  color: var(--gray);
-  margin-bottom: 2rem;
-  max-width: 550px;
-}
-
-.hero-rating {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  margin-bottom: 2.5rem;
-}
-
-.hero-rating .stars {
-  color: var(--yellow);
-  font-size: 1.2rem;
-  letter-spacing: 2px;
-}
-
-.hero-rating .rating-text {
-  color: var(--white);
-  font-size: 0.95rem;
-}
-
-.hero-buttons {
-  display: flex;
-  gap: 1.5rem;
-  align-items: center;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.9rem 2rem;
-  border-radius: 8px;
-  font-family: 'Hanken Grotesk', sans-serif;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  border: none;
-  cursor: pointer;
-}
-
-.btn-fill {
-  background-color: var(--blue);
-  color: var(--white);
-  box-shadow: 0 4px 15px rgba(46, 95, 191, 0.4);
-}
-
-.btn-fill:hover {
-  background-color: var(--blue-hover);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(46, 95, 191, 0.55);
-}
-
-/* Cyan button specifically configured for high contrast with dark text */
-.btn-cyan {
-  background-color: var(--cyan);
-  color: var(--ink); /* Rule #1: Dark text over Cyan */
-  box-shadow: 0 4px 15px rgba(60, 200, 232, 0.35);
-  font-weight: 700;
-}
-
-.btn-cyan:hover {
-  background-color: var(--cyan-hover);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(60, 200, 232, 0.5);
-}
-
-.btn-ghost {
-  background-color: transparent;
-  color: var(--white);
-  border: 2px solid rgba(255, 255, 255, 0.15);
-}
-
-.btn-ghost:hover {
-  border-color: var(--cyan);
-  color: var(--cyan);
-  background-color: rgba(60, 200, 232, 0.05);
-}
-
-.btn-outline {
-  background-color: transparent;
-  color: var(--blue-deep);
-  border: 2px solid var(--blue);
-}
-
-.btn-outline:hover {
-  background-color: var(--blue);
-  color: var(--white);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(46, 95, 191, 0.2);
-}
-
-.scroll-indicator {
-  position: absolute;
-  bottom: 2rem;
-  left: 6vw;
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  z-index: 10;
-  transition: opacity 0.3s ease;
-}
-
-.indicator-text {
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--cyan);
-}
-
-.scroll-arrow {
-  width: 30px;
-  height: 30px;
-  border-bottom: 2px solid var(--cyan);
-  border-right: 2px solid var(--cyan);
-  transform: rotate(45deg);
-  animation: bounceArrow 2s infinite;
-  margin-left: 10px;
-}
-
-@keyframes bounceArrow {
-  0%, 20%, 50%, 80%, 100% { transform: translateY(0) rotate(45deg); }
-  40% { transform: translateY(-10px) rotate(45deg); }
-  60% { transform: translateY(-5px) rotate(45deg); }
-}
-
-/* 8. Court / Canchas Section (Light Theme) */
-.canchas-section,
-.horarios-section,
-.resenas-section,
-.ubicacion-section {
-  position: relative;
-  background-color: var(--bone); /* Core layout: Bone color mimics squash walls */
-  padding: 0 6vw;
-  overflow: hidden;
-  z-index: 10;
-}
-
-.section-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 20;
-  padding-bottom: 6rem;
-}
-
-.section-header {
-  margin-bottom: 4rem;
-  max-width: 600px;
-}
-
-.section-header h2 {
-  font-size: clamp(2.5rem, 5vw, 3.8rem);
-  margin-bottom: 1rem;
-}
-
-.section-desc {
-  font-size: 1.15rem;
-  color: var(--gray);
-}
-
-/* Photo Grid (Hover-Enlarge) */
-.photos-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin-bottom: 3.5rem;
-}
-
-.photo-card {
-  position: relative;
-  border-radius: 12px;
-  overflow: hidden;
-  background-color: var(--surface);
-  border: 1px solid var(--border);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
-  transform-origin: center;
-  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.3, 1), 
-              box-shadow 0.4s cubic-bezier(0.2, 0.8, 0.3, 1),
-              z-index 0.4s;
-  will-change: transform;
-}
-
-.card-img-wrapper {
-  width: 100%;
-  height: 280px;
-  overflow: hidden;
-}
-
-.card-img-wrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
-
-.card-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(0deg, rgba(30, 58, 107, 0.92) 0%, rgba(30, 58, 107, 0.2) 70%);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 1.8rem;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 2;
-}
-
-.card-overlay h3 {
-  color: var(--white);
-  font-size: 1.3rem;
-  margin-bottom: 0.4rem;
-}
-
-.card-overlay p {
-  color: var(--cyan);
-  font-size: 0.9rem;
-  font-weight: 500;
-}
-
-/* Hover-Enlarge mechanics (Rule 7) */
-@media (hover: hover) {
-  .photo-card:hover {
-    transform: scale(1.13);
-    z-index: 60;
-    box-shadow: 0 26px 54px -18px rgba(30, 58, 107, 0.42);
-  }
-  
-  .photo-card:hover .card-overlay {
-    opacity: 1;
-  }
-}
-
-/* Active zoom (for touch support) */
-.photo-card.zoom {
-  transform: scale(1.13);
-  z-index: 60;
-  box-shadow: 0 26px 54px -18px rgba(30, 58, 107, 0.42);
-}
-
-.photo-card.zoom .card-overlay {
-  opacity: 1;
-}
-
-.cta-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 4rem;
-}
-
-/* Carrusel Infinito Auto-scroll */
-.carousel-container {
-  width: calc(100% + 12vw);
-  margin-left: -6vw;
-  overflow: hidden;
-  position: relative;
-  background-color: var(--surface);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  padding: 2.5rem 0;
-}
-
-/* Gradient fades on edges */
-.carousel-container::before,
-.carousel-container::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 80px;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.carousel-container::before {
-  left: 0;
-  background: linear-gradient(90deg, var(--surface) 0%, transparent 100%);
-}
-
-.carousel-container::after {
-  right: 0;
-  background: linear-gradient(-90deg, var(--surface) 0%, transparent 100%);
-}
-
-.carousel-track {
-  display: flex;
-  gap: 1.5rem;
-  width: max-content;
-  animation: infiniteScroll 35s linear infinite;
-}
-
-.carousel-container:hover .carousel-track {
-  animation-play-state: paused;
-}
-
-@keyframes infiniteScroll {
-  0% { transform: translate3d(0, 0, 0); }
-  100% { transform: translate3d(calc(-50% - 0.75rem), 0, 0); }
-}
-
-.carousel-slide {
-  position: relative;
-  width: 320px;
-  height: 200px;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-}
-
-.carousel-slide img,
-.carousel-slide video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.slide-badge {
-  position: absolute;
-  top: 0.8rem;
-  left: 0.8rem;
-  background-color: var(--blue-deep);
-  color: var(--white);
-  padding: 0.3rem 0.8rem;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-.video-slide .slide-badge {
-  background-color: var(--teal);
-}
-
-/* 9. Horarios Section */
-.horarios-card {
-  background-color: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  overflow: hidden;
-  max-width: 750px;
-  margin: 0 auto 3rem;
-  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.01);
-}
-
-.horarios-table {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: left;
-}
-
-.horarios-table th,
-.horarios-table td {
-  padding: 1.5rem 2rem;
-  border-bottom: 1px solid var(--border);
-}
-
-.horarios-table th {
-  background-color: rgba(30, 58, 107, 0.03);
-  color: var(--blue-deep);
-  font-family: 'Bricolage Grotesque', sans-serif;
-  font-weight: 700;
-  font-size: 1.1rem;
-}
-
-.horarios-table tbody tr {
-  transition: background-color 0.2s ease;
-}
-
-.horarios-table tbody tr:hover {
-  background-color: rgba(46, 95, 191, 0.02);
-}
-
-.horarios-table td strong {
-  color: var(--blue-deep);
-}
-
-.time-block {
-  display: inline-block;
-  background-color: var(--white);
-  border: 1px solid var(--border);
-  padding: 0.4rem 1rem;
-  border-radius: 6px;
-  color: var(--teal);
-  font-weight: 600;
-}
-
-/* 10. Reseñas Section */
-.resenas-section .reviews-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-}
-
-.review-card {
-  background-color: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 2.2rem;
-  position: relative;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.01);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.review-card::before {
-  content: '“';
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  font-size: 6rem;
-  color: rgba(30, 58, 107, 0.04);
-  font-family: 'Bricolage Grotesque', sans-serif;
-  line-height: 1;
-}
-
-.review-header {
-  margin-bottom: 1.2rem;
-}
-
-.review-card .stars {
-  color: var(--yellow);
-  font-size: 1.1rem;
-  letter-spacing: 2px;
-}
-
-.review-card blockquote {
-  font-size: 1.05rem;
-  font-style: italic;
-  color: var(--ink);
-  margin-bottom: 1.5rem;
-  position: relative;
-  z-index: 2;
-  line-height: 1.6;
-}
-
-.review-author {
-  font-family: 'Hanken Grotesk', sans-serif;
-  font-weight: 600;
-  font-size: 0.85rem;
-  color: var(--gray);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-style: normal;
-}
-
-/* 11. Ubicación Section */
-.ubicacion-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 3.5rem;
-  align-items: center;
-}
-
-.map-container {
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  box-shadow: 0 6px 30px rgba(0,0,0,0.03);
-  height: 380px;
-}
-
-.map-container iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-  /* Grayscale filter (Rule 10) */
-  filter: grayscale(.4) contrast(1.05) brightness(.85);
-}
-
-.contact-info {
-  display: flex;
-  flex-direction: column;
-  gap: 2.2rem;
-}
-
-.info-block h3 {
-  font-size: 1.2rem;
-  margin-bottom: 0.6rem;
-}
-
-.info-block p {
-  color: var(--gray);
-  font-size: 1.05rem;
-}
-
-.contact-link {
-  color: var(--blue);
-  font-weight: 600;
-}
-
-.contact-link:hover {
-  color: var(--blue-hover);
-  text-decoration: underline;
-}
-
-/* 12. Franja Marcador */
-.marcador-banner {
-  background-color: var(--blue-deep);
-  padding: 4.5rem 6vw;
-  position: relative;
-  z-index: 20;
-}
-
-.banner-container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.banner-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 2rem;
-}
-
-.banner-content h2 {
-  color: var(--white);
-  font-size: 2.2rem;
-}
-
-.banner-content p {
-  color: var(--bone);
-  font-size: 1.15rem;
-  max-width: 600px;
-}
-
-/* 13. Footer (Dark Theme) */
-footer {
-  background-color: var(--charcoal);
-  color: var(--white);
-  padding: 5rem 6vw 4rem;
-  position: relative;
-  z-index: 20;
-}
-
-.footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: 4rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  padding-bottom: 3.5rem;
-}
-
-.footer-brand .foot-logo {
-  font-family: 'Bricolage Grotesque', sans-serif;
-  font-weight: 800;
-  font-size: 1.8rem;
-  letter-spacing: -0.03em;
-  display: block;
-  margin-bottom: 1rem;
-}
-
-.footer-brand .peri {
-  color: var(--white);
-}
-
-.footer-brand .squash {
-  color: var(--cyan);
-}
-
-.footer-brand p {
-  color: var(--light2);
-  font-size: 1.05rem;
-  max-width: 320px;
-}
-
-.footer-links {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-  align-items: flex-end;
-}
-
-.footer-links a {
-  color: var(--light2);
-  font-weight: 600;
-  font-size: 1.05rem;
-}
-
-.footer-links a:hover {
-  color: var(--cyan);
-}
-
-.footer-copyright {
-  max-width: 1200px;
-  margin: 2rem auto 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: var(--light2);
-  font-size: 0.9rem;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.dev-by a {
-  color: var(--white);
-  font-weight: 600;
-}
-
-.dev-by a:hover {
-  color: var(--cyan);
-}
-
-/* 14. Scroll Reveal Classes */
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
-              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* 15. Popovers / Modals System */
-.popover-modal {
-  position: fixed;
-  inset: 0;
-  z-index: 10000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.popover-modal.open {
-  pointer-events: all;
-  opacity: 1;
-}
-
-.modal-backdrop {
-  position: absolute;
-  inset: 0;
-  background-color: rgba(6, 8, 12, 0.8);
-  backdrop-filter: blur(8px);
-}
-
-.modal-card {
-  background-color: var(--bone);
-  border: 1px solid var(--border);
-  width: 90%;
-  max-width: 600px;
-  border-radius: 16px;
-  position: relative;
-  z-index: 10002;
-  overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-  transform: scale(0.92);
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  display: flex;
-  flex-direction: column;
-}
-
-.popover-modal.open .modal-card {
-  transform: scale(1);
-}
-
-.modal-close {
-  position: absolute;
-  top: 1.2rem;
-  right: 1.5rem;
-  font-size: 1.8rem;
-  background: none;
-  border: none;
-  color: var(--blue-deep);
-  cursor: pointer;
-  z-index: 10;
-  line-height: 1;
-}
-
-.modal-content {
-  padding: 3rem 2.5rem;
-  max-height: 85vh;
-  overflow-y: auto;
-}
-
-.modal-content h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
-  color: var(--blue-deep);
-}
-
-.modal-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.modal-list li {
-  position: relative;
-  padding-left: 1.8rem;
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-.modal-list li::before {
-  content: '🎾';
-  position: absolute;
-  left: 0;
-  top: 0.1rem;
-  font-size: 0.9rem;
-}
-
-/* Modals extra content styles */
-.modal-table-wrapper {
-  margin-top: 1.5rem;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.modal-table {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: var(--surface);
-}
-
-.modal-table th,
-.modal-table td {
-  padding: 1rem 1.2rem;
-  border-bottom: 1px solid var(--border);
-  font-size: 0.95rem;
-  text-align: left;
-}
-
-.modal-table th {
-  background-color: rgba(30, 58, 107, 0.04);
-  color: var(--blue-deep);
-  font-weight: 700;
-}
-
-.badge-confirmar {
-  font-size: 0.7rem;
-  background-color: var(--yellow);
-  color: var(--ink); /* Rule #1 */
-  padding: 0.15rem 0.5rem;
-  border-radius: 4px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-left: 0.5rem;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.modal-note {
-  margin-top: 1.2rem;
-  font-size: 0.85rem;
-  color: var(--gray);
-  line-height: 1.5;
-}
-
-.status-badge {
-  display: inline-block;
-  background-color: var(--blue);
-  color: var(--white);
-  padding: 0.3rem 0.8rem;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 0.8rem;
-}
-
-.pl-status p {
-  font-size: 0.95rem;
-  color: var(--gray);
-}
-
-/* ==========================================================================
-   16. Responsive Breakpoints
-   ========================================================================== */
-
-@media (max-width: 1024px) {
-  nav {
-    padding: 1.2rem 2rem;
-  }
-  
-  nav.scrolled {
-    padding: 0.8rem 2rem;
-  }
-
-  .photos-grid {
-    gap: 1.5rem;
-  }
-
-  .card-img-wrapper {
-    height: 220px;
-  }
-
-  .ubicacion-grid {
-    gap: 2rem;
-  }
-}
-
-@media (max-width: 768px) {
-  nav {
-    padding: 1rem 1.5rem;
-  }
-
-  nav.scrolled {
-    padding: 0.7rem 1.5rem;
-  }
-
-  .nav-links {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 280px;
-    height: 100vh;
-    background-color: var(--bone);
-    flex-direction: column;
-    justify-content: center;
-    gap: 2.5rem;
-    padding: 4rem 2rem;
-    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
-  }
-
-  .nav-links.open {
-    right: 0;
-  }
-
-  .nav-links a {
-    color: var(--ink) !important;
-    font-size: 1.2rem;
-    width: 100%;
-    text-align: center;
-  }
-
-  .mobile-menu {
-    display: block;
-  }
-
-  .hero {
-    padding-top: 7rem;
-    text-align: center;
-  }
-
-  .hero-content {
-    margin: 0 auto;
-  }
-
-  .hero-buttons {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .hero-buttons .btn {
-    width: 100%;
-  }
-
-  .hero-rating {
-    justify-content: center;
-  }
-
-  .photos-grid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-    max-width: 480px;
-    margin: 0 auto 3rem;
-  }
-
-  .photo-card {
-    /* Scale effect on hover is disabled on touch by default, custom class handles touch */
-  }
-
-  .resenas-section .reviews-grid {
-    grid-template-columns: 1fr;
-    gap: 1.8rem;
-  }
-
-  .ubicacion-grid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-
-  .map-container {
-    height: 300px;
-    order: 2;
-  }
-
-  .contact-info {
-    order: 1;
-  }
-
-  .banner-content {
-    text-align: center;
-    justify-content: center;
-  }
-
-  .banner-content h2,
-  .banner-content p {
-    width: 100%;
-  }
-
-  .banner-content .btn {
-    margin: 0 auto;
-  }
-
-  .footer-container {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-
-  .footer-links {
-    align-items: flex-start;
-  }
-
-  .footer-copyright {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.5rem;
-  }
-}
-
-/* Accessibility Guardrails (Rule 11) */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-delay: 0s !important;
-    animation-duration: 0s !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0s !important;
-    scroll-behavior: auto !important;
-  }
-
-  .orb,
-  .scroll-arrow,
-  .carousel-track {
-    animation: none !important;
-  }
-
-  .reveal {
-    opacity: 1 !important;
-    transform: none !important;
-  }
-
-  .racket-cursor,
-  .ball-companion {
-    display: none !important;
-  }
-}
-
-</style>
-
-  <!-- Non-critical CSS loaded asynchronously (Rule 3) -->
-  
-  <noscript>
-    
-  </noscript>
-
-  <!-- JSON-LD Local Business Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SportsActivityLocation",
-    "name": "PeriSquash",
-    "description": "Club de squash en Coapa, Tlalpan, con más de 13 años. Canchas de piso de madera en excelente estado.",
-    "url": "https://elpeep27.github.io/perisquash-web/",
-    "image": "https://elpeep27.github.io/perisquash-web/assets/images/fachada.jpg",
-    "telephone": "+525541739456",
-    "priceRange": "$$",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Vicente Guerrero 7, San Bartolo el Chico",
-      "addressLocality": "Tlalpan",
-      "addressRegion": "CDMX",
-      "postalCode": "14380",
-      "addressCountry": "MX"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 19.2836816,
-      "longitude": -99.1316249
-    },
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-        "opens": "06:30",
-        "closes": "23:00"
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": "Saturday",
-        "opens": "08:00",
-        "closes": "14:00"
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": "Sunday",
-        "opens": "07:00",
-        "closes": "15:00"
-      }
-    ],
-    "sameAs": [
-      "https://maps.app.goo.gl/ChIJiyMb_Q4BzoURCgK5ocWZmtk"
-    ]
-  }
-  </script>
+  <!-- JSON-LD se completa en Fase 3 -->
 </head>
 <body>
 
-  <!-- NAV -->
+  <a href="#canchas" class="skip-link">Saltar al contenido</a>
+
+  <!-- ===================== NAV ===================== -->
   <nav id="mainNav">
-    <a href="#" class="nav-logo" aria-label="PeriSquash Inicio">
+    <a href="#inicio" class="nav-logo" aria-label="PeriSquash inicio">
       <picture>
         <source srcset="assets/images/logo-perisquash.webp" type="image/webp">
-        <img src="assets/images/logo-perisquash.png" alt="" class="logo-img" width="45" height="45">
+        <img src="assets/images/logo-perisquash.png" alt="" width="40" height="40">
       </picture>
       <span class="nav-logo-text"><span class="peri">Peri</span><span class="squash">Squash</span></span>
     </a>
     <div class="nav-links" id="navLinks">
       <a href="#canchas">Canchas</a>
+      <a href="#donroger">Don Roger</a>
       <a href="#horarios">Horarios</a>
-      <a href="#resenas">Reseñas</a>
+      <a href="#reserva">Reservar</a>
       <a href="#ubicacion">Ubicación</a>
-      <a href="https://wa.me/525541739456?text=Hola%2C%20quiero%20reservar%20una%20cancha%20en%20PeriSquash" target="_blank" class="nav-cta" id="navReserveBtn">Reservar</a>
+      <a href="https://wa.me/525541739456?text=Hola%2C%20quiero%20reservar%20una%20cancha%20en%20PeriSquash" target="_blank" rel="noopener" class="nav-cta" id="navReserveBtn">WhatsApp</a>
     </div>
-    <button class="mobile-menu" aria-label="Abrir menú" aria-expanded="false" onclick="const nl = document.getElementById('navLinks'); nl.classList.toggle('open'); this.setAttribute('aria-expanded', nl.classList.contains('open'));">☰</button>
+    <button class="mobile-menu" id="mobileMenuBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">☰</button>
   </nav>
 
-  <!-- HERO (Dark Section) -->
+  <!-- ===================== HERO ===================== -->
   <section class="hero" id="inicio">
-    <div class="hero-photo-bg">
+    <div class="hero-photo-bg" id="heroBg">
       <picture>
         <source srcset="assets/images/cancha-juego.webp" type="image/webp">
-        <img src="assets/images/cancha-juego.jpg" alt="Cancha de squash PeriSquash" fetchpriority="high" width="1094" height="736">
+        <img src="assets/images/cancha-juego.jpg" alt="Partido de squash en una cancha de madera de PeriSquash" fetchpriority="high" width="1094" height="736">
       </picture>
     </div>
-    <div class="hero-bg">
-      <div class="orb orb-1"></div>
-      <div class="orb orb-2"></div>
-    </div>
-    <div class="hero-grid-overlay"></div>
+    <div class="hero-grid-overlay" aria-hidden="true"></div>
 
     <div class="hero-inner">
       <div class="hero-content">
         <span class="hero-eyebrow reveal">Squash en Coapa · 13 años</span>
         <h1 class="reveal">Pisa la <span class="highlight">cancha.</span></h1>
         <p class="hero-subtitle reveal">No es lujo — es squash bien hecho.</p>
-        <p class="hero-desc reveal">Piso de duela de madera en excelentes condiciones, pared trasera de vidrio y el trato de Don Roger en la zona sur de la CDMX.</p>
-        
+        <p class="hero-desc reveal">Piso de madera en excelentes condiciones, limpieza impecable y el trato de Don Roger, en la zona sur de la CDMX.</p>
+
         <div class="hero-rating reveal">
-          <span class="stars">★★★★★</span>
+          <span class="stars" aria-hidden="true">★★★★★</span>
           <span class="rating-text"><strong>4.6</strong> de 68 reseñas en Google</span>
         </div>
 
         <div class="hero-buttons reveal">
-          <a href="https://wa.me/525541739456?text=Hola%2C%20quiero%20reservar%20una%20cancha%20en%20PeriSquash" target="_blank" class="btn btn-fill" id="heroReserveBtn">Reserva tu cancha</a>
-          <a href="#canchas" class="btn btn-ghost">Ver Instalaciones</a>
+          <a href="#reserva" class="btn btn-cyan" id="heroReserveBtn">Reservar cancha</a>
+          <a href="#canchas" class="btn btn-ghost">Ver el club</a>
         </div>
       </div>
     </div>
 
-    <div class="scroll-indicator" id="scrollInd">
+    <div class="scroll-indicator" id="scrollInd" aria-hidden="true">
       <span class="indicator-text">Entra a la cancha</span>
-      <a href="#canchas" class="scroll-arrow" aria-label="Bajar a las canchas"></a>
+      <a href="#stats" class="scroll-arrow" aria-label="Bajar"></a>
     </div>
   </section>
 
-  <!-- CANCHAS (Start of Light Section - "La Cancha") -->
-  <section class="canchas-section" id="canchas">
-    <!-- Visual Squash Court boundaries -->
+  <!-- ===================== STATS ===================== -->
+  <div class="stats-bar" id="stats">
+    <div class="stats-inner">
+      <div class="stat-item reveal">
+        <div class="stat-num" data-target="13" data-suffix="+">13+</div>
+        <div class="stat-label">Años en Coapa</div>
+      </div>
+      <div class="stat-item reveal d1">
+        <div class="stat-num" data-target="4.6" data-decimals="1" data-suffix="★">4.6★</div>
+        <div class="stat-label">Estrellas en Google</div>
+      </div>
+      <div class="stat-item reveal d2">
+        <div class="stat-num" data-target="68" data-suffix="">68</div>
+        <div class="stat-label">Reseñas</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== CANCHAS ===================== -->
+  <section class="section" id="canchas">
     <div class="court-line line-left" aria-hidden="true"></div>
     <div class="court-line line-right" aria-hidden="true"></div>
-    
     <div class="section-container">
       <div class="court-divider reveal" aria-hidden="true"></div>
 
       <header class="section-header">
-        <h2 class="reveal">Nuestras Canchas</h2>
-        <p class="section-desc reveal">Espacios listos para jugar, entrenar y competir en un gran ambiente deportivo.</p>
+        <span class="section-eyebrow reveal">El club</span>
+        <h2 class="reveal">Nuestras canchas</h2>
+        <p class="section-desc reveal">Espacios listos para jugar, entrenar y competir. Piso de madera con buen rebote, limpieza y un ambiente que la comunidad valora desde hace más de 13 años.</p>
       </header>
 
-      <!-- Grid of Photos (Hover-Enlarge) -->
       <div class="photos-grid">
-        <div class="photo-card reveal" tabindex="0" aria-label="Fachada de PeriSquash">
-          <div class="card-img-wrapper">
-            <picture>
-              <source srcset="assets/images/fachada.webp" type="image/webp">
-              <img src="assets/images/fachada.jpg" alt="Fachada exterior amarilla de PeriSquash" loading="lazy" width="600" height="400" decoding="async">
-            </picture>
-          </div>
-          <div class="card-overlay">
-            <h3>Fachada del Club</h3>
-            <p>Ubicados en Vicente Guerrero 7, Coapa.</p>
-          </div>
-        </div>
-
-        <div class="photo-card reveal" tabindex="0" aria-label="Partido de Squash en Cancha de Madera">
+        <div class="photo-card reveal" tabindex="0" aria-label="Partido en cancha con piso de madera">
           <div class="card-img-wrapper">
             <picture>
               <source srcset="assets/images/cancha-juego.webp" type="image/webp">
-              <img src="assets/images/cancha-juego.jpg" alt="Jugadores en la cancha con piso de madera" loading="lazy" width="600" height="400" decoding="async">
+              <img src="assets/images/cancha-juego.jpg" alt="Jugadores en una cancha de squash con piso de madera" loading="lazy" width="600" height="400" decoding="async">
             </picture>
           </div>
           <div class="card-overlay">
-            <h3>En Cancha</h3>
-            <p>Duela de madera con excelente rebote y tracción.</p>
+            <h3>En cancha</h3>
+            <p>Piso de madera con buen rebote y tracción.</p>
           </div>
         </div>
 
-        <div class="photo-card reveal" tabindex="0" aria-label="Clase de Squash en PeriSquash">
+        <div class="photo-card reveal d1" tabindex="0" aria-label="Clase de squash con instructor">
           <div class="card-img-wrapper">
             <picture>
               <source srcset="assets/images/cancha-clase.webp" type="image/webp">
-              <img src="assets/images/cancha-clase.jpg" alt="Entrenamiento de squash con instructor" loading="lazy" width="600" height="400" decoding="async">
+              <img src="assets/images/cancha-clase.jpg" alt="Clase de squash con instructor en PeriSquash" loading="lazy" width="600" height="400" decoding="async">
             </picture>
           </div>
           <div class="card-overlay">
-            <h3>Clases y Práctica</h3>
-            <p>Entrenamientos y consejos para todos los niveles.</p>
+            <h3>Clases y práctica</h3>
+            <p>Consejos y entrenamiento para todos los niveles.</p>
+          </div>
+        </div>
+
+        <div class="photo-card reveal d2" tabindex="0" aria-label="Fachada del club PeriSquash">
+          <div class="card-img-wrapper">
+            <picture>
+              <source srcset="assets/images/fachada.webp" type="image/webp">
+              <img src="assets/images/fachada.jpg" alt="Fachada amarilla de PeriSquash en Coapa" loading="lazy" width="600" height="400" decoding="async">
+            </picture>
+          </div>
+          <div class="card-overlay">
+            <h3>Nuestro club</h3>
+            <p>En Vicente Guerrero 7, Coapa, Tlalpan.</p>
           </div>
         </div>
       </div>
 
       <div class="cta-wrapper reveal">
-        <button class="btn btn-outline" id="btnReglas">Reglas en 1 minuto</button>
+        <button class="btn btn-outline" id="btnReglas" type="button">Reglas en 1 minuto</button>
+        <a href="#reserva" class="btn btn-fill">Reservar una cancha</a>
       </div>
+    </div>
+  </section>
 
-      <!-- Auto-scroll carrusel infinito -->
-      <div class="carousel-container reveal">
-        <div class="carousel-track" id="carouselTrack">
-          <!-- Slide 1 -->
-          <div class="carousel-slide">
-            <picture>
-              <source srcset="assets/images/cancha-clase.webp" type="image/webp">
-              <img src="assets/images/cancha-clase.jpg" alt="Clase de squash" loading="lazy" width="300" height="200" decoding="async">
-            </picture>
-            <span class="slide-badge">Clases</span>
-          </div>
-          <!-- Slide 2 -->
-          <div class="carousel-slide">
-            <picture>
-              <source srcset="assets/images/fachada.webp" type="image/webp">
-              <img src="assets/images/fachada.jpg" alt="Fachada PeriSquash" loading="lazy" width="300" height="200" decoding="async">
-            </picture>
-            <span class="slide-badge">Fachada</span>
-          </div>
-          <!-- Slide 3 -->
-          <div class="carousel-slide">
-            <picture>
-              <source srcset="assets/images/cancha-juego.webp" type="image/webp">
-              <img src="assets/images/cancha-juego.jpg" alt="Juego de squash" loading="lazy" width="300" height="200" decoding="async">
-            </picture>
-            <span class="slide-badge">Partido</span>
-          </div>
-          <!-- Slide 4 (Video) -->
-          <div class="carousel-slide video-slide">
-            <video data-src="assets/video/perisquash-action.mp4" muted loop playsinline preload="none" width="300" height="200"></video>
-            <span class="slide-badge">Video</span>
-          </div>
-          
-          <!-- Duplicate for seamless loop -->
-          <!-- Slide 1 Copy -->
-          <div class="carousel-slide">
-            <picture>
-              <source srcset="assets/images/cancha-clase.webp" type="image/webp">
-              <img src="assets/images/cancha-clase.jpg" alt="Clase de squash" loading="lazy" width="300" height="200" decoding="async">
-            </picture>
-            <span class="slide-badge">Clases</span>
-          </div>
-          <!-- Slide 2 Copy -->
-          <div class="carousel-slide">
-            <picture>
-              <source srcset="assets/images/fachada.webp" type="image/webp">
-              <img src="assets/images/fachada.jpg" alt="Fachada PeriSquash" loading="lazy" width="300" height="200" decoding="async">
-            </picture>
-            <span class="slide-badge">Fachada</span>
-          </div>
-          <!-- Slide 3 Copy -->
-          <div class="carousel-slide">
-            <picture>
-              <source srcset="assets/images/cancha-juego.webp" type="image/webp">
-              <img src="assets/images/cancha-juego.jpg" alt="Juego de squash" loading="lazy" width="300" height="200" decoding="async">
-            </picture>
-            <span class="slide-badge">Partido</span>
-          </div>
-          <!-- Slide 4 Copy (Video) -->
-          <div class="carousel-slide video-slide">
-            <video data-src="assets/video/perisquash-action.mp4" muted loop playsinline preload="none" width="300" height="200"></video>
-            <span class="slide-badge">Video</span>
+  <!-- ===================== DON ROGER ===================== -->
+  <section class="section alt" id="donroger">
+    <div class="section-container">
+      <div class="roger-grid">
+        <!-- Sin foto real de Don Roger todavía: placeholder honesto y marcado -->
+        <div class="roger-portrait placeholder reveal" role="img" aria-label="Retrato de Don Roger (pendiente)">
+          <span class="roger-tag">🤝 El alma del club</span>
+          <div class="roger-monogram" aria-hidden="true">DR</div>
+          <p class="photo-note">Foto de Don Roger — por confirmar</p>
+        </div>
+
+        <div>
+          <span class="section-eyebrow reveal">Servicio personalizado</span>
+          <h2 class="reveal">El trato de Don Roger</h2>
+          <p class="section-desc reveal">En Coapa, los squashistas conocen a Don Roger. Es el detalle que más se repite en las reseñas: atención cercana, instalaciones limpias y esas amenidades que hacen que quieras volver. No es un club de lujo — es uno donde te tratan bien.</p>
+
+          <blockquote class="roger-quote reveal">
+            "Las canchas están en excelentes condiciones, los baños muy limpios y Don Roger le agrega amenidades que le dan ese toque de comodidad que difícilmente ves en otro lado."
+            <cite>— Reseña en Google</cite>
+          </blockquote>
+
+          <div class="roger-perks">
+            <div class="perk reveal">
+              <span class="perk-icon" aria-hidden="true">🧼</span>
+              <div><h4>Instalaciones limpias</h4><p>Baños y vestidores cuidados, como lo mencionan los jugadores.</p></div>
+            </div>
+            <div class="perk reveal d1">
+              <span class="perk-icon" aria-hidden="true">💬</span>
+              <div><h4>Consejos de juego</h4><p>Si vas empezando, te dan tips para mejorar tu partido.</p></div>
+            </div>
+            <div class="perk reveal">
+              <span class="perk-icon" aria-hidden="true">🎾</span>
+              <div><h4>Renta y venta</h4><p>Raquetas, pelotas y accesorios en el club <span class="badge-confirmar">por confirmar</span></p></div>
+            </div>
+            <div class="perk reveal d1">
+              <span class="perk-icon" aria-hidden="true">🏆</span>
+              <div><h4>Buen ambiente</h4><p>Comunidad activa de jugadores y torneos locales.</p></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- HORARIOS -->
-  <section class="horarios-section" id="horarios">
+  <!-- ===================== HORARIOS ===================== -->
+  <section class="section" id="horarios">
     <div class="court-line line-left" aria-hidden="true"></div>
     <div class="court-line line-right" aria-hidden="true"></div>
-    
     <div class="section-container">
       <div class="court-divider reveal" aria-hidden="true"></div>
 
       <header class="section-header">
-        <h2 class="reveal">Horarios de Juego</h2>
+        <span class="section-eyebrow reveal">Visítanos</span>
+        <h2 class="reveal">Horarios de juego</h2>
         <p class="section-desc reveal">Abrimos temprano y cerramos tarde para acomodarnos a tu rutina.</p>
       </header>
 
       <div class="horarios-card reveal">
         <table class="horarios-table">
           <thead>
-            <tr>
-              <th>Día</th>
-              <th>Horario de Apertura</th>
-            </tr>
+            <tr><th>Día</th><th>Horario</th></tr>
           </thead>
           <tbody>
-            <tr>
-              <td><strong>Lunes a Viernes</strong></td>
-              <td><span class="time-block">6:30 AM — 11:00 PM</span></td>
-            </tr>
-            <tr>
-              <td><strong>Sábado</strong></td>
-              <td><span class="time-block">8:00 AM — 2:00 PM</span></td>
-            </tr>
-            <tr>
-              <td><strong>Domingo</strong></td>
-              <td><span class="time-block">7:00 AM — 3:00 PM</span></td>
-            </tr>
+            <tr><td><strong>Lunes a Viernes</strong></td><td><span class="time-block">6:30 AM — 11:00 PM</span></td></tr>
+            <tr><td><strong>Sábado</strong></td><td><span class="time-block">8:00 AM — 2:00 PM</span></td></tr>
+            <tr><td><strong>Domingo</strong></td><td><span class="time-block">7:00 AM — 3:00 PM</span></td></tr>
           </tbody>
         </table>
       </div>
 
       <div class="cta-wrapper reveal">
-        <button class="btn btn-outline" id="btnTarifas">Ver Tarifas de Cancha</button>
+        <button class="btn btn-outline" id="btnTarifas" type="button">Ver tarifas</button>
       </div>
     </div>
   </section>
 
-  <!-- RESEÑAS -->
-  <section class="resenas-section" id="resenas">
+  <!-- ===================== RESERVA ===================== -->
+  <section class="section alt" id="reserva">
+    <div class="section-container">
+      <header class="section-header">
+        <span class="section-eyebrow reveal">Aparta tu hora</span>
+        <h2 class="reveal">Reserva tu cancha</h2>
+        <p class="section-desc reveal">Elige cancha, día y hora. Te armamos un mensaje de WhatsApp para Don Roger con tu solicitud. Él confirma la disponibilidad — no es un cobro en línea.</p>
+      </header>
+
+      <form class="reserva-card reveal" id="reservaForm" novalidate>
+        <div class="reserva-grid">
+          <!-- Cancha -->
+          <div class="field full">
+            <label>1. Elige tu cancha <span class="hint">(numeración por confirmar)</span></label>
+            <div class="court-options" role="radiogroup" aria-label="Cancha">
+              <div class="court-option">
+                <input type="radio" name="cancha" id="court1" value="Cancha 1" checked>
+                <label for="court1"><span class="court-name">Cancha 1</span><span class="court-meta">Piso de madera</span></label>
+              </div>
+              <div class="court-option">
+                <input type="radio" name="cancha" id="court2" value="Cancha 2">
+                <label for="court2"><span class="court-name">Cancha 2</span><span class="court-meta">Piso de madera</span></label>
+              </div>
+              <div class="court-option">
+                <input type="radio" name="cancha" id="court3" value="Cancha 3">
+                <label for="court3"><span class="court-name">Cancha 3</span><span class="court-meta">Piso de madera</span></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Día -->
+          <div class="field">
+            <label for="reservaDia">2. Día</label>
+            <select id="reservaDia" name="dia">
+              <option value="L-V">Entre semana (Lun–Vie)</option>
+              <option value="SAB">Sábado</option>
+              <option value="DOM">Domingo</option>
+            </select>
+            <span class="hint">Las horas se ajustan al horario de ese día.</span>
+          </div>
+
+          <!-- Nombre -->
+          <div class="field">
+            <label for="reservaNombre">Tu nombre <span class="hint">(opcional)</span></label>
+            <input type="text" id="reservaNombre" name="nombre" placeholder="Ej. Carlos" autocomplete="name">
+          </div>
+
+          <!-- Horas -->
+          <div class="field full">
+            <label>3. Hora</label>
+            <div class="time-slots" id="timeSlots" role="radiogroup" aria-label="Hora de juego">
+              <!-- Generado por app.js según el día -->
+              <span class="slot-empty">Selecciona un día para ver los horarios.</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="reserva-note" id="reservaSummary">Renta de cancha: <strong>$350 MXN</strong> por hora. Otras tarifas <span class="badge-confirmar">por confirmar</span>. Tu reserva es una solicitud; Don Roger confirma disponibilidad y forma de pago por WhatsApp.</p>
+
+        <div class="reserva-actions">
+          <button type="submit" class="btn btn-fill" id="reservaSubmit">Enviar solicitud por WhatsApp</button>
+          <span class="hint" id="reservaHint" aria-live="polite"></span>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===================== RESEÑAS ===================== -->
+  <section class="section" id="resenas">
     <div class="court-line line-left" aria-hidden="true"></div>
     <div class="court-line line-right" aria-hidden="true"></div>
-    
     <div class="section-container">
       <div class="court-divider reveal" aria-hidden="true"></div>
 
       <header class="section-header">
-        <h2 class="reveal">Opiniones de Jugadores</h2>
-        <p class="section-desc reveal">Nuestra comunidad de squash valora la calidad y la atención honesta.</p>
+        <span class="section-eyebrow reveal">Lo que dicen</span>
+        <h2 class="reveal">Opiniones de jugadores</h2>
+        <p class="section-desc reveal">Reseñas reales de Google. Sin filtro, sin editar.</p>
       </header>
 
       <div class="reviews-grid">
         <div class="review-card reveal">
-          <div class="review-header">
-            <span class="stars">★★★★★</span>
-          </div>
-          <blockquote>
-            "Instalaciones excelentes, las canchas de madera están muy bien cuidadas y los baños impecables. El trato de Don Roger le da un toque familiar y cómodo único."
-          </blockquote>
+          <div class="stars" aria-label="5 de 5 estrellas">★★★★★</div>
+          <blockquote>"Las canchas tienen piso de duela y excelente servicio al cliente. Si eres principiante, te dan tips para mejorar."</blockquote>
           <cite class="review-author">— Reseña en Google</cite>
         </div>
-
-        <div class="review-card reveal">
-          <div class="review-header">
-            <span class="stars">★★★★★</span>
-          </div>
-          <blockquote>
-            "Las canchas tienen un gran rebote por su piso de duela. Tienen un servicio increíble, si vas empezando te dan muy buenos consejos."
-          </blockquote>
+        <div class="review-card reveal d1">
+          <div class="stars" aria-label="5 de 5 estrellas">★★★★★</div>
+          <blockquote>"Gran lugar y excelente servicio de Roger. Las canchas están geniales y los baños de primera."</blockquote>
           <cite class="review-author">— Reseña en Google</cite>
         </div>
-
-        <div class="review-card reveal">
-          <div class="review-header">
-            <span class="stars">★★★★★</span>
-          </div>
-          <blockquote>
-            "Gran ambiente y excelente atención. Las canchas de madera están en perfecto estado y todo está muy limpio."
-          </blockquote>
+        <div class="review-card reveal d2">
+          <div class="stars" aria-label="5 de 5 estrellas">★★★★★</div>
+          <blockquote>"Excelente lugar para practicar este deporte. Piso de duela, limpieza, servicio, grandes partidos. Todo en un solo lugar."</blockquote>
           <cite class="review-author">— Reseña en Google</cite>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- UBICACIÓN -->
-  <section class="ubicacion-section" id="ubicacion">
-    <div class="court-line line-left" aria-hidden="true"></div>
-    <div class="court-line line-right" aria-hidden="true"></div>
-    
+  <!-- ===================== UBICACIÓN ===================== -->
+  <section class="section alt" id="ubicacion">
     <div class="section-container">
-      <div class="court-divider reveal" aria-hidden="true"></div>
-
       <header class="section-header">
+        <span class="section-eyebrow reveal">Cómo llegar</span>
         <h2 class="reveal">¿Dónde estamos?</h2>
-        <p class="section-desc reveal">Encuéntranos en Coapa, a unos pasos del Periférico Sur.</p>
+        <p class="section-desc reveal">En Coapa, a unos pasos del Periférico Sur.</p>
       </header>
 
       <div class="ubicacion-grid">
-        <div class="map-container reveal">
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d940.7!2d-99.1316249!3d19.2836816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce010efd1b238b%3A0xd99a99c5a1b9020a!2sPerisquash!5e0!3m2!1ses!2smx!4v1711000000000!5m2!1ses!2smx" 
-            title="Ubicación de PeriSquash en Google Maps" 
-            allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade"
-            width="600"
-            height="350">
-          </iframe>
+        <div class="ubicacion-media reveal">
+          <div class="fachada-photo">
+            <picture>
+              <source srcset="assets/images/fachada.webp" type="image/webp">
+              <img src="assets/images/fachada.jpg" alt="Fachada amarilla de PeriSquash" loading="lazy" width="600" height="240" decoding="async">
+            </picture>
+          </div>
+          <div class="map-container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d940.7!2d-99.1316249!3d19.2836816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce010efd1b238b%3A0xd99a99c5a1b9020a!2sPerisquash!5e0!3m2!1ses!2smx!4v1711000000000!5m2!1ses!2smx"
+              title="Ubicación de PeriSquash en Google Maps"
+              allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              width="600" height="320"></iframe>
+          </div>
         </div>
 
-        <div class="contact-info reveal">
+        <div class="contact-info reveal d1">
           <div class="info-block">
             <h3>Dirección</h3>
-            <p>Vicente Guerrero 7, Coapa, San Bartolo el Chico, Tlalpan, 14380, CDMX</p>
+            <p>Vicente Guerrero 7, San Bartolo el Chico, Tlalpan, 14380, CDMX</p>
           </div>
           <div class="info-block">
-            <h3>Teléfonos y Reservas</h3>
-            <p>Fijo: <a href="tel:5541739456" class="contact-link">55 4173 9456</a></p>
-            <p>WhatsApp: <a href="https://wa.me/525541739456?text=Hola%2C%20quiero%20reservar%20una%20cancha%20en%20PeriSquash" target="_blank" class="contact-link" id="contactWhatsAppLink">55 4173 9456</a></p>
+            <h3>Teléfono y WhatsApp</h3>
+            <p>Tel: <a href="tel:+525541739456" class="contact-link">55 4173 9456</a></p>
+            <p>WhatsApp: <a href="https://wa.me/525541739456?text=Hola%2C%20quiero%20reservar%20una%20cancha%20en%20PeriSquash" target="_blank" rel="noopener" class="contact-link" id="contactWhatsAppLink">55 4173 9456</a></p>
           </div>
           <div class="info-block">
-            <a href="https://maps.app.goo.gl/ChIJiyMb_Q4BzoURCgK5ocWZmtk" target="_blank" class="btn btn-fill" id="mapsDirectionsBtn">Cómo llegar</a>
+            <a href="https://www.google.com/maps/search/?api=1&query=PeriSquash&query_place_id=ChIJiyMb_Q4BzoURCgK5ocWZmtk" target="_blank" rel="noopener" class="btn btn-fill" id="mapsDirectionsBtn">Cómo llegar</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FRANJA MARCADOR removed -->
-
-  <!-- FOOTER (Dark Section) -->
+  <!-- ===================== FOOTER ===================== -->
   <footer>
     <div class="footer-container">
       <div class="footer-brand">
         <span class="foot-logo"><span class="peri">Peri</span><span class="squash">Squash</span></span>
-        <p>Squash en Coapa desde 2011 — No es lujo, es squash bien hecho.</p>
+        <p>Squash en Coapa, Tlalpan, desde hace más de 13 años. No es lujo — es squash bien hecho.</p>
       </div>
-      
-      <div class="footer-links">
+      <nav class="footer-links" aria-label="Enlaces del pie">
         <a href="#canchas">Canchas</a>
+        <a href="#donroger">Don Roger</a>
         <a href="#horarios">Horarios</a>
-        <a href="#resenas">Reseñas</a>
+        <a href="#reserva">Reservar</a>
         <a href="#ubicacion">Ubicación</a>
-      </div>
-
-      <div class="footer-copyright">
-        <p>© 2026 PeriSquash. Vicente Guerrero 7, San Bartolo el Chico, Tlalpan, 14380, CDMX.</p>
-        <p class="dev-by">Desarrollado por <a href="https://bridgenode.com" target="_blank" rel="noopener">BridgeNode</a></p>
-      </div>
+      </nav>
+    </div>
+    <div class="footer-copyright">
+      <p>© 2026 PeriSquash · Vicente Guerrero 7, San Bartolo el Chico, Tlalpan, 14380, CDMX · Tel: 55 4173 9456</p>
+      <p class="dev-by">Desarrollado por <a href="https://bridgenode.mx" target="_blank" rel="noopener">BridgeNode</a></p>
     </div>
   </footer>
 
-  <!-- ==================== POPUPS / MODALS ==================== -->
-  
-  <!-- Popover 1: Reglas -->
+  <!-- ===================== POPOVERS ===================== -->
   <div class="popover-modal" id="modalReglas" role="dialog" aria-modal="true" aria-labelledby="modalReglasTitle">
-    <div class="modal-backdrop" onclick="closeModal('modalReglas')"></div>
+    <div class="modal-backdrop" data-close="modalReglas"></div>
     <div class="modal-card">
-      <button class="modal-close" aria-label="Cerrar modal" onclick="closeModal('modalReglas')">&times;</button>
+      <button class="modal-close" aria-label="Cerrar" data-close="modalReglas">&times;</button>
       <div class="modal-content">
-        <h2 id="modalReglasTitle">Reglas Básicas en 1 Minuto</h2>
+        <h2 id="modalReglasTitle">Reglas básicas en 1 minuto</h2>
         <ul class="modal-list">
-          <li><strong>La Pared Frontal:</strong> Toda pelota debe golpear la pared frontal por encima de la línea metálica inferior (tin) y por debajo de la línea superior antes de tocar el suelo.</li>
-          <li><strong>Un Bote Máximo:</strong> El jugador debe golpear la pelota antes de que bote por segunda vez en el suelo.</li>
-          <li><strong>Bote en Paredes:</strong> La pelota puede rebotar en las paredes laterales o trasera antes de llegar a la pared frontal, siempre y cuando no toque el suelo primero.</li>
-          <li><strong>Puntuación:</strong> Se juegan sets a 11 puntos con sistema directo (suma punto quien gana el rally). Si empatan a 10, es necesario ganar por 2 de diferencia.</li>
-          <li><strong>Cuidado del Swing:</strong> Si tu oponente se encuentra en la trayectoria de tu golpe o tu swing, detén la jugada por seguridad y repite el punto (let).</li>
+          <li><strong>Pared frontal:</strong> la pelota debe pegar en la pared frontal, arriba de la lámina inferior (tin) y abajo de la línea superior, antes de tocar el piso.</li>
+          <li><strong>Un bote máximo:</strong> debes golpear la pelota antes de que rebote por segunda vez en el piso.</li>
+          <li><strong>Paredes laterales:</strong> la pelota puede rebotar en las paredes antes de llegar al frente, mientras no toque el piso primero.</li>
+          <li><strong>Puntuación:</strong> sets a 11 puntos, suma quien gana el rally. Si hay empate a 10, se gana por 2 de diferencia.</li>
+          <li><strong>Seguridad (let):</strong> si tu oponente está en la trayectoria de tu golpe, detén la jugada y repite el punto.</li>
         </ul>
       </div>
     </div>
   </div>
 
-  <!-- Popover 2: Tarifas -->
   <div class="popover-modal" id="modalTarifas" role="dialog" aria-modal="true" aria-labelledby="modalTarifasTitle">
-    <div class="modal-backdrop" onclick="closeModal('modalTarifas')"></div>
+    <div class="modal-backdrop" data-close="modalTarifas"></div>
     <div class="modal-card">
-      <button class="modal-close" aria-label="Cerrar modal" onclick="closeModal('modalTarifas')">&times;</button>
+      <button class="modal-close" aria-label="Cerrar" data-close="modalTarifas">&times;</button>
       <div class="modal-content">
-        <h2 id="modalTarifasTitle">Tarifas del Club</h2>
+        <h2 id="modalTarifasTitle">Tarifas del club</h2>
         <div class="modal-table-wrapper">
           <table class="modal-table">
-            <thead>
-              <tr>
-                <th>Servicio</th>
-                <th>Costo Estimado</th>
-              </tr>
-            </thead>
+            <thead><tr><th>Servicio</th><th>Costo</th></tr></thead>
             <tbody>
-              <tr>
-                <td><strong>Renta de Cancha (por hora)</strong></td>
-                <td>$350.00 MXN</td>
-              </tr>
-              <tr>
-                <td><strong>Clase con Instructor (por hora)</strong></td>
-                <td>$250.00 — $300.00 <span class="badge-confirmar">por confirmar</span></td>
-              </tr>
-              <tr>
-                <td><strong>Renta de Raqueta (por partido)</strong></td>
-                <td>$30.00 <span class="badge-confirmar">por confirmar</span></td>
-              </tr>
+              <tr><td><strong>Renta de cancha (por hora)</strong></td><td>$350 MXN</td></tr>
+              <tr><td><strong>Clase con instructor</strong></td><td>— <span class="badge-confirmar">por confirmar</span></td></tr>
+              <tr><td><strong>Renta de raqueta</strong></td><td>— <span class="badge-confirmar">por confirmar</span></td></tr>
             </tbody>
           </table>
         </div>
-        <p class="modal-note">Precios sujetos a confirmación con Don Roger. Contáctanos para conocer tarifas vigentes y reservar.</p>
-        <div style="text-align: center; margin-top: 1.5rem;">
-          <a href="https://wa.me/525541739456?text=Hola%2C%20quiero%20consultar%20las%20tarifas%20de%20canchas%20y%20clases" target="_blank" class="btn btn-fill" id="tarifasWhatsAppBtn">Consultar por WhatsApp</a>
+        <p class="modal-note">Las tarifas no confirmadas se actualizarán con Don Roger. Escríbenos por WhatsApp para conocer precios vigentes.</p>
+        <div style="text-align:center; margin-top:1.4rem;">
+          <a href="https://wa.me/525541739456?text=Hola%2C%20quiero%20consultar%20las%20tarifas%20de%20PeriSquash" target="_blank" rel="noopener" class="btn btn-fill" id="tarifasWhatsAppBtn">Consultar por WhatsApp</a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Popover 3: Marcador removed -->
-
-  <!-- Main Scripts (deferred to prevent render blocking - Rule 3) -->
-  <script src="js/main.js" defer></script>
-
-  <!-- Google Analytics (GA4) - Deferred load for performance optimization (Rule 4) -->
-  <script>
-    window.addEventListener('load', () => {
-      const script = document.createElement('script');
-      script.async = true;
-      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
-      document.head.appendChild(script);
-
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      window.gtag = gtag;
-      gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX');
-    });
-  </script>
+  <script src="js/app.js" defer></script>
 </body>
 </html>
