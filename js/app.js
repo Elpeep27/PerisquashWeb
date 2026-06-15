@@ -116,11 +116,20 @@
       var p = dia.value.split('-'), d = new Date(+p[0], +p[1] - 1, +p[2]), r = HORAS[d.getDay()];
       hora.disabled = false;
       hora.innerHTML = '<option value="">Selecciona una hora…</option>';
-      // Reservas por hora; la última inicia 60 min antes del cierre
+      // Reservas por hora; la última inicia 60 min antes del cierre.
+      var last = null;
       for (var m = r[0]; m <= r[1] - 60; m += 60) {
         var o = document.createElement('option');
         o.value = fmtMin(m); o.textContent = fmtMin(m);
         hora.appendChild(o);
+        last = m;
+      }
+      // Garantiza el bloque final hasta el cierre (cierre − 60),
+      // aunque caiga fuera de la rejilla de :30 (p. ej. 22:00 en L–V).
+      if (last === null || last < r[1] - 60) {
+        var oc = document.createElement('option');
+        oc.value = fmtMin(r[1] - 60); oc.textContent = fmtMin(r[1] - 60);
+        hora.appendChild(oc);
       }
       if (hintHora) hintHora.textContent = 'Abierto ese día: ' + fmtMin(r[0]) + ' – ' + fmtMin(r[1]) + '. Reservas por hora.';
     }

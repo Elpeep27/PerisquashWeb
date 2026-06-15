@@ -25,15 +25,41 @@
   <!-- LCP hero image preload -->
   <link rel="preload" as="image" href="assets/images/cancha-juego.webp" type="image/webp" fetchpriority="high">
 
-  <!-- Fuentes (se auto-hospedan en Fase 3; por ahora carga asíncrona) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap"></noscript>
-
+  <!-- Fuentes auto-hospedadas (sin dependencia de Google Fonts; @font-face con font-display:swap).
+       No se precargan a propósito: compiten con el render crítico y el texto se pinta con la
+       fuente de sistema hasta que cargan (swap). -->
   <link rel="stylesheet" href="css/styles.css">
 
-  <!-- JSON-LD se completa en Fase 3 -->
+  <!-- Datos estructurados -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsActivityLocation",
+    "name": "PeriSquash",
+    "description": "Club de squash en Coapa, Tlalpan, CDMX, con más de 13 años. Canchas con piso de madera en excelente estado, limpieza y el trato de Don Roger.",
+    "url": "https://perisquash.mx/",
+    "image": "https://perisquash.mx/assets/images/fachada.jpg",
+    "telephone": "+525541739456",
+    "priceRange": "$$",
+    "currenciesAccepted": "MXN",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Vicente Guerrero 7, San Bartolo el Chico",
+      "addressLocality": "Tlalpan",
+      "addressRegion": "CDMX",
+      "postalCode": "14380",
+      "addressCountry": "MX"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 19.2836816, "longitude": -99.1316249 },
+    "hasMap": "https://www.google.com/maps/search/?api=1&query=19.2836816%2C-99.1316249",
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "06:30", "closes": "23:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "14:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "07:00", "closes": "15:00" }
+    ],
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.6", "reviewCount": "68", "bestRating": "5" }
+  }
+  </script>
 </head>
 <body>
 
@@ -197,19 +223,19 @@
           <div class="roger-perks">
             <div class="perk reveal">
               <span class="perk-icon" aria-hidden="true">🧼</span>
-              <div><h4>Instalaciones limpias</h4><p>Baños y vestidores cuidados, como lo mencionan los jugadores.</p></div>
+              <div><h3>Instalaciones limpias</h3><p>Baños y vestidores cuidados, como lo mencionan los jugadores.</p></div>
             </div>
             <div class="perk reveal d1">
               <span class="perk-icon" aria-hidden="true">💬</span>
-              <div><h4>Consejos de juego</h4><p>Si vas empezando, te dan tips para mejorar tu partido.</p></div>
+              <div><h3>Consejos de juego</h3><p>Si vas empezando, te dan tips para mejorar tu partido.</p></div>
             </div>
             <div class="perk reveal">
               <span class="perk-icon" aria-hidden="true">🎾</span>
-              <div><h4>Renta y venta</h4><p>Raquetas, pelotas y accesorios en el club <span class="badge-confirmar">por confirmar</span></p></div>
+              <div><h3>Renta y venta</h3><p>Raquetas, pelotas y accesorios en el club <span class="badge-confirmar">por confirmar</span></p></div>
             </div>
             <div class="perk reveal d1">
               <span class="perk-icon" aria-hidden="true">🏆</span>
-              <div><h4>Buen ambiente</h4><p>Comunidad activa de jugadores y torneos locales.</p></div>
+              <div><h3>Buen ambiente</h3><p>Comunidad activa de jugadores y torneos locales.</p></div>
             </div>
           </div>
         </div>
@@ -355,7 +381,7 @@
           </div>
           <div class="map-container">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d940.7!2d-99.1316249!3d19.2836816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce010efd1b238b%3A0xd99a99c5a1b9020a!2sPerisquash!5e0!3m2!1ses!2smx!4v1711000000000!5m2!1ses!2smx"
+              src="https://maps.google.com/maps?q=PeriSquash%2C%20Vicente%20Guerrero%207%2C%20San%20Bartolo%20el%20Chico%2C%20Tlalpan%2014380&ll=19.2836816,-99.1316249&hl=es&z=16&output=embed"
               title="Ubicación de PeriSquash en Google Maps"
               allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
               width="600" height="320"></iframe>
@@ -410,5 +436,22 @@
   </div>
 
   <script src="js/app.js" defer></script>
+
+  <!-- Google Analytics 4 (carga diferida para no afectar el LCP). Reemplaza G-XXXXXXXXXX por tu ID real. -->
+  <script>
+    window.addEventListener('load', function () {
+      var GA_ID = 'G-XXXXXXXXXX';
+      if (GA_ID.indexOf('XXXX') !== -1) return; // no carga hasta poner el ID real
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', GA_ID);
+    });
+  </script>
 </body>
 </html>

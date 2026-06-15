@@ -1,0 +1,9 @@
+# Dependencias y herramientas locales
+node_modules/
+.tools/
+
+# Artefactos / temporales
+*.zip
+.DS_Store
+Thumbs.db
+*.log
