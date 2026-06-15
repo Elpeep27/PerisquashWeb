@@ -9,6 +9,7 @@
   'use strict';
 
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var mobileViewport = matchMedia('(max-width: 768px)');
 
   /* 1. Reveal + disparo de contadores ------------------------------------ */
   var counted = false;
@@ -76,17 +77,33 @@
   /* 3. Menú móvil -------------------------------------------------------- */
   var menuBtn = document.getElementById('mobileMenuBtn');
   var navLinks = document.getElementById('navLinks');
+  function closeMenu() {
+    if (!menuBtn || !navLinks) return;
+    navLinks.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    menuBtn.setAttribute('aria-label', 'Abrir menú');
+  }
+  function syncNavMode() {
+    if (!mobileViewport.matches) closeMenu();
+  }
   if (menuBtn && navLinks) {
     menuBtn.addEventListener('click', function () {
       var open = navLinks.classList.toggle('open');
       menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
     });
     navLinks.querySelectorAll('a').forEach(function (a) {
       a.addEventListener('click', function () {
-        navLinks.classList.remove('open');
-        menuBtn.setAttribute('aria-expanded', 'false');
+        closeMenu();
       });
     });
+    if (typeof mobileViewport.addEventListener === 'function') {
+      mobileViewport.addEventListener('change', syncNavMode);
+    } else if (typeof mobileViewport.addListener === 'function') {
+      mobileViewport.addListener(syncNavMode);
+    }
+    window.addEventListener('resize', syncNavMode);
+    syncNavMode();
   }
 
   /* 4. Reserva ----------------------------------------------------------- */
@@ -116,22 +133,13 @@
       var p = dia.value.split('-'), d = new Date(+p[0], +p[1] - 1, +p[2]), r = HORAS[d.getDay()];
       hora.disabled = false;
       hora.innerHTML = '<option value="">Selecciona una hora…</option>';
-      // Reservas por hora; la última inicia 60 min antes del cierre.
-      var last = null;
-      for (var m = r[0]; m <= r[1] - 60; m += 60) {
+      var first = Math.ceil(r[0] / 60) * 60;
+      for (var m = first; m <= r[1] - 60; m += 60) {
         var o = document.createElement('option');
         o.value = fmtMin(m); o.textContent = fmtMin(m);
         hora.appendChild(o);
-        last = m;
       }
-      // Garantiza el bloque final hasta el cierre (cierre − 60),
-      // aunque caiga fuera de la rejilla de :30 (p. ej. 22:00 en L–V).
-      if (last === null || last < r[1] - 60) {
-        var oc = document.createElement('option');
-        oc.value = fmtMin(r[1] - 60); oc.textContent = fmtMin(r[1] - 60);
-        hora.appendChild(oc);
-      }
-      if (hintHora) hintHora.textContent = 'Abierto ese día: ' + fmtMin(r[0]) + ' – ' + fmtMin(r[1]) + '. Reservas por hora.';
+      if (hintHora) hintHora.textContent = 'Abierto ese día: ' + fmtMin(r[0]) + '–' + fmtMin(r[1]);
     }
 
     function upd() {

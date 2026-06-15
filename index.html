@@ -70,7 +70,7 @@
     <a href="#inicio" class="nav-logo" aria-label="PeriSquash inicio">
       <picture>
         <source srcset="assets/images/logo-perisquash.webp" type="image/webp">
-        <img src="assets/images/logo-perisquash.png" alt="" width="40" height="40">
+        <img src="assets/images/logo-perisquash.png" alt="" width="52" height="52">
       </picture>
       <span class="nav-logo-text"><span class="peri">Peri</span><span class="squash">Squash</span></span>
     </a>
@@ -82,7 +82,7 @@
       <a href="#ubicacion">Ubicación</a>
       <a href="https://wa.me/525541739456?text=Hola%2C%20quiero%20reservar%20una%20cancha%20en%20PeriSquash" target="_blank" rel="noopener" class="nav-cta" id="navReserveBtn">WhatsApp</a>
     </div>
-    <button class="mobile-menu" id="mobileMenuBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">☰</button>
+    <button class="mobile-menu" id="mobileMenuBtn" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">☰</button>
   </nav>
 
   <!-- ===================== HERO ===================== -->
@@ -321,7 +321,7 @@
         </div>
 
         <div class="rcard reveal d1">
-          <span class="section-eyebrow" style="color:var(--blue)">Vista previa</span>
+          <span class="section-eyebrow">Vista previa</span>
           <div class="bubble empty" id="bubble">Llena los campos y aquí verás el mensaje que se enviará a Don Roger…</div>
           <div class="bflow"><b>Hoy:</b> esto manda una solicitud, no aparta el horario por sí solo. Más adelante se puede conectar una hoja de disponibilidad para agrisar horarios ocupados.</div>
         </div>
@@ -409,17 +409,26 @@
   <!-- ===================== FOOTER ===================== -->
   <footer>
     <div class="footer-container">
-      <div class="footer-brand">
+      <div class="footer-column footer-brand">
         <span class="foot-logo"><span class="peri">Peri</span><span class="squash">Squash</span></span>
         <p>Squash en Coapa, Tlalpan, desde hace más de 13 años. No es lujo — es squash bien hecho.</p>
       </div>
-      <nav class="footer-links" aria-label="Enlaces del pie">
-        <a href="#canchas">Canchas</a>
-        <a href="#donroger">Don Roger</a>
-        <a href="#horarios">Horarios</a>
-        <a href="#reserva">Reservar</a>
-        <a href="#ubicacion">Ubicación</a>
-      </nav>
+      <div class="footer-column">
+        <p class="footer-heading">Navegación</p>
+        <nav class="footer-links" aria-label="Enlaces del pie">
+          <a href="#canchas">Canchas</a>
+          <a href="#donroger">Don Roger</a>
+          <a href="#horarios">Horarios</a>
+          <a href="#reserva">Reservar</a>
+          <a href="#ubicacion">Ubicación</a>
+        </nav>
+      </div>
+      <div class="footer-column footer-contact">
+        <p class="footer-heading">Contacto</p>
+        <p>Teléfono: <a href="tel:+525541739456">55 4173 9456</a></p>
+        <p>WhatsApp: <a href="https://wa.me/525541739456" target="_blank" rel="noopener">wa.me/525541739456</a></p>
+        <p>Vicente Guerrero 7, San Bartolo el Chico, Tlalpan, 14380, CDMX</p>
+      </div>
     </div>
     <div class="footer-copyright">
       <p>© 2026 PeriSquash · Vicente Guerrero 7, San Bartolo el Chico, Tlalpan, 14380, CDMX · Tel: 55 4173 9456</p>
