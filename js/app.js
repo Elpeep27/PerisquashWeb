@@ -76,7 +76,7 @@
 
   /* 3. Menú móvil -------------------------------------------------------- */
   var menuBtn = document.getElementById('mobileMenuBtn');
-  var navLinks = document.getElementById('navLinks');
+  var navLinks = document.getElementById('mobileNavLinks');
   function closeMenu() {
     if (!menuBtn || !navLinks) return;
     navLinks.classList.remove('open');
