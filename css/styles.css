@@ -223,7 +223,7 @@ a:hover { color: var(--blue-hover); }
 
 /* 7. Hero (oscuro, duotono + parallax sutil) ----------------------------- */
 .hero {
-  position: relative; min-height: 100vh;
+  position: relative; min-height: 100vh; min-height: 100svh; min-height: 100dvh;
   display: flex; align-items: center;
   padding: 8rem 6vw 5rem; overflow: hidden;
   background-color: var(--charcoal); z-index: 20;
@@ -368,7 +368,7 @@ a:hover { color: var(--blue-hover); }
 .roger-portrait img { width: 100%; height: 100%; object-fit: cover; }
 .roger-tag {
   position: absolute; left: 1.1rem; top: 1.1rem;
-  background: rgba(250,249,245,0.92); backdrop-filter: blur(6px);
+  background: rgba(250,249,245,0.92); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
   border: 1px solid var(--border); border-radius: 100px;
   padding: 0.4rem 0.95rem; font-size: 0.72rem; font-weight: 700;
   text-transform: uppercase; letter-spacing: 0.1em; color: var(--blue-deep);
@@ -407,17 +407,26 @@ a:hover { color: var(--blue-hover); }
 .time-block { display: inline-block; background-color: var(--white); border: 1px solid var(--border); padding: 0.4rem 1rem; border-radius: 6px; color: var(--teal); font-weight: 600; }
 
 /* 13. Reserva (solicitud por WhatsApp + vista previa) -------------------- */
-.resv { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 1.6rem; align-items: start; max-width: 980px; margin: 0 auto; }
-.rcard { background-color: var(--white); border: 1px solid var(--border); border-radius: 18px; padding: 1.8rem; box-shadow: 0 16px 50px -28px rgba(30,58,107,0.3); }
+.resv { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 1.6rem; align-items: start; max-width: 980px; margin: 0 auto; min-width: 0; }
+.resv > * { min-width: 0; }
+.rcard { background-color: var(--white); border: 1px solid var(--border); border-radius: 18px; padding: 1.8rem; box-shadow: 0 16px 50px -28px rgba(30,58,107,0.3); min-width: 0; max-width: 100%; }
 
-.field { display: flex; flex-direction: column; gap: 0.45rem; margin-bottom: 1.2rem; }
+.field { display: flex; flex-direction: column; gap: 0.45rem; margin-bottom: 1.2rem; min-width: 0; }
 .field:last-of-type { margin-bottom: 0; }
 .field label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gray); }
 .field input, .field select {
-  font-family: var(--font-body); font-size: 1rem; color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; color: var(--ink);
   background-color: var(--bone); border: 1px solid var(--border); border-radius: 9px;
-  padding: 0.8rem 1rem; transition: border-color 0.2s ease, box-shadow 0.2s ease; width: 100%;
+  padding: 0.8rem 1rem; transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  width: 100%; max-width: 100%; min-width: 0; box-sizing: border-box;
 }
+.field select,
+.field input[type="date"] {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 9px;
+}
+.field input[type="date"]::-webkit-date-and-time-value { text-align: left; }
 .field input:focus, .field select:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(46,95,191,0.12); }
 .field select:disabled { opacity: 0.6; cursor: not-allowed; }
 .fhint { font-size: 0.75rem; color: var(--gray); margin-top: 0.1rem; }
@@ -434,6 +443,7 @@ a:hover { color: var(--blue-hover); }
   background-color: #E7F8EE; border: 1px solid #BFE9D0; color: #114B2E;
   border-radius: 16px 16px 16px 4px; padding: 1rem 1.1rem;
   font-size: 0.9rem; white-space: pre-wrap; min-height: 150px; line-height: 1.5;
+  max-width: 100%; min-width: 0; overflow-wrap: anywhere; word-break: break-word;
 }
 .bubble.empty { color: var(--gray); background-color: var(--surface); border-color: var(--border); }
 .bflow { margin-top: 1rem; font-size: 0.82rem; color: var(--gray); line-height: 1.5; }
@@ -525,7 +535,7 @@ footer::after {
 .reveal.d3 { transition-delay: 0.24s; }
 
 /* 18. Popovers (overlay único, contenido inyectado por JS) --------------- */
-.pop-ov { position: fixed; inset: 0; z-index: 10000; background: rgba(20,28,46,0.55); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; padding: 20px; opacity: 0; visibility: hidden; transition: opacity 0.25s ease, visibility 0.25s ease; }
+.pop-ov { position: fixed; inset: 0; z-index: 10000; background: rgba(20,28,46,0.55); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; padding: 20px; opacity: 0; visibility: hidden; transition: opacity 0.25s ease, visibility 0.25s ease; }
 .pop-ov.show { opacity: 1; visibility: visible; }
 .pop { position: relative; background: var(--bone); border: 1px solid var(--border); border-radius: 20px; max-width: 460px; width: 100%; max-height: 86vh; overflow: auto; padding: 1.8rem; transform: scale(0.94) translateY(10px); transition: transform 0.3s cubic-bezier(0.2,0.9,0.3,1.2); box-shadow: 0 30px 70px -20px rgba(20,33,68,0.5); }
 .pop-ov.show .pop { transform: none; }
@@ -606,7 +616,7 @@ footer::after {
     border-color: var(--border);
   }
 
-  .hero { padding: 7rem 6vw 4rem; text-align: center; }
+  .hero { min-height: 100vh; min-height: 100svh; min-height: 100dvh; padding: 7rem 6vw 4rem; text-align: center; }
   .hero-content { margin: 0 auto; }
   .hero-rating { justify-content: center; }
   .hero-buttons { flex-direction: column; width: 100%; }
@@ -619,7 +629,7 @@ footer::after {
   .roger-portrait { max-width: 360px; margin: 0 auto; width: 100%; }
   .roger-perks { grid-template-columns: 1fr; }
   .resv { grid-template-columns: 1fr; }
-  .rcard { padding: 1.4rem; }
+  .rcard { padding: 1.4rem; width: 100%; }
   .reviews-grid { grid-template-columns: 1fr; gap: 1.6rem; }
   .ubicacion-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .map-container { height: 280px; order: 2; }
