@@ -64,7 +64,7 @@
     <div class="hero-photo-bg" id="heroBg">
       <picture>
         <source srcset="assets/images/cancha-juego.webp" type="image/webp">
-        <img src="assets/images/cancha-juego.jpg" alt="Partido de squash en una cancha de madera de PeriSquash" fetchpriority="high" width="1094" height="736">
+        <img src="assets/images/cancha-juego.jpg" alt="Partido de squash en una cancha de madera de PeriSquash" id="heroimg" fetchpriority="high" width="1094" height="736">
       </picture>
     </div>
     <div class="hero-grid-overlay" aria-hidden="true"></div>
@@ -98,16 +98,16 @@
   <div class="stats-bar" id="stats">
     <div class="stats-inner">
       <div class="stat-item reveal">
-        <div class="stat-num" data-target="13" data-suffix="+">13+</div>
+        <div class="stat-num"><span data-count="13">0</span></div>
         <div class="stat-label">Años en Coapa</div>
       </div>
       <div class="stat-item reveal d1">
-        <div class="stat-num" data-target="4.6" data-decimals="1" data-suffix="★">4.6★</div>
+        <div class="stat-num"><span data-count="4.6" data-dec="1">0</span> <span class="star" aria-hidden="true">★</span></div>
         <div class="stat-label">Estrellas en Google</div>
       </div>
       <div class="stat-item reveal d2">
-        <div class="stat-num" data-target="68" data-suffix="">68</div>
-        <div class="stat-label">Reseñas</div>
+        <div class="stat-num"><span data-count="68">0</span></div>
+        <div class="stat-label">Reseñas reales</div>
       </div>
     </div>
   </div>
@@ -167,7 +167,7 @@
       </div>
 
       <div class="cta-wrapper reveal">
-        <button class="btn btn-outline" id="btnReglas" type="button">Reglas en 1 minuto</button>
+        <button class="btn btn-outline" type="button" data-pop="reglas">Reglas en 1 minuto</button>
         <a href="#reserva" class="btn btn-fill">Reservar una cancha</a>
       </div>
     </div>
@@ -244,7 +244,7 @@
       </div>
 
       <div class="cta-wrapper reveal">
-        <button class="btn btn-outline" id="btnTarifas" type="button">Ver tarifas</button>
+        <button class="btn btn-outline" type="button" data-pop="tarifas">Ver tarifas</button>
       </div>
     </div>
   </section>
@@ -258,61 +258,48 @@
         <p class="section-desc reveal">Elige cancha, día y hora. Te armamos un mensaje de WhatsApp para Don Roger con tu solicitud. Él confirma la disponibilidad — no es un cobro en línea.</p>
       </header>
 
-      <form class="reserva-card reveal" id="reservaForm" novalidate>
-        <div class="reserva-grid">
-          <!-- Cancha -->
-          <div class="field full">
-            <label>1. Elige tu cancha <span class="hint">(numeración por confirmar)</span></label>
-            <div class="court-options" role="radiogroup" aria-label="Cancha">
-              <div class="court-option">
-                <input type="radio" name="cancha" id="court1" value="Cancha 1" checked>
-                <label for="court1"><span class="court-name">Cancha 1</span><span class="court-meta">Piso de madera</span></label>
-              </div>
-              <div class="court-option">
-                <input type="radio" name="cancha" id="court2" value="Cancha 2">
-                <label for="court2"><span class="court-name">Cancha 2</span><span class="court-meta">Piso de madera</span></label>
-              </div>
-              <div class="court-option">
-                <input type="radio" name="cancha" id="court3" value="Cancha 3">
-                <label for="court3"><span class="court-name">Cancha 3</span><span class="court-meta">Piso de madera</span></label>
-              </div>
-            </div>
-          </div>
-
-          <!-- Día -->
+      <div class="resv">
+        <div class="rcard reveal">
           <div class="field">
-            <label for="reservaDia">2. Día</label>
-            <select id="reservaDia" name="dia">
-              <option value="L-V">Entre semana (Lun–Vie)</option>
-              <option value="SAB">Sábado</option>
-              <option value="DOM">Domingo</option>
+            <label for="cancha">Cancha</label>
+            <select id="cancha">
+              <option value="">Selecciona…</option>
+              <option>Cancha 1</option>
+              <option>Cancha 2</option>
+              <option>Cancha 3</option>
             </select>
-            <span class="hint">Las horas se ajustan al horario de ese día.</span>
+            <div class="fhint">* Número y nombres de canchas: <span class="badge-confirmar">por confirmar</span></div>
           </div>
 
-          <!-- Nombre -->
           <div class="field">
-            <label for="reservaNombre">Tu nombre <span class="hint">(opcional)</span></label>
-            <input type="text" id="reservaNombre" name="nombre" placeholder="Ej. Carlos" autocomplete="name">
+            <label for="dia">Día</label>
+            <input type="date" id="dia">
           </div>
 
-          <!-- Horas -->
-          <div class="field full">
-            <label>3. Hora</label>
-            <div class="time-slots" id="timeSlots" role="radiogroup" aria-label="Hora de juego">
-              <!-- Generado por app.js según el día -->
-              <span class="slot-empty">Selecciona un día para ver los horarios.</span>
-            </div>
+          <div class="field">
+            <label for="hora">Hora</label>
+            <select id="hora" disabled><option value="">Primero elige un día…</option></select>
+            <div class="fhint" id="hint-hora">Solo se muestran horas en que el club está abierto ese día.</div>
           </div>
+
+          <div class="field">
+            <label for="nombre">A nombre de (opcional)</label>
+            <input type="text" id="nombre" placeholder="Tu nombre" autocomplete="name">
+          </div>
+
+          <a class="btn btn-wa" id="enviar" aria-disabled="true" href="#" target="_blank" rel="noopener" style="width:100%">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.4.5-.3.3c-.1.1-.3.3-.1.5.1.3.7 1.1 1.4 1.7.9.8 1.7 1.1 2 1.2.2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.6-.1l1.9.9c.3.1.4.2.5.3.1.2.1.7-.1 1.3z"/></svg>
+            Enviar por WhatsApp
+          </a>
+          <p class="rnote">Se confirma por WhatsApp con <b>Don Roger</b>. No se cobra en línea.</p>
         </div>
 
-        <p class="reserva-note" id="reservaSummary">Renta de cancha: <strong>$350 MXN</strong> por hora. Otras tarifas <span class="badge-confirmar">por confirmar</span>. Tu reserva es una solicitud; Don Roger confirma disponibilidad y forma de pago por WhatsApp.</p>
-
-        <div class="reserva-actions">
-          <button type="submit" class="btn btn-fill" id="reservaSubmit">Enviar solicitud por WhatsApp</button>
-          <span class="hint" id="reservaHint" aria-live="polite"></span>
+        <div class="rcard reveal d1">
+          <span class="section-eyebrow" style="color:var(--blue)">Vista previa</span>
+          <div class="bubble empty" id="bubble">Llena los campos y aquí verás el mensaje que se enviará a Don Roger…</div>
+          <div class="bflow"><b>Hoy:</b> esto manda una solicitud, no aparta el horario por sí solo. Más adelante se puede conectar una hoja de disponibilidad para agrisar horarios ocupados.</div>
         </div>
-      </form>
+      </div>
     </div>
   </section>
 
@@ -414,45 +401,11 @@
     </div>
   </footer>
 
-  <!-- ===================== POPOVERS ===================== -->
-  <div class="popover-modal" id="modalReglas" role="dialog" aria-modal="true" aria-labelledby="modalReglasTitle">
-    <div class="modal-backdrop" data-close="modalReglas"></div>
-    <div class="modal-card">
-      <button class="modal-close" aria-label="Cerrar" data-close="modalReglas">&times;</button>
-      <div class="modal-content">
-        <h2 id="modalReglasTitle">Reglas básicas en 1 minuto</h2>
-        <ul class="modal-list">
-          <li><strong>Pared frontal:</strong> la pelota debe pegar en la pared frontal, arriba de la lámina inferior (tin) y abajo de la línea superior, antes de tocar el piso.</li>
-          <li><strong>Un bote máximo:</strong> debes golpear la pelota antes de que rebote por segunda vez en el piso.</li>
-          <li><strong>Paredes laterales:</strong> la pelota puede rebotar en las paredes antes de llegar al frente, mientras no toque el piso primero.</li>
-          <li><strong>Puntuación:</strong> sets a 11 puntos, suma quien gana el rally. Si hay empate a 10, se gana por 2 de diferencia.</li>
-          <li><strong>Seguridad (let):</strong> si tu oponente está en la trayectoria de tu golpe, detén la jugada y repite el punto.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="popover-modal" id="modalTarifas" role="dialog" aria-modal="true" aria-labelledby="modalTarifasTitle">
-    <div class="modal-backdrop" data-close="modalTarifas"></div>
-    <div class="modal-card">
-      <button class="modal-close" aria-label="Cerrar" data-close="modalTarifas">&times;</button>
-      <div class="modal-content">
-        <h2 id="modalTarifasTitle">Tarifas del club</h2>
-        <div class="modal-table-wrapper">
-          <table class="modal-table">
-            <thead><tr><th>Servicio</th><th>Costo</th></tr></thead>
-            <tbody>
-              <tr><td><strong>Renta de cancha (por hora)</strong></td><td>$350 MXN</td></tr>
-              <tr><td><strong>Clase con instructor</strong></td><td>— <span class="badge-confirmar">por confirmar</span></td></tr>
-              <tr><td><strong>Renta de raqueta</strong></td><td>— <span class="badge-confirmar">por confirmar</span></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="modal-note">Las tarifas no confirmadas se actualizarán con Don Roger. Escríbenos por WhatsApp para conocer precios vigentes.</p>
-        <div style="text-align:center; margin-top:1.4rem;">
-          <a href="https://wa.me/525541739456?text=Hola%2C%20quiero%20consultar%20las%20tarifas%20de%20PeriSquash" target="_blank" rel="noopener" class="btn btn-fill" id="tarifasWhatsAppBtn">Consultar por WhatsApp</a>
-        </div>
-      </div>
+  <!-- ===================== POPOVER (overlay único) ===================== -->
+  <div class="pop-ov" id="popov" aria-hidden="true">
+    <div class="pop" role="dialog" aria-modal="true">
+      <button class="pop-x" aria-label="Cerrar">&times;</button>
+      <div class="pop-body"></div>
     </div>
   </div>
 

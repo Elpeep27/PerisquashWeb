@@ -218,6 +218,7 @@ nav.scrolled .mobile-menu { color: var(--blue-deep); }
   background: linear-gradient(120deg, var(--cyan), #6fb6ef);
   -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
 }
+.stat-num .star { -webkit-text-fill-color: var(--yellow); color: var(--yellow); }
 .stat-label { font-size: 0.72rem; color: rgba(232,236,242,0.6); text-transform: uppercase; letter-spacing: 0.18em; margin-top: 0.55rem; font-weight: 600; }
 
 /* 9. Secciones claras ----------------------------------------------------- */
@@ -243,7 +244,7 @@ nav.scrolled .mobile-menu { color: var(--blue-deep); }
   will-change: transform;
 }
 .card-img-wrapper { width: 100%; height: 280px; overflow: hidden; }
-.card-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+.card-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.45s cubic-bezier(0.2,0.8,0.3,1); }
 .card-overlay {
   position: absolute; inset: 0; z-index: 2;
   background: linear-gradient(0deg, rgba(30,58,107,0.92) 0%, rgba(30,58,107,0.15) 70%);
@@ -252,11 +253,14 @@ nav.scrolled .mobile-menu { color: var(--blue-deep); }
 }
 .card-overlay h3 { color: var(--white); font-size: 1.3rem; margin-bottom: 0.35rem; }
 .card-overlay p { color: var(--cyan); font-size: 0.9rem; font-weight: 500; }
+/* pop-pop: la tarjeta se eleva + la imagen hace zoom */
 @media (hover: hover) {
-  .photo-card:hover { transform: scale(1.08); z-index: 60; box-shadow: 0 26px 54px -18px rgba(30,58,107,0.42); }
+  .photo-card:hover { transform: scale(1.04); z-index: 60; box-shadow: 0 26px 54px -18px rgba(30,58,107,0.42); }
+  .photo-card:hover img { transform: scale(1.13); }
   .photo-card:hover .card-overlay { opacity: 1; }
 }
-.photo-card.zoom { transform: scale(1.08); z-index: 60; box-shadow: 0 26px 54px -18px rgba(30,58,107,0.42); }
+.photo-card.zoom { transform: scale(1.04); z-index: 60; box-shadow: 0 26px 54px -18px rgba(30,58,107,0.42); }
+.photo-card.zoom img { transform: scale(1.13); }
 .photo-card.zoom .card-overlay { opacity: 1; }
 
 .cta-wrapper { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
@@ -309,55 +313,38 @@ nav.scrolled .mobile-menu { color: var(--blue-deep); }
 .horarios-table tbody tr:hover { background-color: rgba(46,95,191,0.025); }
 .time-block { display: inline-block; background-color: var(--white); border: 1px solid var(--border); padding: 0.4rem 1rem; border-radius: 6px; color: var(--teal); font-weight: 600; }
 
-/* 13. Reserva (solicitud por WhatsApp) ----------------------------------- */
-.reserva-card {
-  background-color: var(--white); border: 1px solid var(--border); border-radius: 18px;
-  padding: 2.6rem; max-width: 900px; margin: 0 auto;
-  box-shadow: 0 16px 50px -24px rgba(30,58,107,0.3);
-}
-.reserva-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6rem; }
-.field { display: flex; flex-direction: column; gap: 0.5rem; }
-.field.full { grid-column: 1 / -1; }
+/* 13. Reserva (solicitud por WhatsApp + vista previa) -------------------- */
+.resv { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 1.6rem; align-items: start; max-width: 980px; margin: 0 auto; }
+.rcard { background-color: var(--white); border: 1px solid var(--border); border-radius: 18px; padding: 1.8rem; box-shadow: 0 16px 50px -28px rgba(30,58,107,0.3); }
+
+.field { display: flex; flex-direction: column; gap: 0.45rem; margin-bottom: 1.2rem; }
+.field:last-of-type { margin-bottom: 0; }
 .field label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gray); }
-.field .hint { font-size: 0.75rem; color: var(--muted); font-weight: 400; text-transform: none; letter-spacing: 0; }
 .field input, .field select {
   font-family: var(--font-body); font-size: 1rem; color: var(--ink);
   background-color: var(--bone); border: 1px solid var(--border); border-radius: 9px;
   padding: 0.8rem 1rem; transition: border-color 0.2s ease, box-shadow 0.2s ease; width: 100%;
 }
 .field input:focus, .field select:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(46,95,191,0.12); }
+.field select:disabled { opacity: 0.6; cursor: not-allowed; }
+.fhint { font-size: 0.75rem; color: var(--gray); margin-top: 0.1rem; }
 
-/* Selector de cancha tipo pill */
-.court-options { display: flex; gap: 0.8rem; flex-wrap: wrap; }
-.court-option { position: relative; flex: 1 1 140px; }
-.court-option input { position: absolute; opacity: 0; pointer-events: none; }
-.court-option label {
-  display: block; cursor: pointer; text-align: left;
-  background-color: var(--bone); border: 1px solid var(--border); border-radius: 11px;
-  padding: 0.9rem 1rem; transition: border-color 0.2s ease, background-color 0.2s ease;
-  text-transform: none; letter-spacing: 0; color: var(--ink);
+/* Botón WhatsApp */
+.btn-wa { background-color: #25D366; color: #0b2e1a; font-weight: 700; box-shadow: 0 4px 15px rgba(37,211,102,0.3); margin-top: 0.4rem; }
+.btn-wa:hover { background-color: #1eb858; color: #0b2e1a; transform: translateY(-3px); box-shadow: 0 8px 25px rgba(37,211,102,0.45); }
+.btn-wa[aria-disabled="true"] { opacity: 0.5; pointer-events: none; box-shadow: none; }
+.rnote { font-size: 0.78rem; color: var(--gray); text-align: center; margin-top: 0.9rem; }
+.rnote b { color: var(--ink); }
+
+/* Vista previa (burbuja tipo WhatsApp) */
+.bubble {
+  background-color: #E7F8EE; border: 1px solid #BFE9D0; color: #114B2E;
+  border-radius: 16px 16px 16px 4px; padding: 1rem 1.1rem;
+  font-size: 0.9rem; white-space: pre-wrap; min-height: 150px; line-height: 1.5;
 }
-.court-option input:checked + label { border-color: var(--blue); background-color: rgba(46,95,191,0.06); box-shadow: 0 0 0 1px var(--blue) inset; }
-.court-option input:focus-visible + label { outline: 3px solid var(--cyan); outline-offset: 2px; }
-.court-option .court-name { font-family: var(--font-display); font-weight: 700; font-size: 1rem; color: var(--blue-deep); }
-.court-option .court-meta { font-size: 0.78rem; color: var(--gray); margin-top: 0.15rem; }
-
-/* Grilla de horas */
-.time-slots { display: grid; grid-template-columns: repeat(auto-fill, minmax(86px, 1fr)); gap: 0.6rem; }
-.slot {
-  font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; color: var(--ink);
-  background-color: var(--bone); border: 1px solid var(--border); border-radius: 8px;
-  padding: 0.6rem 0.4rem; cursor: pointer; text-align: center;
-  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
-}
-.slot:hover { border-color: var(--blue); }
-.slot.selected { background-color: var(--blue); border-color: var(--blue); color: var(--white); }
-/* Ocupado: preparado para una hoja de disponibilidad futura */
-.slot.busy { background-color: var(--surface); color: var(--muted); border-style: dashed; cursor: not-allowed; text-decoration: line-through; }
-.slot-empty { font-size: 0.9rem; color: var(--muted); grid-column: 1 / -1; padding: 0.6rem 0; }
-
-.reserva-note { font-size: 0.82rem; color: var(--gray); margin-top: 1.4rem; line-height: 1.6; }
-.reserva-actions { margin-top: 1.6rem; display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+.bubble.empty { color: var(--gray); background-color: var(--surface); border-color: var(--border); }
+.bflow { margin-top: 1rem; font-size: 0.82rem; color: var(--gray); line-height: 1.5; }
+.bflow b { color: var(--ink); }
 
 .badge-confirmar { font-size: 0.66rem; background-color: var(--yellow); color: var(--ink); padding: 0.15rem 0.5rem; border-radius: 4px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-left: 0.4rem; vertical-align: middle; display: inline-block; }
 
@@ -404,24 +391,25 @@ footer { background-color: var(--charcoal); color: var(--white); padding: 4.5rem
 .reveal.d2 { transition-delay: 0.16s; }
 .reveal.d3 { transition-delay: 0.24s; }
 
-/* 18. Popovers / modales -------------------------------------------------- */
-.popover-modal { position: fixed; inset: 0; z-index: 10000; display: flex; align-items: center; justify-content: center; pointer-events: none; opacity: 0; transition: opacity 0.3s ease; }
-.popover-modal.open { pointer-events: all; opacity: 1; }
-.modal-backdrop { position: absolute; inset: 0; background-color: rgba(6,8,12,0.78); backdrop-filter: blur(8px); }
-.modal-card { background-color: var(--bone); border: 1px solid var(--border); width: 90%; max-width: 600px; border-radius: 16px; position: relative; z-index: 10002; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.3); transform: scale(0.93); transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1); }
-.popover-modal.open .modal-card { transform: scale(1); }
-.modal-close { position: absolute; top: 1rem; right: 1.3rem; font-size: 1.8rem; background: none; border: none; color: var(--blue-deep); cursor: pointer; z-index: 10; line-height: 1; }
-.modal-content { padding: 2.8rem 2.4rem; max-height: 85vh; overflow-y: auto; }
-.modal-content h2 { font-size: 1.7rem; margin-bottom: 1.4rem; }
-.modal-list { list-style: none; display: flex; flex-direction: column; gap: 1.1rem; }
-.modal-list li { position: relative; padding-left: 1.7rem; font-size: 1rem; line-height: 1.6; }
-.modal-list li::before { content: '\1F3F8'; position: absolute; left: 0; top: 0.1rem; font-size: 0.85rem; }
-.modal-table-wrapper { margin-top: 1.4rem; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
-.modal-table { width: 100%; border-collapse: collapse; background-color: var(--surface); }
-.modal-table th, .modal-table td { padding: 1rem 1.2rem; border-bottom: 1px solid var(--border); font-size: 0.95rem; text-align: left; }
-.modal-table tr:last-child td { border-bottom: none; }
-.modal-table th { background-color: rgba(30,58,107,0.04); color: var(--blue-deep); font-weight: 700; }
-.modal-note { margin-top: 1.1rem; font-size: 0.85rem; color: var(--gray); line-height: 1.5; }
+/* 18. Popovers (overlay único, contenido inyectado por JS) --------------- */
+.pop-ov { position: fixed; inset: 0; z-index: 10000; background: rgba(20,28,46,0.55); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; padding: 20px; opacity: 0; visibility: hidden; transition: opacity 0.25s ease, visibility 0.25s ease; }
+.pop-ov.show { opacity: 1; visibility: visible; }
+.pop { position: relative; background: var(--bone); border: 1px solid var(--border); border-radius: 20px; max-width: 460px; width: 100%; max-height: 86vh; overflow: auto; padding: 1.8rem; transform: scale(0.94) translateY(10px); transition: transform 0.3s cubic-bezier(0.2,0.9,0.3,1.2); box-shadow: 0 30px 70px -20px rgba(20,33,68,0.5); }
+.pop-ov.show .pop { transform: none; }
+.pop-x { position: absolute; top: 12px; right: 14px; width: 34px; height: 34px; border: none; background: var(--surface); border-radius: 50%; font-size: 22px; color: var(--gray); cursor: pointer; line-height: 1; }
+.pop-x:hover { background: var(--border); color: var(--ink); }
+.pop h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.5rem; color: var(--blue-deep); margin-bottom: 0.5rem; }
+.pop p { color: var(--gray); font-size: 0.95rem; margin-bottom: 1rem; }
+.pop li b { color: var(--ink); }
+.pop-list { margin: 0 0 1.1rem; padding-left: 1.1rem; color: var(--ink); }
+.pop-list li { margin-bottom: 0.55rem; font-size: 0.92rem; line-height: 1.5; }
+.pop-list i { color: var(--teal); }
+.pop-specs { list-style: none; margin: 0 0 1.1rem; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+.pop-specs li { display: flex; justify-content: space-between; padding: 0.7rem 1rem; font-size: 0.9rem; gap: 0.6rem; }
+.pop-specs li + li { border-top: 1px solid var(--border); }
+.pop-specs span { color: var(--gray); }
+.pop-specs b { color: var(--ink); }
+.pop-pc { display: inline-block; background: var(--surface); color: var(--gray); font-size: 0.72rem; padding: 2px 8px; border-radius: 10px; border: 1px dashed var(--border); }
 
 /* 19. Responsive ---------------------------------------------------------- */
 @media (max-width: 1024px) {
@@ -455,8 +443,8 @@ footer { background-color: var(--charcoal); color: var(--white); padding: 4.5rem
   .roger-grid { grid-template-columns: 1fr; gap: 2rem; }
   .roger-portrait { max-width: 360px; margin: 0 auto; width: 100%; }
   .roger-perks { grid-template-columns: 1fr; }
-  .reserva-card { padding: 1.8rem 1.4rem; }
-  .reserva-grid { grid-template-columns: 1fr; }
+  .resv { grid-template-columns: 1fr; }
+  .rcard { padding: 1.4rem; }
   .reviews-grid { grid-template-columns: 1fr; gap: 1.6rem; }
   .ubicacion-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .map-container { height: 280px; order: 2; }
