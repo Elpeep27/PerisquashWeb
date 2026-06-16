@@ -109,7 +109,7 @@
   /* 4. Reserva ----------------------------------------------------------- */
   // Minutos de apertura por día de la semana (getDay: 0=Dom … 6=Sáb)
   // Dom 7:00–15:00 · Lun-Vie 6:30–23:00 · Sáb 8:00–14:00
-  var TEL = '52555454578'; // Número de WhatsApp (con código de país, sin signos ni espacios)
+  var TEL = '525554545578'; // Número de WhatsApp (con código de país, sin signos ni espacios)
   var HORAS = { 0: [420, 900], 1: [390, 1380], 2: [390, 1380], 3: [390, 1380], 4: [390, 1380], 5: [390, 1380], 6: [480, 840] };
   var cancha = document.getElementById('cancha'),
       dia = document.getElementById('dia'),
