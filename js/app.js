@@ -145,11 +145,12 @@
     function upd() {
       var ok = cancha.value && dia.value && hora.value;
       if (ok) {
-        var msg = 'Hola Don Roger 👋\nQuiero apartar una cancha:\n\n🏟 Cancha: ' + cancha.value +
-          '\n📅 Día: ' + fmtFecha(dia.value) +
-          '\n🕐 Hora: ' + hora.value +
-          (nombre && nombre.value ? ('\n👤 A nombre de: ' + nombre.value) : '') +
-          '\n\n¿Me confirmas si está disponible? ¡Gracias!';
+        var msg = 'Hola Don Roger \u{1F44B}\nQuiero apartar una cancha:\n\n' +
+  '\u{1F3DF}\uFE0F Cancha: ' + cancha.value +
+  '\n\u{1F4C5} Día: ' + fmtFecha(dia.value) +
+  '\n\u{1F550} Hora: ' + hora.value +
+  (nombre && nombre.value ? ('\n\u{1F464} A nombre de: ' + nombre.value) : '') +
+  '\n\n¿Me confirmas si está disponible? ¡Gracias!';
         bubble.textContent = msg;
         bubble.classList.remove('empty');
         btn.href = 'https://wa.me/' + TEL + '?text=' + encodeURIComponent(msg);
