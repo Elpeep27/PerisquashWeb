@@ -234,7 +234,7 @@ a:hover { color: var(--blue-hover); }
   background-image:
     linear-gradient(105deg, rgba(12,14,17,0.78) 0%, rgba(12,14,17,0.55) 46%, rgba(16,24,36,0.40) 100%),
     radial-gradient(circle at 82% 22%, rgba(46,95,191,0.28), transparent 55%),
-    url('../assets/images/fondo-inicio_cancha.jpg');
+    url('../assets/images/fondo-inicio_cancha.jpg?v=2');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
