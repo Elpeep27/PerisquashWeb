@@ -19,11 +19,11 @@
   <meta name="twitter:card" content="summary_large_image">
 
   <!-- Favicons -->
-  <link rel="icon" href="assets/images/logo-perisquash.png" type="image/png">
-  <link rel="apple-touch-icon" href="assets/images/logo-perisquash.png">
+  <link rel="icon" href="assets/images/logo-perisquash-v2.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/images/logo-perisquash-v2.png">
 
   <!-- LCP hero image preload -->
-  <link rel="preload" as="image" href="assets/images/cancha-juego.webp" type="image/webp" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/images/hero-cancha.jpg" type="image/jpeg" fetchpriority="high">
 
   <!-- Fuentes auto-hospedadas (sin dependencia de Google Fonts; @font-face con font-display:swap).
        No se precargan a propósito: compiten con el render crítico y el texto se pinta con la
@@ -68,10 +68,7 @@
   <!-- ===================== NAV ===================== -->
   <nav id="mainNav">
     <a href="#inicio" class="nav-logo" aria-label="PeriSquash inicio">
-      <picture>
-        <source srcset="assets/images/logo-perisquash.webp" type="image/webp">
-        <img src="assets/images/logo-perisquash.png" alt="" width="52" height="52">
-      </picture>
+      <img src="assets/images/logo-perisquash-v2.png" alt="" width="52" height="52">
       <span class="nav-logo-text"><span class="peri">Peri</span><span class="squash">Squash</span></span>
     </a>
     <div class="nav-links nav-links-desktop" id="navLinksDesktop">
@@ -96,10 +93,7 @@
   <!-- ===================== HERO ===================== -->
   <section class="hero" id="inicio">
     <div class="hero-photo-bg" id="heroBg">
-      <picture>
-        <source srcset="assets/images/cancha-juego.webp" type="image/webp">
-        <img src="assets/images/cancha-juego.jpg" alt="Partido de squash en una cancha de madera con pared de vidrio en PeriSquash" id="heroimg" fetchpriority="high" width="1019" height="790">
-      </picture>
+      <img src="assets/images/hero-cancha.jpg" alt="Jugador de squash en acción en una cancha de madera con pared de cristal — PeriSquash" id="heroimg" fetchpriority="high" width="1200" height="1600">
     </div>
     <div class="hero-grid-overlay" aria-hidden="true"></div>
 
@@ -160,12 +154,9 @@
       </header>
 
       <div class="photos-grid">
-        <div class="photo-card reveal" tabindex="0" aria-label="Partido en cancha con piso de madera">
+        <div class="photo-card reveal" tabindex="0" aria-label="Jugador de squash en acción en cancha de madera">
           <div class="card-img-wrapper">
-            <picture>
-              <source srcset="assets/images/cancha-juego.webp" type="image/webp">
-              <img src="assets/images/cancha-juego.jpg" alt="Jugadores en una cancha de squash con piso de madera" loading="lazy" width="600" height="465" decoding="async">
-            </picture>
+            <img src="assets/images/hero-cancha.jpg" alt="Jugador de squash en acción en una cancha de madera con pared de cristal — PeriSquash" loading="lazy" width="1200" height="1600" decoding="async">
           </div>
           <div class="card-overlay">
             <h3>En cancha</h3>
@@ -173,29 +164,23 @@
           </div>
         </div>
 
-        <div class="photo-card reveal d1" tabindex="0" aria-label="Clase de squash con instructor">
+        <div class="photo-card reveal d1" tabindex="0" aria-label="Comunidad de jugadores de PeriSquash">
           <div class="card-img-wrapper">
-            <picture>
-              <source srcset="assets/images/cancha-clase.webp" type="image/webp">
-              <img src="assets/images/cancha-clase.jpg" alt="Clase de squash con instructor en PeriSquash" loading="lazy" width="600" height="400" decoding="async">
-            </picture>
+            <img src="assets/images/comunidad.jpg" alt="Grupo de jugadores de squash posando en la cancha de PeriSquash" loading="lazy" width="960" height="1280" decoding="async">
           </div>
           <div class="card-overlay">
-            <h3>Clases y práctica</h3>
-            <p>Consejos y entrenamiento para todos los niveles.</p>
+            <h3>Comunidad</h3>
+            <p>Jugadores de todos los niveles y torneos locales desde hace más de 13 años.</p>
           </div>
         </div>
 
-        <div class="photo-card reveal d2" tabindex="0" aria-label="Fachada del club PeriSquash">
+        <div class="photo-card reveal d2" tabindex="0" aria-label="Raquetas de squash listas en la cancha">
           <div class="card-img-wrapper">
-            <picture>
-              <source srcset="assets/images/fachada.webp" type="image/webp">
-              <img src="assets/images/fachada.jpg" alt="Fachada amarilla de PeriSquash en Coapa" loading="lazy" width="600" height="400" decoding="async">
-            </picture>
+            <img src="assets/images/raquetas.jpg" alt="Hilera de raquetas de squash recargadas junto a la pared de cristal — PeriSquash" loading="lazy" width="960" height="1180" decoding="async">
           </div>
           <div class="card-overlay">
-            <h3>Nuestro club</h3>
-            <p>En Vicente Guerrero 7, Coapa, Tlalpan.</p>
+            <h3>El alma del juego</h3>
+            <p>Raquetas y pelotas a la mano para cuando llegas a jugar.</p>
           </div>
         </div>
       </div>
@@ -211,11 +196,9 @@
   <section class="section alt" id="donroger">
     <div class="section-container">
       <div class="roger-grid">
-        <!-- Sin foto real de Don Roger todavía: placeholder honesto y marcado -->
-        <div class="roger-portrait placeholder reveal" role="img" aria-label="Retrato de Don Roger (pendiente)">
+        <div class="roger-portrait reveal">
           <span class="roger-tag">🤝 El alma del club</span>
-          <div class="roger-monogram" aria-hidden="true">DR</div>
-          <p class="photo-note">Foto de Don Roger — por confirmar</p>
+          <img src="assets/images/don-roger.jpg" alt="Don Roger con la comunidad de jugadores en una cancha de PeriSquash" width="1280" height="960" loading="lazy" decoding="async" style="object-position: 62% center;">
         </div>
 
         <div>
