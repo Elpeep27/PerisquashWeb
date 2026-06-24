@@ -615,6 +615,13 @@ footer::after {
 .tienda-item-feature { background: linear-gradient(135deg, rgba(46,95,191,0.08), rgba(60,200,232,0.08)); border-color: rgba(46,95,191,0.25); }
 .tienda-item-feature svg { color: var(--teal); }
 
+/* Failsafe: ningún ícono inline debe desbordarse aunque falte su regla de
+   tamaño exacto. Tope de seguridad — las reglas específicas de arriba siguen
+   mandando; esto solo evita que un SVG se infle si pierde su clase. */
+.nos-fact-icon svg, .svc-icon svg, .t-icon svg,
+.tienda-item svg, .footer-social svg,
+.btn svg, .perk svg { max-width: 32px; max-height: 32px; }
+
 /* 22. Galería ------------------------------------------------------------- */
 .galeria-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; margin-bottom: 3rem; }
 .gal-item { position: relative; margin: 0; border-radius: 14px; overflow: hidden; border: 1px solid var(--border); background: var(--charcoal); aspect-ratio: 4 / 3; box-shadow: 0 4px 20px rgba(0,0,0,0.04); }
