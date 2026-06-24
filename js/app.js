@@ -209,4 +209,132 @@
     ov.addEventListener('click', function (e) { if (e.target === ov) closePop(); });
     window.addEventListener('keydown', function (e) { if (e.key === 'Escape' && ov.classList.contains('show')) closePop(); });
   }
+
+  /* 6. Galería — carrusel accesible (scroll-snap + flechas/dots/autoplay) - */
+  // Mejora progresiva: sin JS el track sigue siendo deslizable; con JS se
+  // activan flechas, dots, contador y autoplay (con play/pausa). El autoplay
+  // se detiene en hover, foco, pestaña oculta, al reproducir el video o si el
+  // usuario prefiere menos movimiento.
+  var gal = document.getElementById('galCarousel');
+  if (gal) {
+    var galTrack = document.getElementById('galTrack');
+    var galSlides = Array.prototype.slice.call(galTrack.children);
+    var galPrev = gal.querySelector('.gal-prev');
+    var galNext = gal.querySelector('.gal-next');
+    var galDotsWrap = document.getElementById('galDots');
+    var galCur = document.getElementById('galCur');
+    var galTot = document.getElementById('galTot');
+    var galPlay = gal.querySelector('.gal-play');
+    var galN = galSlides.length;
+    var galI = 0;
+    var galTimer = null;
+    var GAL_DELAY = 5200;
+    var ICON_PLAY = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
+    var ICON_PAUSE = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>';
+    function pad2(x) { return (x < 10 ? '0' : '') + x; }
+
+    // Intención del usuario (wantAuto) vs. condiciones ambientales
+    var wantAuto = !reduce, galHover = false, galFocus = false, videoPlaying = false, galInView = false;
+
+    gal.classList.add('is-ready');
+    if (galTot) galTot.textContent = pad2(galN);
+    // Sin movimiento: no hay autoplay, así que el botón de play sobra
+    if (reduce && galPlay) galPlay.style.display = 'none';
+
+    // Construye los dots
+    var galDots = [];
+    galSlides.forEach(function (s, i) {
+      var d = document.createElement('button');
+      d.type = 'button';
+      d.className = 'gal-dot' + (i === 0 ? ' is-active' : '');
+      d.setAttribute('aria-label', 'Ir a la foto ' + (i + 1) + ' de ' + galN);
+      d.addEventListener('click', function () { wantAuto = false; go(i); });
+      galDotsWrap.appendChild(d);
+      galDots.push(d);
+    });
+
+    function reflect() {
+      galSlides.forEach(function (s, i) {
+        var on = i === galI;
+        s.classList.toggle('is-active', on);
+        var v = s.querySelector('video');
+        if (v && !on && !v.paused) v.pause(); // pausa el video al salir de su slide
+      });
+      galDots.forEach(function (d, i) {
+        d.classList.toggle('is-active', i === galI);
+        if (i === galI) d.setAttribute('aria-current', 'true'); else d.removeAttribute('aria-current');
+      });
+      if (galCur) galCur.textContent = pad2(galI + 1);
+    }
+
+    function go(i, instant) {
+      galI = (i + galN) % galN;
+      var s = galSlides[galI];
+      var left = s.getBoundingClientRect().left - galTrack.getBoundingClientRect().left + galTrack.scrollLeft;
+      galTrack.scrollTo({ left: left, behavior: (instant || reduce) ? 'auto' : 'smooth' });
+      reflect();
+      evaluate();
+    }
+
+    // Sincroniza el índice cuando el usuario desliza/scrollea a mano
+    if ('IntersectionObserver' in window) {
+      var galIo = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting && e.intersectionRatio >= 0.6) {
+            var i = galSlides.indexOf(e.target);
+            if (i > -1 && i !== galI) { galI = i; reflect(); }
+          }
+        });
+      }, { root: galTrack, threshold: [0.6] });
+      galSlides.forEach(function (s) { galIo.observe(s); });
+
+      // El autoplay solo corre cuando el carrusel está a la vista
+      var galVis = new IntersectionObserver(function (entries) {
+        galInView = entries[0].isIntersecting;
+        evaluate();
+      }, { threshold: 0.4 });
+      galVis.observe(gal);
+    } else {
+      galInView = true;
+    }
+
+    // Autoplay: se arma solo cuando todas las condiciones lo permiten
+    function galStep() { go(galI + 1); }
+    function evaluate() {
+      var should = wantAuto && !reduce && galInView && !galHover && !galFocus && !document.hidden && !videoPlaying;
+      if (should && !galTimer) galTimer = setInterval(galStep, GAL_DELAY);
+      else if (!should && galTimer) { clearInterval(galTimer); galTimer = null; }
+      if (galPlay) {
+        galPlay.setAttribute('aria-pressed', String(wantAuto));
+        galPlay.setAttribute('aria-label', wantAuto ? 'Pausar presentación' : 'Reproducir presentación');
+        galPlay.innerHTML = wantAuto ? ICON_PAUSE : ICON_PLAY;
+      }
+    }
+
+    // Controles
+    galPrev.addEventListener('click', function () { wantAuto = false; go(galI - 1); });
+    galNext.addEventListener('click', function () { wantAuto = false; go(galI + 1); });
+    if (galPlay) galPlay.addEventListener('click', function () { wantAuto = !wantAuto; evaluate(); });
+    gal.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); wantAuto = false; go(galI - 1); }
+      else if (e.key === 'ArrowRight') { e.preventDefault(); wantAuto = false; go(galI + 1); }
+    });
+
+    // Pausa por hover / foco / pestaña oculta / video en reproducción
+    gal.addEventListener('pointerenter', function () { galHover = true; evaluate(); });
+    gal.addEventListener('pointerleave', function () { galHover = false; evaluate(); });
+    gal.addEventListener('focusin', function () { galFocus = true; evaluate(); });
+    gal.addEventListener('focusout', function (e) { if (!gal.contains(e.relatedTarget)) { galFocus = false; evaluate(); } });
+    document.addEventListener('visibilitychange', evaluate);
+    galSlides.forEach(function (s) {
+      var v = s.querySelector('video');
+      if (!v) return;
+      v.addEventListener('play', function () { videoPlaying = true; evaluate(); });
+      v.addEventListener('pause', function () { videoPlaying = false; evaluate(); });
+      v.addEventListener('ended', function () { videoPlaying = false; evaluate(); });
+    });
+
+    reflect();
+    evaluate();
+  }
 })();

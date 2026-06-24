@@ -622,22 +622,89 @@ footer::after {
 .tienda-item svg, .footer-social svg,
 .btn svg, .perk svg { max-width: 32px; max-height: 32px; }
 
-/* 22. Galería ------------------------------------------------------------- */
-.galeria-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; margin-bottom: 3rem; }
-.gal-item { position: relative; margin: 0; border-radius: 14px; overflow: hidden; border: 1px solid var(--border); background: var(--charcoal); aspect-ratio: 4 / 3; box-shadow: 0 4px 20px rgba(0,0,0,0.04); }
-.gal-item img, .gal-item video { width: 100%; height: 100%; object-fit: cover; display: block; }
-.gal-item figcaption {
-  position: absolute; left: 0; right: 0; bottom: 0; padding: 0.7rem 0.95rem;
-  font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
-  color: var(--white); background: linear-gradient(0deg, rgba(21,24,27,0.82), transparent);
-  pointer-events: none;
+/* 22. Galería — carrusel (scroll-snap nativo + flechas/dots/autoplay) ----- */
+.gal-carousel { position: relative; margin-bottom: 2.2rem; }
+.gal-viewport {
+  position: relative; overflow: hidden; border-radius: 16px;
+  border: 1px solid var(--border); background: var(--charcoal);
+  box-shadow: 0 20px 54px -30px rgba(30,58,107,0.45);
 }
-@media (hover: hover) { .gal-item:not(.gal-video):hover img { transform: scale(1.06); } }
-.gal-item:not(.gal-video) img { transition: transform 0.45s cubic-bezier(0.2,0.8,0.3,1); }
-/* El video ocupa más ancho y su título va arriba para no tapar los controles */
-.gal-video { aspect-ratio: 16 / 9; grid-column: span 2; background: #000; }
-.gal-video video { object-fit: contain; }
-.gal-video figcaption { top: 0; bottom: auto; background: linear-gradient(180deg, rgba(21,24,27,0.82), transparent); }
+.gal-track {
+  display: flex; margin: 0; padding: 0; list-style: none;
+  overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.gal-track::-webkit-scrollbar { display: none; }
+.cslide { position: relative; flex: 0 0 100%; margin: 0; scroll-snap-align: center; scroll-snap-stop: always; }
+.cslide-media { position: relative; width: 100%; aspect-ratio: 16 / 10; overflow: hidden; background: var(--charcoal); }
+.cslide-media img, .cslide-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cslide-video .cslide-media video { object-fit: contain; background: #000; }
+.cslide-cap {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 3;
+  display: flex; align-items: baseline; gap: 0.7rem; padding: 2.6rem 1.6rem 1.25rem;
+  color: var(--white); pointer-events: none;
+  background: linear-gradient(0deg, rgba(21,24,27,0.88) 0%, rgba(21,24,27,0.18) 62%, transparent 100%);
+  font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.82rem;
+}
+.cslide-kicker { font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; letter-spacing: 0; color: var(--cyan); }
+/* En el video, el rótulo va arriba para no tapar los controles */
+.cslide-video .cslide-cap {
+  top: 0; bottom: auto; padding: 1.2rem 1.6rem 2.4rem;
+  background: linear-gradient(180deg, rgba(21,24,27,0.9) 0%, rgba(21,24,27,0.18) 62%, transparent 100%);
+}
+
+/* Ken Burns sutil: solo la diapositiva activa, nunca el video */
+@media (prefers-reduced-motion: no-preference) {
+  .gal-carousel.is-ready .cslide.is-active:not(.cslide-video) img { animation: galZoom 7s ease-out forwards; }
+}
+@keyframes galZoom { from { transform: scale(1.001); } to { transform: scale(1.07); } }
+
+/* Flechas (dentro del viewport, sobre la imagen) */
+.gal-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 6;
+  width: 48px; height: 48px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(250,249,245,0.92); color: var(--blue-deep);
+  border: 1px solid rgba(221,219,211,0.7); cursor: pointer;
+  box-shadow: 0 10px 26px -12px rgba(20,33,68,0.55);
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+.gal-arrow:hover { background: var(--cyan); color: var(--ink); transform: translateY(-50%) scale(1.06); }
+.gal-prev { left: 14px; }
+.gal-next { right: 14px; }
+
+/* Barra de control: play/pausa + dots + contador */
+.gal-ui { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 1.15rem; flex-wrap: wrap; }
+.gal-play {
+  width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--border);
+  background: var(--white); color: var(--blue-deep); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+.gal-play:hover { background: var(--cyan); color: var(--ink); border-color: var(--cyan); }
+.gal-dots { display: flex; align-items: center; gap: 0.5rem; }
+.gal-dot {
+  width: 9px; height: 9px; padding: 0; border: none; border-radius: 50%;
+  background: var(--border); cursor: pointer;
+  transition: background-color 0.25s ease, width 0.25s ease, border-radius 0.25s ease;
+}
+.gal-dot:hover { background: var(--blue-light); }
+.gal-dot.is-active { width: 26px; border-radius: 5px; background: var(--cyan); }
+.gal-count { font-family: var(--font-display); font-weight: 700; font-size: 0.85rem; letter-spacing: 0.06em; color: var(--gray); }
+.gal-count b { color: var(--blue-deep); }
+
+/* Degradación elegante sin JS: la tira sigue siendo deslizable, sin controles */
+.gal-carousel:not(.is-ready) .gal-arrow,
+.gal-carousel:not(.is-ready) .gal-ui { display: none; }
+
+@media (max-width: 768px) {
+  .cslide-media { aspect-ratio: 4 / 5; }
+  .cslide-video .cslide-media { aspect-ratio: 16 / 10; }
+  .gal-arrow { width: 40px; height: 40px; }
+  .gal-prev { left: 8px; }
+  .gal-next { right: 8px; }
+}
 
 /* 19. Responsive ---------------------------------------------------------- */
 @media (max-width: 1024px) {
