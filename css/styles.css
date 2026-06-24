@@ -191,7 +191,7 @@ a:hover { color: var(--blue-hover); }
 
 .nav-links-desktop {
   display: flex;
-  gap: 2.4rem;
+  gap: 1.5rem;
   align-items: center;
   flex-wrap: nowrap;
 }
@@ -559,6 +559,50 @@ footer::after {
 .pop-specs span { color: var(--gray); }
 .pop-specs b { color: var(--ink); }
 .pop-pc { display: inline-block; background: var(--surface); color: var(--gray); font-size: 0.72rem; padding: 2px 8px; border-radius: 10px; border: 1px dashed var(--border); }
+
+/* 21. Secciones nuevas: Nosotros · Servicios · Torneos · Tienda ----------- */
+/* Nosotros */
+.nos-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.4rem; margin-bottom: 3rem; }
+.nos-fact { display: flex; gap: 1rem; align-items: flex-start; background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem 1.4rem; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
+.nos-fact-icon { flex-shrink: 0; width: 46px; height: 46px; border-radius: 12px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--blue), var(--cyan)); color: var(--white); }
+.nos-fact-icon svg { width: 24px; height: 24px; }
+.nos-fact h3 { font-size: 1.08rem; margin-bottom: 0.3rem; color: var(--blue-deep); }
+.nos-fact p { font-size: 0.9rem; color: var(--gray); line-height: 1.55; }
+
+/* Servicios */
+.svc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
+.svc-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 1.8rem; box-shadow: 0 4px 20px rgba(0,0,0,0.03); transition: transform 0.35s cubic-bezier(0.2,0.8,0.3,1), box-shadow 0.35s ease, border-color 0.35s ease; }
+@media (hover: hover) { .svc-card:hover { transform: translateY(-5px); border-color: var(--blue); box-shadow: 0 20px 44px -20px rgba(30,58,107,0.34); } }
+.svc-icon { width: 50px; height: 50px; border-radius: 13px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--blue), var(--cyan)); color: var(--white); margin-bottom: 1.15rem; }
+.svc-icon svg { width: 27px; height: 27px; }
+.svc-card h3 { font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--blue-deep); }
+.svc-card p { color: var(--gray); font-size: 0.94rem; line-height: 1.6; }
+.svc-price { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+.price-tag { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 0.4rem 0.75rem; font-size: 0.82rem; font-weight: 600; color: var(--teal); }
+
+/* Torneos */
+.torneos-card {
+  display: flex; gap: 1.6rem; align-items: flex-start; flex-wrap: wrap;
+  background: linear-gradient(135deg, var(--blue-deep) 0%, var(--blue) 100%);
+  color: var(--white); border-radius: 20px; padding: 2.6rem 2.4rem;
+  box-shadow: 0 22px 56px -26px rgba(30,58,107,0.55);
+}
+.torneos-card .t-icon { flex-shrink: 0; width: 56px; height: 56px; border-radius: 15px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.14); color: var(--white); }
+.torneos-card .t-icon svg { width: 30px; height: 30px; }
+.torneos-card > div { flex: 1; min-width: 240px; }
+.t-badge { display: inline-block; margin-bottom: 0.85rem; background: var(--cyan); color: var(--ink); font-weight: 700; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.32rem 0.85rem; border-radius: 100px; }
+.torneos-card h3 { color: var(--white); font-size: clamp(1.3rem, 3vw, 1.6rem); margin-bottom: 0.6rem; }
+.torneos-card p { color: rgba(232,236,242,0.88); font-size: 1.02rem; max-width: 62ch; }
+.torneos-card p strong { color: var(--white); }
+
+/* Tienda */
+.tienda-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; }
+.tienda-item { display: flex; align-items: center; gap: 0.8rem; background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.1rem; transition: border-color 0.3s ease, transform 0.3s ease; }
+@media (hover: hover) { .tienda-item:hover { border-color: var(--cyan); transform: translateY(-2px); } }
+.tienda-item svg { width: 24px; height: 24px; color: var(--blue); flex-shrink: 0; }
+.tienda-item span { font-weight: 600; color: var(--ink); font-size: 0.94rem; }
+.tienda-item-feature { background: linear-gradient(135deg, rgba(46,95,191,0.08), rgba(60,200,232,0.08)); border-color: rgba(46,95,191,0.25); }
+.tienda-item-feature svg { color: var(--teal); }
 
 /* 19. Responsive ---------------------------------------------------------- */
 @media (max-width: 1024px) {
