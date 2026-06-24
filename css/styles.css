@@ -258,6 +258,13 @@ a:hover { color: var(--blue-hover); }
   background: linear-gradient(120deg, var(--cyan), var(--blue-light));
   -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
 }
+.hero-slogan {
+  display: inline-block; font-family: var(--font-display); font-weight: 800;
+  font-size: clamp(1.05rem, 2.4vw, 1.4rem); letter-spacing: -0.01em;
+  background: linear-gradient(120deg, var(--cyan), var(--blue-light));
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  margin-bottom: 0.6rem;
+}
 .hero-subtitle { font-size: 1.45rem; font-weight: 500; color: var(--bone); margin-bottom: 0.9rem; }
 .hero-desc { font-size: 1.1rem; color: rgba(232,236,242,0.72); margin-bottom: 1.8rem; max-width: 560px; }
 .hero-rating { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 2.3rem; flex-wrap: wrap; }

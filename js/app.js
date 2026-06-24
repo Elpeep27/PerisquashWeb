@@ -108,9 +108,9 @@
 
   /* 4. Reserva ----------------------------------------------------------- */
   // Minutos de apertura por día de la semana (getDay: 0=Dom … 6=Sáb)
-  // Dom 7:00–15:00 · Lun-Vie 6:30–23:00 · Sáb 8:00–14:00
+  // Lun-Vie 6:00–22:00 · Sáb y Dom 7:00–18:00
   var TEL = '525554545578'; // Número de WhatsApp (con código de país, sin signos ni espacios)
-  var HORAS = { 0: [420, 900], 1: [390, 1380], 2: [390, 1380], 3: [390, 1380], 4: [390, 1380], 5: [390, 1380], 6: [480, 840] };
+  var HORAS = { 0: [420, 1080], 1: [360, 1320], 2: [360, 1320], 3: [360, 1320], 4: [360, 1320], 5: [360, 1320], 6: [420, 1080] };
   var cancha = document.getElementById('cancha'),
       dia = document.getElementById('dia'),
       hora = document.getElementById('hora'),
@@ -182,10 +182,10 @@
         '<li>Puede tocar paredes laterales o la trasera, mientras termine en la frontal.</li>' +
         '<li>Se juega a <b>11 puntos</b> (gana por 2), al mejor de 3 o 5.</li>' +
         '<li>Cuida tu swing y deja que tu rival vea la pelota.</li></ul>',
-      tarifas: '<h3>Tarifas</h3><p>Renta de cancha.</p><ul class="pop-specs">' +
-        '<li><span>Cancha · 1 hora</span><b>$350 MXN</b></li>' +
-        '<li><span>Clase con instructor</span><b><span class="pop-pc">por confirmar</span></b></li>' +
-        '<li><span>Renta de raqueta</span><b><span class="pop-pc">por confirmar</span></b></li></ul>'
+      tarifas: '<h3>Tarifas</h3><p>Renta de cancha por hora.</p><ul class="pop-specs">' +
+        '<li><span>Cancha · 1 hora (prepagada)</span><b>$300 MXN</b></li>' +
+        '<li><span>Cancha · 1 hora (casual)</span><b>$330 MXN</b></li>' +
+        '<li><span>Raqueta para principiantes</span><b>Préstamo de cortesía</b></li></ul>'
     };
     var openPop = function (k) {
       if (!POPS[k]) return;
