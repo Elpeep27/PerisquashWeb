@@ -2,7 +2,7 @@
 
 ## Contexto del Proyecto
 
-PeriSquash es un club de squash ubicado en Vicente Guerrero 7, Coapa, San Bartolo el Chico, Tlalpan 14380, CDMX. Tiene más de 13 años de operación, calificación 4.6 en Google (67+ reseñas), y es conocido por sus canchas con piso de duela y pared trasera de vidrio, el servicio personalizado de Don Roger, y su comunidad activa de jugadores.
+PeriSquash es un club de squash ubicado en Vicente Guerrero 7, Coapa, San Bartolo el Chico, Tlalpan 14380, CDMX. Tiene más de 16 años de operación, 3 canchas inglesas profesionales, calificación 4.6 en Google (67+ reseñas), y es conocido por sus canchas con piso de duela y pared trasera de vidrio, el servicio personalizado de Don Roger, y su comunidad activa de jugadores.
 
 **Cliente:** PeriSquash (primer cliente de BridgeNode)
 **Desarrollador:** BridgeNode (empresa matriz) / Zenit Security Architects (división de ciberseguridad que asegura los desarrollos)
@@ -93,6 +93,19 @@ perisquash-web/
 
 ## Secciones de la Página (en orden)
 
+> **ESTADO ACTUAL DE PRODUCCIÓN (`index.html`, junio 2026).** El orden vigente de secciones es:
+> `Inicio (hero) → Stats → Nosotros → Canchas → Servicios → Torneos → Tienda → Don Roger → Horarios → Reservar → Galería → Reseñas → Ubicación → Contacto (footer)`.
+>
+> Secciones de contenido añadidas en la pasada de retroalimentación de Don Roger:
+> - **`#nosotros`** — intro del club (16 años, 3 canchas inglesas, atención de Don Roger, comunidad).
+> - **`#servicios`** — 4 tarjetas con íconos SVG: renta por hora ($300 prepagada / $330 casual), retadoras diarias, clases particulares, iniciación y desarrollo técnico.
+> - **`#torneos`** — banner: 2 torneos al año, todas las categorías; agosto = mes de aniversario.
+> - **`#tienda`** — pro shop: raquetas, grips, pelotas, calcetas, bandas y servicio de encordado.
+> - **`#galeria`** — grid responsivo con el material real de `assets/images/` (webp + fallback, `loading="lazy"`) + video `assets/video/perisquash-action.mp4` (`preload="none"`, controles). Botón "Síguenos en Instagram" (solo enlace, sin widget). TODO: foto de las 3 canchas cuando Don Roger la comparta.
+> - **`#contacto`** (footer) — redes sociales solo como enlaces SVG (IG/TikTok/FB), separación WhatsApp/Tel.
+>
+> Las descripciones numeradas abajo son del diseño original y pueden no coincidir con producción.
+
 ### 1. Nav (fixed)
 - Logo PNG real del club (izquierda)
 - Links: El Club, Galería, Horarios, Marcador, FAQ
@@ -110,12 +123,12 @@ perisquash-web/
 - **Dirección:** Link a Google Maps
 - **CTAs:** "Reservar por WhatsApp" (primary) + "Ver Instalaciones" (ghost → ancla a galería)
 - **Phone mockup (desktop):** Simulación de la app Marcador con scores
-- **Float cards:** Rating 4.6 + "13+ años en Coapa"
+- **Float cards:** Rating 4.6 + "16+ años en Coapa"
 - **Scroll indicator:** Flecha animada "Descubre más" que desaparece al scrollear
 - **Animación:** Entrada staggered de cada elemento (word reveal, fadeUp con delays)
 
 ### 3. Stats Bar
-- 4 columnas: "13+ Años" | "4.6★ Estrellas" | "67+ Reseñas" | "6:30 AM Abrimos"
+- 3 columnas: "16+ Años" | "4.6★ Estrellas" | "68+ Reseñas" (producción usa 3, no 4)
 - Counters animados (easeOutCubic) que se activan al entrar en viewport
 
 ### 4. El Club (diferenciadores)
@@ -194,16 +207,26 @@ perisquash-web/
 ```
 Nombre:     PeriSquash
 Dirección:  Vicente Guerrero 7, Coapa, San Bartolo el Chico, Tlalpan 14380, CDMX
-Teléfono:   55 4173 9456
+Antigüedad: Más de 16 años de operación
+Canchas:    3 canchas inglesas profesionales (piso de madera)
+Teléfono:   55 4173 9456  (SOLO "Tel:", nunca como WhatsApp)
+WhatsApp:   55 5454 5578  → https://wa.me/525554545578
 Google:     4.6 estrellas, 67+ reseñas
 Horarios:
-  L-V:      6:30 AM — 11:00 PM
-  Sáb:      8:00 AM — 2:00 PM
-  Dom:      7:00 AM — 3:00 PM
+  L-V:      6:00 AM — 10:00 PM
+  Sáb-Dom:  7:00 AM — 6:00 PM
+Tarifas:    Cancha por hora — $300 MXN prepagada · $330 MXN casual
+Torneos:    2 al año, todas las categorías; agosto = mes de aniversario
 Coords:     19.2836816, -99.1316249
 Maps ID:    ChIJiyMb_Q4BzoURCgK5ocWZmtk
-WhatsApp:   https://wa.me/5554173456?text=Hola%2C%20quiero%20reservar%20una%20cancha%20en%20PeriSquash
+Redes:      Instagram https://www.instagram.com/perisquash_club/
+            TikTok    https://www.tiktok.com/@perisquash
+            Facebook  https://www.facebook.com/profile.php?id=100063724986177
 ```
+
+> **Importante — dos números, nunca mezclar:** WhatsApp = `5554545578` (único destino de botones `wa.me`/`525554545578`). Teléfono = `5541739456` (solo como "Tel:", nunca como WhatsApp).
+>
+> **Raquetas:** Don Roger **presta** una raqueta de cortesía a quienes van empezando (no es renta). La **venta** de raquetas y accesorios se detalla en la sección Tienda.
 
 ### Reseñas reales (Google, textualmente)
 1. "Instalaciones de primer nivel, las canchas están en excelentes condiciones, los baños muy limpios y Don Roger le agrega amenidades que le dan ese toque de comodidad que difícilmente ves en otro lado. Altamente recomendado."
@@ -216,7 +239,7 @@ WhatsApp:   https://wa.me/5554173456?text=Hola%2C%20quiero%20reservar%20una%20ca
 
 ### SEO
 - Title: "PeriSquash — Club de Squash en Coapa, CDMX"
-- Meta description: "Club de squash en Coapa, Tlalpan. Canchas con piso de duela y pared de vidrio. Clases, torneos y comunidad desde hace más de 13 años."
+- Meta description: "Club de squash en Coapa, Tlalpan. Canchas con piso de duela y pared de vidrio. Clases, torneos y comunidad desde hace más de 16 años."
 - Open Graph tags (og:title, og:description, og:image, og:url)
 - Schema.org markup (SportsActivityLocation)
 - Canonical URL
