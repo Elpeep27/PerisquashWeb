@@ -215,6 +215,17 @@ a:hover { color: var(--blue-hover); }
 .nav-cta { background-color: var(--blue) !important; color: var(--white) !important; padding: 0.6rem 1.4rem; border-radius: 6px; box-shadow: 0 4px 14px rgba(46,95,191,0.3); transition: all 0.3s ease !important; }
 .nav-cta:hover { background-color: var(--blue-hover) !important; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(46,95,191,0.45); }
 
+.nav-social { display: flex; align-items: center; gap: 0.25rem; }
+.nav-social a {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 34px; height: 34px; border-radius: 9px;
+  color: rgba(255,255,255,0.82); transition: color 0.25s ease, background-color 0.25s ease;
+}
+.nav-social a:hover { color: var(--cyan); background: rgba(255,255,255,0.10); }
+#mainNav.scrolled .nav-social a { color: var(--ink); }
+#mainNav.scrolled .nav-social a:hover { color: var(--blue); background: rgba(46,95,191,0.08); }
+.nav-social svg { width: 18px; height: 18px; }
+
 .mobile-menu {
   display: none; font-size: 1.7rem; background: none; border: none;
   color: var(--white); cursor: pointer; line-height: 1;
@@ -271,6 +282,17 @@ a:hover { color: var(--blue-hover); }
 .hero-rating .stars { color: var(--yellow); font-size: 1.15rem; letter-spacing: 2px; }
 .hero-rating .rating-text { color: rgba(255,255,255,0.9); font-size: 0.95rem; }
 .hero-buttons { display: flex; gap: 1.2rem; align-items: center; flex-wrap: wrap; }
+.hero-social { display: flex; align-items: center; gap: 0.9rem; margin-top: 2rem; flex-wrap: wrap; }
+.hero-social-label { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.16em; color: rgba(255,255,255,0.65); }
+.hero-social-icons { display: flex; gap: 0.6rem; }
+.hero-social-icons a {
+  width: 40px; height: 40px; border-radius: 11px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16);
+  color: var(--white); transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+.hero-social-icons a:hover { background: var(--cyan); color: var(--ink); border-color: var(--cyan); transform: translateY(-2px); }
+.hero-social-icons svg { width: 20px; height: 20px; }
 
 .scroll-indicator { position: absolute; bottom: 2rem; left: 6vw; display: flex; flex-direction: column; gap: 0.7rem; z-index: 10; transition: opacity 0.4s ease; }
 .indicator-text { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.16em; color: var(--cyan); }
@@ -572,13 +594,29 @@ footer::after {
 .pop-pc { display: inline-block; background: var(--surface); color: var(--gray); font-size: 0.72rem; padding: 2px 8px; border-radius: 10px; border: 1px dashed var(--border); }
 
 /* 21. Secciones nuevas: Nosotros · Servicios · Torneos · Tienda ----------- */
-/* Nosotros */
-.nos-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.4rem; margin-bottom: 3rem; }
-.nos-fact { display: flex; gap: 1rem; align-items: flex-start; background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem 1.4rem; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
-.nos-fact-icon { flex-shrink: 0; width: 46px; height: 46px; border-radius: 12px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--blue), var(--cyan)); color: var(--white); }
-.nos-fact-icon svg { width: 24px; height: 24px; }
-.nos-fact h3 { font-size: 1.08rem; margin-bottom: 0.3rem; color: var(--blue-deep); }
-.nos-fact p { font-size: 0.9rem; color: var(--gray); line-height: 1.55; }
+/* Nosotros — layout editorial (foto + texto) */
+.nos-split { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 3.5rem; align-items: center; }
+.nos-media {
+  position: relative; border-radius: 16px; overflow: hidden;
+  border: 1px solid var(--border); background: var(--surface);
+  aspect-ratio: 4 / 5; box-shadow: 0 14px 40px -16px rgba(30,58,107,0.35);
+}
+.nos-media img { width: 100%; height: 100%; object-fit: cover; }
+.nos-media-tag {
+  position: absolute; left: 1.1rem; top: 1.1rem;
+  background: rgba(250,249,245,0.92); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  border: 1px solid var(--border); border-radius: 100px;
+  padding: 0.4rem 0.95rem; font-size: 0.72rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.1em; color: var(--blue-deep);
+}
+.nos-body h2 { font-size: clamp(2.4rem, 5vw, 3.6rem); margin-bottom: 1rem; }
+.nos-body .section-desc { margin-bottom: 1.7rem; }
+.nos-points { list-style: none; display: grid; gap: 0.9rem; margin-bottom: 1.9rem; }
+.nos-point { display: flex; gap: 0.85rem; align-items: flex-start; }
+.nos-point svg { width: 22px; height: 22px; color: var(--teal); flex-shrink: 0; margin-top: 0.15rem; }
+.nos-point p { font-size: 0.98rem; color: var(--gray); line-height: 1.55; }
+.nos-point strong { color: var(--blue-deep); font-weight: 700; }
+.cta-start { justify-content: flex-start; }
 
 /* Servicios */
 .svc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
@@ -618,9 +656,9 @@ footer::after {
 /* Failsafe: ningún ícono inline debe desbordarse aunque falte su regla de
    tamaño exacto. Tope de seguridad — las reglas específicas de arriba siguen
    mandando; esto solo evita que un SVG se infle si pierde su clase. */
-.nos-fact-icon svg, .svc-icon svg, .t-icon svg,
-.tienda-item svg, .footer-social svg,
-.btn svg, .perk svg { max-width: 32px; max-height: 32px; }
+.nos-point svg, .svc-icon svg, .t-icon svg,
+.tienda-item svg, .footer-social svg, .hero-social-icons svg,
+.nav-social svg, .btn svg, .perk svg { max-width: 32px; max-height: 32px; }
 
 /* 22. Galería — carrusel (scroll-snap nativo + flechas/dots/autoplay) ----- */
 .gal-carousel { position: relative; margin-bottom: 2.2rem; }
@@ -710,6 +748,8 @@ footer::after {
 @media (max-width: 1024px) {
   #mainNav { padding: 0.9rem 1.35rem; }
   #mainNav.scrolled { padding: 0.75rem 2rem; }
+  .nav-links-desktop .nav-social { display: none; }
+  .nos-split { gap: 2.2rem; }
   .roger-grid { gap: 2.2rem; }
   .ubicacion-grid { gap: 2rem; }
   .card-img-wrapper { height: 220px; }
@@ -757,6 +797,8 @@ footer::after {
   }
   .nav-links-mobile a:hover { background-color: rgba(46,95,191,0.06); color: var(--blue) !important; }
   .nav-cta { margin-top: 0.35rem; justify-content: center; }
+  .nav-social-mobile { justify-content: center; gap: 0.5rem; margin-top: 0.6rem; }
+  .nav-links-mobile .nav-social a { width: 46px; height: 46px; padding: 0; border: 1px solid var(--border); }
   .mobile-menu {
     display: inline-flex; align-items: center; justify-content: center;
     width: 48px; height: 48px; z-index: 600;
@@ -771,12 +813,15 @@ footer::after {
   .hero { min-height: 100vh; min-height: 100svh; min-height: 100dvh; padding: 7rem 6vw 4rem; text-align: center; }
   .hero-content { margin: 0 auto; }
   .hero-rating { justify-content: center; }
+  .hero-social { justify-content: center; }
   .hero-buttons { flex-direction: column; width: 100%; }
   .hero-buttons .btn { width: 100%; }
 
   .stats-bar::after { height: 72px; }
   .stats-inner { grid-template-columns: 1fr; gap: 1.8rem; padding: 2.2rem 6vw 3.2rem; }
   .photos-grid { grid-template-columns: 1fr; gap: 2rem; max-width: 480px; margin: 0 auto 3rem; }
+  .nos-split { grid-template-columns: 1fr; gap: 2rem; }
+  .nos-media { max-width: 380px; margin: 0 auto; width: 100%; }
   .roger-grid { grid-template-columns: 1fr; gap: 2rem; }
   .roger-portrait { max-width: 360px; margin: 0 auto; width: 100%; }
   .roger-perks { grid-template-columns: 1fr; }
