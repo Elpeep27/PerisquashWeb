@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Propuesta comercial — Sitio web PeriSquash · BridgeNode</title>
+<meta name="description" content="Propuesta comercial de BridgeNode: sitio web profesional para PeriSquash. Inversión, alcances, hosting y dominio.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="assets/images/logo-bn.png">
+<style>
+  @font-face{
+    font-family:'Bricolage Grotesque';font-style:normal;font-weight:400 800;font-stretch:100%;
+    font-display:swap;src:url('assets/fonts/bricolage-grotesque-latin.woff2') format('woff2');
+  }
+  @font-face{
+    font-family:'Hanken Grotesk';font-style:normal;font-weight:400 700;
+    font-display:swap;src:url('assets/fonts/hanken-grotesk-latin.woff2') format('woff2');
+  }
+  :root{
+    --bone:#FAF8F1; --bone-2:#F1EDE1; --ink:#171A1F; --ink-soft:#565D68;
+    --navy:#1B3A7A; --navy-deep:#12294F; --blue:#2E5FBF; --cyan:#3CC8E8;
+    --gold:#D9A62E; --line:#E4DFD2;
+    --font-display:"Bricolage Grotesque",Georgia,serif;
+    --font-body:"Hanken Grotesk","Segoe UI",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bone);color:var(--ink);font-family:var(--font-body);
+    font-size:1.06rem;line-height:1.65}
+  img{max-width:100%;display:block;height:auto}
+  a{color:var(--navy)}
+  :focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:6px}
+  .skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--bone);padding:.6em 1em;z-index:9}
+  .skip:focus{left:0}
+  .wrap{max-width:880px;margin-inline:auto;padding-inline:22px}
+
+  header.top{background:var(--navy-deep);color:#fff}
+  .top__in{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:14px;flex-wrap:wrap}
+  .top__brand{display:flex;align-items:center;gap:.8rem}
+  .top__brand img{height:48px;width:auto;background:#fff;border-radius:10px;padding:4px 8px}
+  .top__name{font-family:var(--font-display);font-weight:800;font-size:1.3rem}
+  .top__tag{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);font-weight:700}
+  .top__back{color:#fff;font-size:.9rem}
+
+  .hero{background:var(--navy);color:#fff;padding-block:52px 56px}
+  .hero .eyebrow{display:flex;align-items:center;gap:.5em;text-transform:uppercase;letter-spacing:.16em;
+    font-size:.78rem;font-weight:700;color:var(--cyan);margin:0 0 .7em}
+  .hero .eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--cyan)}
+  h1{font-family:var(--font-display);font-weight:800;letter-spacing:-.02em;line-height:1.02;
+    font-size:clamp(2.3rem,5.6vw,3.5rem);margin:0 0 .35em}
+  .hero p{max-width:60ch;color:rgba(255,255,255,.88);margin:.2em 0 0}
+  .hero__meta{margin-top:1.4em!important;font-size:.9rem;color:rgba(255,255,255,.7)!important}
+  .hero__logos{display:flex;align-items:center;gap:18px;margin-top:26px}
+  .hero__logos img{height:64px;width:auto;background:#fff;border-radius:14px;padding:9px 13px}
+  .hero__logos .x{font-family:var(--font-display);font-weight:800;font-size:1.5rem;color:var(--cyan)}
+
+  section.block{padding-block:44px 8px}
+  h2{font-family:var(--font-display);font-weight:800;font-size:1.85rem;line-height:1.05;
+    margin:0 0 .6em;color:var(--navy-deep)}
+  h2 .num{color:var(--blue);margin-right:.35em}
+  .block p{max-width:68ch;color:var(--ink-soft)}
+  .block b{color:var(--ink)}
+  ul.checks{list-style:none;margin:1em 0 0;padding:0;max-width:68ch}
+  ul.checks li{padding:.35em 0 .35em 1.7em;position:relative;color:var(--ink-soft)}
+  ul.checks li::before{content:"✓";position:absolute;left:.2em;color:var(--blue);font-weight:700}
+
+  table{width:100%;border-collapse:collapse;margin-top:1.2em;background:#fff;
+    border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:.98rem}
+  th{background:var(--bone-2);text-align:left;font-family:var(--font-display);font-weight:700;
+    font-size:1rem;padding:.7em .9em;color:var(--navy-deep)}
+  td{padding:.65em .9em;border-top:1px solid var(--line);vertical-align:top;color:var(--ink-soft)}
+  td:first-child{font-weight:700;color:var(--ink);width:42%}
+  .tablewrap{overflow-x:auto}
+
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:1.6em}
+  .plan{background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:24px 20px 22px;
+    display:flex;flex-direction:column;box-shadow:0 22px 44px -36px rgba(23,26,31,.5)}
+  .plan--a{border-color:var(--gold);position:relative}
+  .plan__flag{position:absolute;top:-13px;left:22px;background:var(--gold);color:var(--navy-deep);
+    font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+    padding:.35em .9em;border-radius:999px}
+  .plan h3{font-family:var(--font-display);font-weight:800;font-size:1.18rem;margin:0 0 .1em;color:var(--navy-deep)}
+  .plan__price{font-family:var(--font-display);font-weight:800;font-size:2.1rem;color:var(--blue);margin:.15em 0 0;line-height:1}
+  .plan__per{font-size:.85rem;color:var(--ink-soft);margin:.2em 0 1em}
+  .plan ul{list-style:none;margin:0 0 1.2em;padding:0;font-size:.94rem;flex:1}
+  .plan ul li{padding:.3em 0 .3em 1.6em;position:relative;color:var(--ink-soft)}
+  .plan ul li::before{content:"✓";position:absolute;left:.1em;color:var(--blue);font-weight:700}
+  .plan__note{font-size:.85rem;color:var(--ink-soft);border-top:1px dashed var(--line);padding-top:.9em;margin:0}
+
+  .fine{background:var(--bone-2);border:1px solid var(--line);border-radius:12px;
+    padding:18px 22px;margin-top:1.4em;font-size:.92rem;color:var(--ink-soft)}
+  .fine b{color:var(--ink)}
+
+  .marcador{background:#fff;border:1.5px solid var(--cyan);border-radius:16px;padding:24px 24px 20px;
+    margin-top:1.4em}
+  .marcador h3{font-family:var(--font-display);font-weight:800;margin:0 0 .4em;color:var(--navy-deep)}
+  .marcador p,.marcador li{color:var(--ink-soft);font-size:.96rem}
+
+  .accept{background:var(--navy-deep);color:#fff;border-radius:18px;padding:34px 30px;margin-block:50px 0}
+  .accept h2{color:#fff}
+  .accept p{color:rgba(255,255,255,.85);max-width:none}
+  .accept fieldset{border:0;margin:0 0 1.4em;padding:0}
+  .accept legend{font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--cyan);padding:0;margin-bottom:.7em}
+  .accept__opts{display:flex;gap:14px;flex-wrap:wrap;margin:0}
+  .accept__opt{position:relative;border:1.5px solid rgba(255,255,255,.4);border-radius:12px;
+    padding:.8em 1.2em;font-size:.95rem;cursor:pointer;transition:border-color .15s,background-color .15s}
+  .accept__opt input{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .accept__opt::before{content:"□ ";color:var(--cyan);font-weight:700}
+  .accept__opt:hover{border-color:rgba(255,255,255,.75)}
+  .accept__opt:has(input:checked){border-color:var(--cyan);background:rgba(60,200,232,.16)}
+  .accept__opt:has(input:checked)::before{content:"✓ "}
+  .accept__opt:has(input:focus-visible){outline:3px solid var(--cyan);outline-offset:3px}
+  .accept__opt b{color:var(--cyan)}
+  .accept__error{display:none;font-size:.9rem;color:#C7EFFA;margin:.8em 0 0}
+  .accept__error.is-on{display:block}
+  .accept__alt{font-size:.9rem;margin-top:1.1em}
+  .accept__alt a{color:rgba(255,255,255,.85)}
+  .btn-wa{display:inline-block;background:var(--cyan);color:var(--navy-deep);text-decoration:none;
+    font-weight:700;padding:.75em 1.4em;border-radius:999px;font-size:1rem}
+  .btn-wa:hover{background:#63D6EF}
+  button.btn-wa{border:0;cursor:pointer;font-family:inherit}
+
+  footer.foot{margin-top:56px;border-top:1px solid var(--line);background:var(--bone-2);
+    padding-block:26px;font-size:.88rem;color:var(--ink-soft)}
+  .foot__in{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .foot__in img{height:40px;width:auto}
+
+  @media (max-width:860px){
+    .plans{grid-template-columns:1fr}
+    .plan--a{margin-top:10px}
+  }
+  @media print{
+    header.top .top__back,.btn-wa{display:none}
+    .hero,.accept,header.top{background:#fff!important;color:var(--ink)!important}
+    .hero p,.accept p{color:var(--ink-soft)!important}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#inversion">Saltar a la inversión</a>
+
+<header class="top">
+  <div class="wrap top__in">
+    <div class="top__brand">
+      <img src="assets/images/logo-bn.png" alt="BridgeNode">
+      <div>
+        <div class="top__name">BridgeNode</div>
+        <div class="top__tag">Propuesta comercial</div>
+      </div>
+    </div>
+    <a class="top__back" href="index.html">← Volver a las propuestas de diseño</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Sitio web profesional</p>
+    <h1>PeriSquash</h1>
+    <p>Una página que trabaja para el club: los jugadores lo encuentran en Google, ven canchas,
+       tarifas y horarios claros, y <b>reservan por WhatsApp con un solo toque</b>.</p>
+    <p class="hero__meta">Preparada para: PeriSquash / Don Roger · Coapa, CDMX · Julio 2026</p>
+    <div class="hero__logos" aria-hidden="true">
+      <img src="assets/images/logo-bn.png" alt="">
+      <span class="x">×</span>
+      <img src="assets/images/logo-perisquash-v2.png" alt="">
+    </div>
+  </div>
+</section>
+
+<main>
+  <section class="wrap block">
+    <h2><span class="num">01</span>Quiénes somos</h2>
+    <p><b>BridgeNode</b> es una empresa de desarrollo tecnológico. Nuestro nombre lo dice todo:
+       somos el puente entre las personas y la tecnología. Nos encargamos de todo lo técnico para
+       que nuestros clientes se concentren en lo que mejor saben hacer — en su caso, atender el club.</p>
+    <p>Trabajamos con las últimas tecnologías, incluyendo Inteligencia Artificial, y nuestra
+       división de ciberseguridad <b>Zenit Security Architects</b> garantiza que todo lo que
+       construimos sea seguro.</p>
+  </section>
+
+  <section class="wrap block">
+    <h2><span class="num">02</span>El punto de partida</h2>
+    <p>PeriSquash lleva 17 años en Coapa, tiene 4.6 estrellas en Google con 68 reseñas, canchas
+       con duela y vidrio, y el servicio de Don Roger que todos los jugadores reconocen. Lo que
+       le falta es presencia digital propia para que más gente lo encuentre y reserve fácil.</p>
+    <ul class="checks">
+      <li>Aparecer cuando alguien busque <b>"squash en Coapa"</b> o <b>"club de squash CDMX"</b> en Google.</li>
+      <li>Mostrar canchas, tarifas, horarios y contacto de forma clara.</li>
+      <li>Recibir reservas de cancha por WhatsApp con un solo clic.</li>
+      <li>Diferenciarse de la competencia de la zona sur con su propia página.</li>
+    </ul>
+  </section>
+
+  <section class="wrap block">
+    <h2><span class="num">03</span>Qué incluye</h2>
+    <div class="tablewrap">
+    <table>
+      <tr><th>Concepto</th><th>Detalle</th></tr>
+      <tr><td>Diseño y desarrollo a medida</td><td>Tres direcciones de diseño para elegir; página completa, responsive para celular y computadora.</td></tr>
+      <tr><td>Fotos y video reales del club</td><td>Las canchas, la comunidad y Don Roger — nada de fotos de banco.</td></tr>
+      <tr><td>Logo oficial de PeriSquash</td><td>En la navegación, pie de página y favicon.</td></tr>
+      <tr><td>Tarifas y horarios claros</td><td>$300/$330 por hora, horarios, retadoras y torneos — todo por escrito.</td></tr>
+      <tr><td>Reseñas reales</td><td>Las mejores reseñas de Google con nombre del jugador.</td></tr>
+      <tr><td>Ubicación con mapa</td><td>Mapa de Google integrado con el pin real del club.</td></tr>
+      <tr><td>Botón de WhatsApp</td><td>Reserva de cancha con un solo toque.</td></tr>
+      <tr><td>Optimización para Google (SEO)</td><td>Para que el sitio aparezca en búsquedas de la zona.</td></tr>
+      <tr><td>Certificado de seguridad (HTTPS)</td><td>Candado verde en el navegador.</td></tr>
+      <tr><td>Dominio configurado</td><td>Configuración técnica incluida sin costo.</td></tr>
+    </table>
+    </div>
+
+    <div class="marcador">
+      <h3>App Marcador — acuerdo de colaboración</h3>
+      <p>La app Marcador es propiedad de BridgeNode y <b>no forma parte de esta venta</b>. Proponemos
+         un acuerdo de beneficio mutuo, sin costo para ninguna de las partes:</p>
+      <ul class="checks">
+        <li>PeriSquash promociona la app entre sus jugadores como herramienta disponible en el club.</li>
+        <li>BridgeNode incluye una sección en el sitio que muestra la app como valor agregado de PeriSquash.</li>
+        <li>Ambos ganan: PeriSquash ofrece un diferenciador tecnológico, BridgeNode obtiene usuarios reales.</li>
+      </ul>
+      <p>La app estará disponible próximamente en Google Play Store para descarga gratuita.</p>
+    </div>
+  </section>
+
+  <section class="wrap block" id="inversion">
+    <h2><span class="num">04</span>Inversión</h2>
+    <p><b>★ Precio especial primer cliente aliado</b> — PeriSquash es nuestro primer socio comercial
+       y su sitio servirá como referencia para futuros clientes. Dos planes según el nivel de
+       mantenimiento, y el plan básico con dos formas de pago.</p>
+
+    <div class="plans">
+      <article class="plan plan--a">
+        <span class="plan__flag">Recomendada</span>
+        <h3>Opción A · Plan Básico, de contado</h3>
+        <p class="plan__price">$5,000 <span style="font-size:1rem">MXN</span></p>
+        <p class="plan__per">pago único · sin mensualidades el primer año</p>
+        <ul>
+          <li>Desarrollo completo del sitio</li>
+          <li><b>12 meses de hosting incluidos</b> (servidor, SSL, respaldos)</li>
+          <li><b>Mantenimiento menor:</b> actualizaciones de contenido durante el año (horarios, fotos, torneos)</li>
+        </ul>
+        <p class="plan__note">Pago completo al aceptar la propuesta. Al cumplirse los 12 meses,
+          se renueva por <b>$3,500 MXN/año</b> o se le entrega el sitio al club para manejarlo
+          por su cuenta.</p>
+      </article>
+
+      <article class="plan">
+        <h3>Opción B · Plan Básico, a meses</h3>
+        <p class="plan__price">$600 <span style="font-size:1rem">MXN/mes</span></p>
+        <p class="plan__per">12 mensualidades · total <b>$7,200 MXN</b></p>
+        <ul>
+          <li>Exactamente lo mismo que la Opción A</li>
+          <li>12 meses de hosting y mantenimiento menor incluidos</li>
+          <li>Facilidad de pago: sin desembolso fuerte inicial</li>
+        </ul>
+        <p class="plan__note"><b>Plazo forzoso de 12 meses.</b> Primera mensualidad al aceptar;
+          el sitio se pone en línea al pago de la primera. Al terminar los 12 pagos aplica la
+          misma renovación que la Opción A.</p>
+      </article>
+
+      <article class="plan">
+        <h3>Opción C · Plan Mantenimiento</h3>
+        <p class="plan__price">$3,500 <span style="font-size:1rem">MXN</span></p>
+        <p class="plan__per">de desarrollo <b>+ $400 MXN/mes</b> · primer año: $8,300</p>
+        <ul>
+          <li>Desarrollo del sitio: diseño, SEO, fotos, video, puesta en línea</li>
+          <li><b>Mantenimiento mayor:</b> hosting, SSL, soporte continuo, respaldos y actualizaciones ilimitadas de contenido</li>
+          <li>Atención prioritaria por WhatsApp</li>
+        </ul>
+        <p class="plan__note"><b>Permanencia mínima de 12 meses.</b> La mensualidad inicia al mes
+          siguiente de la puesta en línea; después del primer año continúa mes a mes y puede
+          cancelarse con 30 días de aviso.</p>
+      </article>
+    </div>
+
+    <div class="fine">
+      <b>Mantenimiento menor</b> (Planes Básicos A y B): cambios puntuales de contenido — horarios,
+      precios, contacto, fotos de torneos — con un límite razonable de solicitudes al año.
+      <b>Mantenimiento mayor</b> (Plan C): todo lo anterior sin límite, con soporte continuo,
+      respaldos y atención prioritaria — el club pide y nosotros resolvemos. En ambos casos,
+      <b>funcionalidad nueva</b> (sistema de reservas en línea, tienda en línea, etc.) se cotiza
+      por separado.
+    </div>
+    <div class="fine">
+      <b>Sobre el dominio:</b> el dominio (ej. perisquash.com o perisquash.mx) se registra
+      <b>a nombre de PeriSquash</b> — es del club, no nuestro. Costo aproximado: $200–$350 MXN/año.
+      BridgeNode se encarga de la configuración técnica sin costo adicional.
+    </div>
+  </section>
+
+  <section class="wrap block">
+    <h2><span class="num">05</span>Tiempos de entrega</h2>
+    <p>El sitio <b>ya está desarrollado</b> — puedes verlo funcionando en las tres propuestas de
+       diseño. Solo falta elegir la dirección que más te guste, hacer los ajustes que pidas y
+       ponerlo en línea con el dominio. Estimamos <b>5 a 7 días hábiles</b> desde la aprobación.</p>
+    <div class="fine">
+      <b>Método de pago:</b> transferencia bancaria o depósito; los datos se proporcionan al
+      aceptar la propuesta. · <b>Vigencia:</b> esta propuesta es válida por 30 días naturales
+      a partir de su emisión.
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="accept">
+      <h2>Aceptación</h2>
+      <p>Elige tu opción de pago —y si ya lo decidiste, el diseño— y confírmalo por WhatsApp.
+         El mensaje llega completo y ordenado: solo das “enviar”. Al aceptar quedan aceptados los
+         términos descritos, incluyendo el acuerdo de colaboración de la App Marcador.</p>
+
+      <fieldset>
+        <legend>Opción de pago</legend>
+        <div class="accept__opts">
+          <label class="accept__opt"><input type="radio" name="plan"
+            value="Opción A — Plan Básico de contado · $5,000 MXN pago único (12 meses de hosting y mantenimiento menor incluidos)"><b>Opción A</b> — Plan Básico de contado: $5,000 único</label>
+          <label class="accept__opt"><input type="radio" name="plan"
+            value="Opción B — Plan Básico a meses · 12 × $600 MXN (total $7,200 MXN, plazo forzoso de 12 meses)"><b>Opción B</b> — Plan Básico a meses: 12 × $600 (plazo forzoso)</label>
+          <label class="accept__opt"><input type="radio" name="plan"
+            value="Opción C — Plan Mantenimiento · $3,500 MXN + $400 MXN/mes (permanencia mínima 12 meses)"><b>Opción C</b> — Plan Mantenimiento: $3,500 + $400/mes (mín. 12 meses)</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Propuesta de diseño</legend>
+        <div class="accept__opts">
+          <label class="accept__opt"><input type="radio" name="diseno"
+            value="Propuesta 1 — La directa"><b>1</b> · La directa</label>
+          <label class="accept__opt"><input type="radio" name="diseno"
+            value="Propuesta 2 — La revista"><b>2</b> · La revista</label>
+          <label class="accept__opt"><input type="radio" name="diseno"
+            value="Propuesta 3 — Sin pose"><b>3</b> · Sin pose</label>
+          <label class="accept__opt"><input type="radio" name="diseno"
+            value="Aún por definir — lo platicamos" checked><b>?</b> · Aún lo estoy decidiendo</label>
+        </div>
+      </fieldset>
+
+      <p><button type="button" id="btnAceptar" class="btn-wa">Aceptar por WhatsApp →</button></p>
+      <p class="accept__error" id="acceptError" role="alert">Falta elegir la opción de pago (A, B o C) para armar tu mensaje.</p>
+      <p class="accept__alt">¿Solo tienes dudas? <a href="https://wa.me/525534644412?text=Hola%2C%20vi%20la%20propuesta%20del%20sitio%20de%20PeriSquash%20y%20tengo%20una%20duda%3A%20">Escríbenos por WhatsApp</a> sin compromiso.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <img src="assets/images/logo-bn.png" alt="BridgeNode">
+    <div>
+      <b>BridgeNode</b> — Conectando visiones, construyendo futuro.<br>
+      David Ulloa · CTO / Director de Desarrollo &nbsp;·&nbsp; José Ulloa · COO / Director de Operaciones<br>
+      Seguridad respaldada por Zenit Security Architects.
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var NUMERO = "525534644412";
+  var btn = document.getElementById("btnAceptar");
+  var err = document.getElementById("acceptError");
+
+  document.querySelectorAll('input[name="plan"]').forEach(function(r){
+    r.addEventListener("change", function(){ err.classList.remove("is-on"); });
+  });
+
+  btn.addEventListener("click", function(){
+    var plan = document.querySelector('input[name="plan"]:checked');
+    if(!plan){ err.classList.add("is-on"); return; }
+    var diseno = document.querySelector('input[name="diseno"]:checked');
+    var fecha = new Date().toLocaleDateString("es-MX",{day:"numeric",month:"long",year:"numeric"});
+    var msg = [
+      "✅ ACEPTACIÓN DE PROPUESTA — Sitio web PeriSquash",
+      "",
+      "• Plan elegido: " + plan.value,
+      "• Diseño: " + (diseno ? diseno.value : "Aún por definir"),
+      "• Fecha: " + fecha,
+      "",
+      "Con este mensaje confirmo la opción elegida —incluido el acuerdo de colaboración de la App Marcador— y quedo pendiente de los datos de pago para arrancar."
+    ].join("\n");
+    window.open("https://wa.me/" + NUMERO + "?text=" + encodeURIComponent(msg), "_blank", "noopener");
+  });
+})();
+</script>
+</body>
+</html>
