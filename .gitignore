@@ -7,3 +7,7 @@ node_modules/
 .DS_Store
 Thumbs.db
 *.log
+
+*.msi
+*.exe
+SESION-*-notas.md
