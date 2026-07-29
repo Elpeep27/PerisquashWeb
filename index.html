@@ -3,188 +3,909 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PeriSquash — Tres propuestas de diseño</title>
-<meta name="description" content="Elige entre tres direcciones de diseño para el sitio web de PeriSquash.">
-<meta name="robots" content="noindex, nofollow">
-<link rel="icon" href="assets/images/logo-perisquash-v2.png">
+<title>PeriSquash — Canchas de squash en Coapa, Tlalpan · CDMX</title>
+<meta name="description" content="Club de squash en Coapa, Tlalpan, al sur de la CDMX. Tres canchas inglesas con piso de duela y pared de vidrio. Clases, torneos, retadoras y comunidad desde hace 17 años. Reserva por WhatsApp.">
+<link rel="canonical" href="https://perisquash.com/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="geo.region" content="MX-CMX">
+<meta name="geo.placename" content="Coapa, Tlalpan, Ciudad de México">
+<meta name="geo.position" content="19.2836816;-99.1316249">
+<meta name="ICBM" content="19.2836816, -99.1316249">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PeriSquash">
+<meta property="og:title" content="PeriSquash — Canchas de squash en Coapa, Tlalpan · CDMX">
+<meta property="og:description" content="Tres canchas inglesas con piso de duela y pared de vidrio. Clases, torneos y comunidad desde hace 17 años en el sur de la CDMX.">
+<meta property="og:url" content="https://perisquash.com/">
+<meta property="og:image" content="https://perisquash.com/assets/images/og-image.jpg">
+<meta property="og:image:secure_url" content="https://perisquash.com/assets/images/og-image.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="PeriSquash — canchas de squash con piso de duela en Coapa, sur de la CDMX">
+<meta property="og:locale" content="es_MX">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PeriSquash — Canchas de squash en Coapa, Tlalpan · CDMX">
+<meta name="twitter:description" content="Tres canchas inglesas con piso de duela y pared de vidrio. Clases, torneos y comunidad desde hace 17 años en el sur de la CDMX.">
+<meta name="twitter:image" content="https://perisquash.com/assets/images/og-image.jpg">
+<meta name="twitter:image:alt" content="PeriSquash — canchas de squash con piso de duela en Coapa, sur de la CDMX">
+<meta name="theme-color" content="#1B3A7A">
+<link rel="icon" href="assets/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="apple-mobile-web-app-title" content="PeriSquash">
+<link rel="preload" as="image" href="assets/images/portada-home.webp" type="image/webp" fetchpriority="high">
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/archivo-latin-var.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/archivo-black-latin.woff2" crossorigin>
 <style>
+  /* Fuentes autoalojadas (subconjunto latino) — sin peticiones a Google Fonts */
   @font-face{
-    font-family:'Bricolage Grotesque';font-style:normal;font-weight:400 800;font-stretch:100%;
-    font-display:swap;src:url('assets/fonts/bricolage-grotesque-latin.woff2') format('woff2');
+    font-family:"Archivo";
+    font-style:normal;
+    font-weight:400 700;
+    font-display:swap;
+    src:url("assets/fonts/archivo-latin-var.woff2") format("woff2");
+    unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
   }
   @font-face{
-    font-family:'Hanken Grotesk';font-style:normal;font-weight:400 700;
-    font-display:swap;src:url('assets/fonts/hanken-grotesk-latin.woff2') format('woff2');
+    font-family:"Archivo Black";
+    font-style:normal;
+    font-weight:400;
+    font-display:swap;
+    src:url("assets/fonts/archivo-black-latin.woff2") format("woff2");
+    unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
   }
+</style>
+<style>
   :root{
-    --bone:#FAF8F1; --bone-2:#F1EDE1; --ink:#171A1F; --ink-soft:#565D68;
-    --blue:#2E5FBF; --navy:#1B3A7A; --cyan:#3CC8E8; --gold:#D9A62E; --line:#E4DFD2;
-    --font-display:"Bricolage Grotesque",Georgia,serif;
-    --font-body:"Hanken Grotesk","Segoe UI",system-ui,sans-serif;
+    --white:#FFFFFF; --ink:#10141B; --ink-soft:#4C5563; --paper:#F5F7FA;
+    --blue:#2E5FBF; --navy:#1B3A7A; --cyan:#3CC8E8; --line:#E2E7EE;
+    --font-display:"Archivo Black","Arial Black",system-ui,sans-serif;
+    --font-body:"Archivo","Segoe UI",system-ui,sans-serif;
   }
   *{box-sizing:border-box}
-  body{margin:0;background:var(--bone);color:var(--ink);font-family:var(--font-body);
-    font-size:1.06rem;line-height:1.65}
+  html{scroll-behavior:smooth;color-scheme:light}
+  /* El nav es sticky: sin esto, al saltar a un ancla el título queda debajo de la barra */
+  section[id],footer[id]{scroll-margin-top:84px}
+  a,button,select,input,summary{touch-action:manipulation;-webkit-tap-highlight-color:rgba(46,95,191,.18)}
+  h1,h2,h3{text-wrap:balance}
+  picture{display:contents}
+  /* Con picture en display:contents, <source> pasa a ser hijo directo del grid: hay que ocultarlo */
+  picture source{display:none}
+  body{margin:0;background:var(--white);color:var(--ink);font-family:var(--font-body);
+    font-size:1.045rem;line-height:1.65}
   img{max-width:100%;display:block;height:auto}
-  a{color:var(--navy)}
-  :focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:6px}
-  .skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--bone);padding:.6em 1em;z-index:9}
+  a{color:var(--blue)}
+  :focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
+  .skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:#fff;padding:.6em 1em;z-index:99}
   .skip:focus{left:0}
-  .wrap{max-width:1120px;margin-inline:auto;padding-inline:22px}
+  .wrap{max-width:1140px;margin-inline:auto;padding-inline:22px}
 
-  header.top{border-bottom:1px solid var(--line);background:var(--bone-2)}
-  .top__in{display:flex;align-items:center;gap:.9rem;padding-block:12px}
-  .top__in img{height:48px;width:auto}
-  .brand{font-family:var(--font-display);font-weight:700;font-size:1.25rem}
-  .brand .peri{color:var(--navy)}
-  .brand .squash{color:var(--cyan)}
+  /* ── Nav ── */
+  .nav{position:sticky;top:0;z-index:50;background:var(--white);border-bottom:1px solid var(--line)}
+  .nav__in{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:12px}
+  .nav__logo{display:flex;align-items:center;gap:.6rem;text-decoration:none}
+  .nav__logo img{height:44px;width:auto}
+  .nav__links{display:flex;align-items:center;gap:1.4rem}
+  .nav__links a{color:var(--ink);text-decoration:none;font-weight:600;font-size:.93rem}
+  .nav__links a:hover{color:var(--blue)}
+  .btn{display:inline-block;background:var(--blue);color:#fff;text-decoration:none;font-weight:700;
+    padding:.72em 1.5em;border-radius:6px;font-size:.95rem;transition:background-color .15s;border:0;cursor:pointer;font-family:var(--font-body)}
+  .btn:hover{background:var(--navy);color:#fff}
+  .btn--ghost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.7)}
+  .btn--ghost:hover{background:rgba(255,255,255,.14)}
+  .nav__soc{display:flex;align-items:center;gap:.7rem;padding-left:.3rem;
+    border-left:1px solid var(--line);margin-left:.2rem}
+  .nav__soc a{display:flex;color:var(--ink-soft);padding:4px;border-radius:6px;transition:color .15s}
+  .nav__soc svg{width:19px;height:19px;fill:currentColor;display:block}
+  .nav__soc .soc--ig:hover{color:#E4405F}
+  .nav__soc .soc--tt:hover{color:#111}
+  .nav__soc .soc--fb:hover{color:#1877F2}
+  .nav__toggle{display:none;background:none;border:0;padding:8px;cursor:pointer}
+  .nav__toggle span{display:block;width:24px;height:2.5px;background:var(--ink);margin:5px 0;border-radius:2px}
 
-  .intro{padding-block:52px 20px}
-  .eyebrow{display:flex;align-items:center;gap:.5em;text-transform:uppercase;letter-spacing:.16em;
-    font-size:.78rem;font-weight:700;color:var(--blue);margin:0 0 .6em}
-  .eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--cyan);
-    box-shadow:0 0 0 2.5px rgba(60,200,232,.25)}
-  h1{font-family:var(--font-display);font-weight:800;letter-spacing:-.02em;line-height:1;
-    font-size:clamp(2.4rem,5.6vw,3.7rem);margin:0 0 .3em}
-  .intro p{max-width:64ch;color:var(--ink-soft);margin:.2em 0 0}
-  .intro .note{font-size:.9rem;margin-top:1.1em}
+  /* ── Hero ── */
+  .hero{position:relative;min-height:82vh;display:flex;align-items:flex-end;color:#fff;
+    background:url("assets/images/portada-home.jpg") center 45%/cover no-repeat var(--navy)}
+  /* WebP cuando el navegador lo soporta; si no, se queda con el JPG de arriba */
+  @supports (background-image:image-set(url("x.webp") type("image/webp"))){
+    .hero{background-image:image-set(
+      url("assets/images/portada-home.webp") type("image/webp"),
+      url("assets/images/portada-home.jpg") type("image/jpeg"))}
+  }
+  .hero::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(16,20,27,.25) 0%,rgba(16,20,27,.78) 82%)}
+  .hero__in{position:relative;z-index:1;padding-block:70px 64px;width:100%}
+  .hero h1{font-family:var(--font-display);font-size:clamp(2.6rem,7.2vw,5.4rem);line-height:.98;
+    margin:0 0 .25em;text-transform:uppercase;letter-spacing:-.01em}
+  .hero h1 .sur{color:var(--cyan)}
+  .hero p{max-width:52ch;margin:0 0 1.4em;font-size:1.1rem;color:rgba(255,255,255,.92)}
+  .hero__tag{font-weight:700;color:var(--cyan);text-transform:uppercase;letter-spacing:.14em;font-size:.85rem;margin:0 0 .9em}
+  .hero__ctas{display:flex;gap:14px;flex-wrap:wrap}
+  .hero__chips{display:flex;flex-wrap:wrap;gap:9px;list-style:none;margin:1.5em 0 0;padding:0}
+  .hero__chips li{font-size:.83rem;font-weight:600;color:#fff;padding:.42em 1em;border-radius:999px;
+    background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(2px)}
+  .hero__rule{width:120px;height:5px;background:var(--cyan);margin-bottom:1.2em}
 
-  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;padding-block:34px 60px}
-  .card{background:#FFFFFF;border:1px solid var(--line);border-radius:16px;overflow:hidden;
-    display:flex;flex-direction:column;box-shadow:0 22px 44px -34px rgba(23,26,31,.5)}
-  .card__shot{aspect-ratio:16/10;object-fit:cover;width:100%;border-bottom:1px solid var(--line);
-    background:var(--bone-2)}
-  .card__body{padding:20px 20px 22px;display:flex;flex-direction:column;flex:1}
-  .card__tag{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em}
-  .card h2{font-family:var(--font-display);font-weight:800;font-size:1.55rem;line-height:1.05;margin:.35em 0 .1em}
-  .card__sub{font-size:.93rem;color:var(--ink-soft);margin:.3em 0 1em;flex:1}
-  .card__meta{font-size:.83rem;color:var(--ink-soft);margin:0 0 1em;padding-top:.8em;border-top:1px dashed var(--line)}
-  .card__meta b{color:var(--ink)}
-  .btn{display:inline-block;text-align:center;padding:.7em 1.2em;border-radius:999px;background:var(--navy);
-    color:#fff;text-decoration:none;font-weight:700;font-size:.95rem;transition:transform .15s,background-color .15s}
-  .btn:hover{background:var(--blue);transform:translateY(-1px);color:#fff}
-  .card:nth-child(1) .card__tag{color:var(--blue)}
-  .card:nth-child(2) .card__tag{color:var(--navy)}
-  .card:nth-child(3) .card__tag{color:var(--gold)}
-  .card:nth-child(2) .btn{background:#12294F}
-  .card:nth-child(2) .btn:hover{background:var(--navy)}
-  .card:nth-child(3) .btn{background:var(--ink)}
-  .card:nth-child(3) .btn:hover{background:#000}
+  /* ── Franja de datos ── */
+  .facts{background:var(--navy);color:#fff}
+  .facts__in{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding-block:26px;text-align:center}
+  .facts b{display:block;font-family:var(--font-display);font-size:1.9rem;line-height:1.1}
+  .facts span{font-size:.85rem;text-transform:uppercase;letter-spacing:.12em;color:var(--cyan)}
 
-  .invest{margin-block:0 64px;background:var(--navy);color:#fff;border-radius:18px;
-    padding:34px 34px 36px;display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap}
-  .invest h2{font-family:var(--font-display);font-weight:800;font-size:1.9rem;line-height:1;margin:0 0 .25em}
-  .invest p{margin:0;max-width:52ch;color:rgba(255,255,255,.85)}
-  .invest .btn{background:var(--cyan);color:#12294F}
-  .invest .btn:hover{background:#63D6EF;color:#12294F}
+  /* ── Secciones ── */
+  section.block{padding-block:72px 76px}
+  .block--alt{background:var(--paper)}
+  .kicker{margin:0 0 .5em;font-size:.8rem;font-weight:700;text-transform:uppercase;
+    letter-spacing:.18em;color:var(--blue)}
+  h2{font-family:var(--font-display);font-size:clamp(1.7rem,3.6vw,2.5rem);line-height:1.06;
+    margin:0 0 .5em;text-transform:uppercase}
+  .lead{max-width:62ch;color:var(--ink-soft);margin:0 0 2em}
 
-  footer.foot{border-top:1px solid var(--line);background:var(--bone-2);padding-block:22px;
-    font-size:.85rem;color:var(--ink-soft)}
+  /* Nosotros */
+  .about{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
+  .about img{border-radius:10px;width:100%;height:100%;object-fit:cover;min-height:320px}
+  .about p{color:var(--ink-soft);margin:0 0 1em}
+  .about p b{color:var(--ink)}
+  .about__fig{position:relative;margin:0;height:100%}
+  .about__fig figcaption{position:absolute;left:16px;bottom:16px;right:16px;background:rgba(255,255,255,.94);
+    border-left:4px solid var(--cyan);border-radius:8px;padding:.75em 1em;font-size:.88rem;color:var(--ink-soft)}
+  .about__fig figcaption b{color:var(--ink)}
 
-  .bn-badge{position:fixed;right:14px;bottom:14px;z-index:99;display:flex;align-items:center;gap:8px;
-    padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.9);border:1px solid rgba(23,26,31,.14);
-    backdrop-filter:blur(4px);pointer-events:none;font-weight:700;font-size:.68rem;letter-spacing:.09em;
-    text-transform:uppercase;color:var(--navy)}
-  .bn-badge img{height:20px;width:auto}
+  /* Servicios: tarjetas con foto de fondo */
+  .servicios{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .serv{position:relative;border-radius:10px;overflow:hidden;min-height:400px;
+    display:flex;align-items:flex-end;color:#fff;background:var(--navy)}
+  .serv img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+  .serv:hover img{transform:scale(1.05)}
+  .serv .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,20,27,.08) 30%,rgba(16,20,27,.9) 100%)}
+  .serv .txt{position:relative;padding:22px 20px}
+  .serv h3{font-family:var(--font-display);font-size:1.1rem;text-transform:uppercase;margin:0 0 .4em;line-height:1.2}
+  .serv p{margin:0;font-size:.92rem;color:rgba(255,255,255,.88)}
+  .serv .price{display:block;margin-top:.6em;color:var(--cyan)}
 
-  @media (max-width:860px){.grid{grid-template-columns:1fr;gap:20px}}
-  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+  /* Torneos banner */
+  .torneos{background:var(--navy);color:#fff}
+  .torneos .kicker{color:var(--cyan)}
+  .marquee{overflow:hidden;border-bottom:1px solid rgba(255,255,255,.16);white-space:nowrap;padding:.65em 0}
+  .marquee__track{display:inline-flex;animation:mq 28s linear infinite}
+  .marquee__track span{font-family:var(--font-display);text-transform:uppercase;letter-spacing:.14em;
+    font-size:.85rem;color:var(--cyan);padding-right:.5em}
+  @keyframes mq{to{transform:translateX(-50%)}}
+  .torneos__in{display:grid;grid-template-columns:1.2fr 1fr;gap:34px;align-items:center;padding-block:64px}
+  .torneos p{color:rgba(255,255,255,.9)}
+  .torneos__badge{display:flex;align-items:center;gap:14px;max-width:430px;border:1px solid rgba(255,255,255,.3);
+    border-radius:12px;padding:12px 18px 12px 12px;margin:1.4em 0 1.7em;background:rgba(255,255,255,.06)}
+  .torneos__badge .mes{font-family:var(--font-display);font-size:1.4rem;color:var(--navy);background:var(--cyan);
+    border-radius:8px;padding:.4em .5em;line-height:1;flex:none}
+  .torneos__badge b{color:#fff}
+  .torneos__badge span:last-child{font-size:.92rem;color:rgba(255,255,255,.85)}
+  .torneos img{border-radius:6px;width:100%;height:100%;object-fit:cover;min-height:280px;
+    border:6px solid #fff;box-shadow:0 24px 48px -24px rgba(0,0,0,.6);
+    transform:rotate(-1.4deg);transition:transform .35s}
+  .torneos__in:hover img{transform:rotate(0)}
+
+  /* Galería */
+  .galeria{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:2rem}
+  .galeria figure{margin:0;position:relative;border-radius:10px;overflow:hidden;background:var(--paper)}
+  .galeria figure img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .5s ease}
+  .galeria figure:hover img{transform:scale(1.05)}
+  .galeria figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 11px;color:#fff;
+    font-size:.86rem;font-weight:600;
+    background:linear-gradient(180deg,rgba(16,20,27,0) 0%,rgba(16,20,27,.82) 100%)}
+  .galeria__video{grid-column:1/-1;border-radius:10px;overflow:hidden;background:var(--ink);line-height:0}
+  .galeria__video video{width:100%;max-height:460px;display:block}
+  .galeria__nota{margin:1.5rem 0 0;color:var(--ink-soft);font-size:.95rem}
+
+  /* Tienda */
+  .casa{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:center}
+  .casa img{border-radius:10px;width:100%;height:100%;object-fit:cover;min-height:320px}
+  .shop{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);
+    border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .shop__item{background:var(--white);padding:20px 22px}
+  .shop__item h3{font-family:var(--font-display);font-size:.95rem;text-transform:uppercase;margin:0 0 .4em}
+  .shop__item p{margin:0;font-size:.9rem;color:var(--ink-soft)}
+
+  /* Acordeón */
+  .acc{max-width:820px;border-top:2px solid var(--ink)}
+  .acc__item{border-bottom:1px solid var(--line)}
+  .acc__btn{width:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem;
+    background:none;border:0;cursor:pointer;font:inherit;font-weight:700;font-size:1.15rem;
+    padding:1.05em 4px;color:var(--ink);text-align:left}
+  .acc__btn .plus{font-family:var(--font-display);font-size:1.35rem;color:var(--blue);
+    transition:transform .25s;flex:none}
+  .acc__item.open .plus{transform:rotate(45deg)}
+  .acc__panel{max-height:0;overflow:hidden;transition:max-height .3s ease}
+  .acc__body{padding:0 4px 1.4em;color:var(--ink-soft)}
+  .acc__body dl{margin:0;display:grid;gap:.45em;max-width:440px}
+  .acc__body dl div{display:flex;justify-content:space-between;gap:1rem;border-bottom:1px dashed var(--line);padding-bottom:.4em}
+  .acc__body dt{font-weight:600;color:var(--ink)}
+  .acc__body dd{margin:0}
+  .acc__body ul{margin:.2em 0 0;padding-left:1.2em}
+  .acc__body li{margin-bottom:.35em}
+  .price{font-family:var(--font-display);color:var(--blue)}
+
+  /* Reserva */
+  .block--navy{background:var(--navy)}
+  .block--navy .kicker{color:var(--cyan)}
+  .block--navy h2{color:#fff}
+  .block--navy .lead{color:rgba(255,255,255,.82)}
+  .reserva{max-width:820px;background:var(--white);border-radius:12px;padding:28px 26px;
+    box-shadow:0 32px 64px -32px rgba(0,0,0,.55)}
+  .reserva__grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px}
+  .reserva label{display:block;font-weight:600;font-size:.9rem;margin-bottom:.35em}
+  .reserva select,.reserva input{width:100%;padding:.7em .8em;border:1px solid var(--line);border-radius:6px;
+    font:inherit;background:var(--white);color:var(--ink)}
+  .reserva__note{font-size:.88rem;color:var(--ink-soft);margin-top:1em}
+
+  /* Reseñas: carrusel */
+  .reviews{overflow:hidden}
+  .rail{display:flex;gap:18px;width:max-content;animation:rail 42s linear infinite;margin-top:1.6em}
+  .reviews:hover .rail{animation-play-state:paused}
+  @keyframes rail{to{transform:translateX(-50%)}}
+  .rev{width:330px;flex:none;background:var(--navy);color:#fff;border-radius:10px;padding:24px 22px}
+  .rev .stars{color:#FFD93D;letter-spacing:.15em;margin:0 0 .7em;font-size:.95rem}
+  .rev blockquote{margin:0 0 1em;font-size:.96rem;line-height:1.55;color:rgba(255,255,255,.92)}
+  .rev cite{font-style:normal;font-weight:700;font-size:.88rem;color:var(--cyan)}
+
+  /* Ubicación */
+  .loc{display:grid;grid-template-columns:1fr 1.2fr;gap:34px;align-items:start}
+  .loc iframe{width:100%;height:380px;border:0;border-radius:10px}
+  .loc address{font-style:normal;color:var(--ink-soft);margin-bottom:1.4em}
+  .loc address b{color:var(--ink)}
+  .loc__cerca{font-size:.9rem;color:var(--ink-soft);margin-top:1.4em;max-width:44ch}
+
+  /* Footer */
+  footer{background:var(--ink);color:#B9C1CC;font-size:.92rem}
+  .foot__grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px;padding-block:52px 40px}
+  .foot__grid h4{color:#fff;font-size:.85rem;text-transform:uppercase;letter-spacing:.14em;margin:0 0 .9em}
+  .foot__grid a{color:#B9C1CC;text-decoration:none;display:block;margin-bottom:.55em}
+  .foot__grid a:hover{color:var(--cyan)}
+  .foot__grid .soc{display:flex;align-items:center;gap:.55em}
+  .soc svg{width:17px;height:17px;fill:currentColor;flex:none}
+  .foot__grid .soc--ig:hover{color:#E4405F}
+  .foot__grid .soc--tt:hover{color:#69C9D0}
+  .foot__grid .soc--fb:hover{color:#1877F2}
+  .foot__logo{height:52px;width:auto;margin-bottom:.8em}
+  .foot__base{border-top:1px solid #232936;padding-block:18px;display:flex;justify-content:space-between;
+    gap:1rem;flex-wrap:wrap;font-size:.82rem}
+  .foot__base a{color:var(--cyan);text-decoration:none}
+
+  /* Aparición al hacer scroll */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media (max-width:900px){
+    .servicios{grid-template-columns:1fr 1fr}
+    .galeria{grid-template-columns:1fr 1fr}
+    .about,.casa,.torneos__in,.loc,.reserva__grid{grid-template-columns:1fr}
+    .foot__grid{grid-template-columns:1fr 1fr}
+    .nav__links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--white);
+      flex-direction:column;align-items:flex-start;padding:18px 22px;border-bottom:1px solid var(--line);gap:1.1rem}
+    .nav__links.open{display:flex}
+    .nav__soc{border-left:0;padding-left:0;margin-left:-4px;gap:1.1rem}
+    .nav__toggle{display:block}
+    .facts__in{grid-template-columns:1fr 1fr 1fr;gap:4px}
+    .facts b{font-size:1.3rem}
+  }
+  @media (max-width:560px){
+    .servicios{grid-template-columns:1fr}
+    .serv{min-height:320px}
+    .galeria{grid-template-columns:1fr}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .rail{animation:none;width:auto;flex-wrap:wrap}
+    .rev{width:100%;max-width:330px}
+    .marquee__track{animation:none}
+    .torneos img{transform:none}
+    .reveal{opacity:1;transform:none;transition:none}
+    .serv,.serv::before{transition:none}
+  }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SportsActivityLocation",
+  "@id": "https://perisquash.com/#club",
+  "name": "PeriSquash",
+  "description": "Club de squash en Coapa, Tlalpan: tres canchas inglesas con piso de duela y pared de vidrio, clases, torneos y retadoras.",
+  "url": "https://perisquash.com/",
+  "telephone": "+525541739456",
+  "logo": "https://perisquash.com/assets/favicon/icon-512.png",
+  "image": [
+    "https://perisquash.com/assets/images/hero-cancha.jpg",
+    "https://perisquash.com/assets/images/cancha-clase.jpg",
+    "https://perisquash.com/assets/images/accion-pro.jpg",
+    "https://perisquash.com/assets/images/og-image.jpg"
+  ],
+  "priceRange": "$300–$330 MXN por hora",
+  "currenciesAccepted": "MXN",
+  "sport": "Squash",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Vicente Guerrero 7, San Bartolo el Chico",
+    "addressLocality": "Tlalpan",
+    "addressRegion": "CDMX",
+    "postalCode": "14380",
+    "addressCountry": "MX"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 19.2836816, "longitude": -99.1316249 },
+  "hasMap": "https://www.google.com/maps/search/?api=1&query=19.2836816%2C-99.1316249&query_place_id=ChIJiyMb_Q4BzoURCgK5ocWZmtk",
+  "areaServed": [
+    { "@type": "Place", "name": "Coapa" },
+    { "@type": "Place", "name": "Villa Coapa" },
+    { "@type": "Place", "name": "Tlalpan" },
+    { "@type": "Place", "name": "Coyoacán" },
+    { "@type": "Place", "name": "Xochimilco" },
+    { "@type": "Place", "name": "Sur de la Ciudad de México" }
+  ],
+  "amenityFeature": [
+    { "@type": "LocationFeatureSpecification", "name": "3 canchas inglesas con piso de duela", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Pared trasera de vidrio", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Pro shop y servicio de encordado", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Raqueta de cortesía para principiantes", "value": true }
+  ],
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "06:00", "closes": "22:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday","Sunday"], "opens": "07:00", "closes": "18:00" }
+  ],
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.6", "reviewCount": "68", "bestRating": "5" },
+  "sameAs": [
+    "https://www.instagram.com/perisquash_club/",
+    "https://www.tiktok.com/@perisquash",
+    "https://www.facebook.com/profile.php?id=100063724986177"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Dónde puedo jugar squash cerca de Coapa, en el sur de la CDMX?",
+      "acceptedAnswer": { "@type": "Answer", "text": "PeriSquash está en Vicente Guerrero 7, San Bartolo el Chico, Tlalpan, a pasos del Periférico Sur — a unos minutos de Coapa, Villa Coapa, Coyoacán y Xochimilco. Tenemos tres canchas inglesas profesionales con piso de duela y pared de vidrio." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto cuesta rentar una cancha de squash?",
+      "acceptedAnswer": { "@type": "Answer", "text": "La hora de cancha cuesta $300 MXN prepagada o $330 MXN casual. Se aparta por WhatsApp al 55 5454 5578 y se paga al llegar o por adelantado." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Necesito raqueta propia para jugar?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Si vas empezando te prestamos una raqueta de cortesía sin costo, y en el pro shop del club encuentras raquetas, pelotas, grips y servicio de encordado." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Dan clases si nunca he jugado squash?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sí. Hay iniciación desde cero y clases particulares de técnica, ritmo y lectura de juego, para principiantes y avanzados. Pregunta horarios y costos por WhatsApp." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuál es el horario del club?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Lunes a viernes de 6:00 a 22:00 y sábado y domingo de 7:00 a 18:00. Las retadoras son lunes y miércoles a las 7:00 PM." }
+    }
+  ]
+}
+</script>
 </head>
 <body>
-<a class="skip" href="#propuestas">Saltar al contenido</a>
+<a class="skip" href="#nosotros">Saltar al contenido</a>
 
-<header class="top">
-  <div class="wrap top__in">
-    <img src="assets/images/logo-perisquash-v2.png" alt="PeriSquash">
-    <span class="brand"><span class="peri">Peri</span><span class="squash">Squash</span></span>
+<nav class="nav" aria-label="Navegación principal">
+  <div class="wrap nav__in">
+    <a class="nav__logo" href="#" aria-label="PeriSquash inicio">
+      <img src="assets/images/logo-perisquash-v2.png" alt="PeriSquash" width="753" height="658" fetchpriority="high">
+    </a>
+    <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav__links" id="navLinks">
+      <a href="#nosotros">Nosotros</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#torneos">Torneos</a>
+      <a href="#info">Tarifas y horarios</a>
+      <a href="#galeria">Galería</a>
+      <a href="#ubicacion">Ubicación</a>
+      <div class="nav__soc">
+        <a class="soc soc--ig" href="https://www.instagram.com/perisquash_club/" target="_blank" rel="noopener" aria-label="PeriSquash en Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.13 1.38A5.9 5.9 0 0 0 .63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.13a5.9 5.9 0 0 0 2.13 1.38c.76.3 1.64.5 2.91.56 1.28.06 1.69.07 4.95.07s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.9 5.9 0 0 0 2.13-1.38 5.9 5.9 0 0 0 1.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.9 5.9 0 0 0-1.38-2.13A5.9 5.9 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0Zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm7.85-10.4a1.44 1.44 0 1 1-1.44-1.44 1.44 1.44 0 0 1 1.44 1.44Z"/></svg></a>
+        <a class="soc soc--tt" href="https://www.tiktok.com/@perisquash" target="_blank" rel="noopener" aria-label="PeriSquash en TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07Z"/></svg></a>
+        <a class="soc soc--fb" href="https://www.facebook.com/profile.php?id=100063724986177" target="_blank" rel="noopener" aria-label="PeriSquash en Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.45 18.63.07 12 .07S0 5.45 0 12.07c0 5.99 4.39 10.95 10.13 11.85v-8.38H7.08v-3.47h3.05V9.43c0-3.01 1.79-4.67 4.53-4.67 1.31 0 2.69.23 2.69.23v2.95h-1.51c-1.49 0-1.96.93-1.96 1.87v2.25h3.33l-.53 3.47h-2.8v8.38C19.61 23.03 24 18.06 24 12.07Z"/></svg></a>
+      </div>
+      <a class="btn" href="#reservar">Reserva tu cancha</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero__in">
+    <div class="hero__rule" aria-hidden="true"></div>
+    <p class="hero__tag">No es lujo — es squash bien hecho.</p>
+    <h1>La mejor opción<br><span class="sur">del sur.</span></h1>
+    <p>Squash en Coapa desde hace 17 años: tres canchas inglesas con piso de duela,
+       pared de vidrio y una comunidad que juega en serio. Sin vueltas — llegas, juegas.</p>
+    <div class="hero__ctas">
+      <a class="btn" href="#reservar">Entra a la cancha</a>
+      <a class="btn btn--ghost" href="#info">Tarifas y horarios</a>
+    </div>
+    <ul class="hero__chips">
+      <li>Clases para principiantes</li>
+      <li>Renta por hora</li>
+      <li>Dos torneos al año</li>
+      <li>Ambiente familiar</li>
+    </ul>
   </div>
 </header>
 
-<main>
-  <section class="wrap intro">
-    <p class="eyebrow">Pase de diseño · Tres direcciones</p>
-    <h1>Elige el rumbo<br>de la página</h1>
-    <p>Mismo contenido real del club — canchas, tarifas, horarios, torneos, reseñas y el botón de
-       WhatsApp para reservar. Lo que cambia entre las tres es el <b>concepto de página</b>: cómo se ve,
-       cómo se recorre y qué sensación deja. Ábrelas, pruébalas en el celular y dinos cuál seguimos afinando.</p>
-    <p class="note">Las tres son más simples y directas que la versión anterior, y usan los colores del logo de PeriSquash.</p>
-  </section>
+<div class="facts" aria-label="Datos del club">
+  <div class="wrap facts__in">
+    <div><b>17 años</b><span>en Coapa</span></div>
+    <div><b>3 canchas</b><span>inglesas de duela</span></div>
+    <div><b>4.6 ★</b><span>68 reseñas en Google</span></div>
+  </div>
+</div>
 
-  <section class="wrap">
-    <div class="invest">
+<main>
+  <section class="block" id="nosotros">
+    <div class="wrap about">
       <div>
-        <h2>Propuesta final</h2>
-        <p>La dirección elegida (Propuesta 1 · La directa) completada con todas las secciones del
-           sitio: nosotros, servicios, torneos, tienda, reserva por WhatsApp, galería y reseñas.</p>
+        <p class="kicker">Nosotros</p>
+        <h2>Squash de barrio,<br>nivel de club.</h2>
+        <p>Llevamos <b>más de 17 años</b> promoviendo el squash en el sur de la CDMX.
+           Tres canchas inglesas profesionales con piso de duela y pared de vidrio,
+           mantenidas todos los días.</p>
+        <p>Lo que nos distingue no es el lujo: es la <b>limpieza</b>, una <b>excelente atención</b>
+           y una <b>comunidad activa</b> de jugadores de todos los niveles que hace que
+           siempre haya con quién jugar.</p>
       </div>
-      <a class="btn" href="propuesta-final.html">Ver la propuesta final →</a>
+      <figure class="about__fig">
+        <picture>
+          <source srcset="assets/images/fondo-inicio_cancha.webp" type="image/webp">
+          <img src="assets/images/fondo-inicio_cancha.jpg" alt="Cancha 1 de PeriSquash: piso de duela y pared trasera de vidrio" width="960" height="1280" loading="lazy" decoding="async">
+        </picture>
+      </figure>
     </div>
   </section>
 
-  <section id="propuestas" class="wrap grid">
-
-    <article class="card">
-      <img class="card__shot" src="assets/images/portada-home.jpg" style="object-position:center 40%"
-           alt="Vista de la propuesta 1: hero con foto de cancha y eslogan grande." loading="lazy">
-      <div class="card__body">
-        <span class="card__tag">Propuesta 1 · Nueva</span>
-        <h2>La directa</h2>
-        <p class="card__sub">Blanca y sin rodeos: el eslogan gigante sobre la foto de la cancha,
-          un acordeón con tarifas y horarios, carrusel de reseñas y footer oscuro. Todo en un scroll corto.</p>
-        <p class="card__meta"><b>Sensación:</b> clara, deportiva, al grano.</p>
-        <a class="btn" href="propuesta-1.html">Ver propuesta 1 →</a>
+  <section class="block block--alt" id="servicios">
+    <div class="wrap">
+      <p class="kicker">Servicios</p>
+      <h2>Todo para jugar</h2>
+      <p class="lead">Canchas cuidadas todos los días, retadoras para medir tu nivel
+         y clases para cada nivel. Llegas, juegas.</p>
+      <div class="servicios">
+        <article class="serv">
+          <picture>
+            <source srcset="assets/images/accion-pro.webp" type="image/webp">
+            <img src="assets/images/accion-pro.jpg" alt="Dos jugadores en un partido de squash en PeriSquash" width="960" height="1280" loading="lazy" decoding="async">
+          </picture>
+          <div class="veil" aria-hidden="true"></div>
+          <div class="txt"><h3>Renta de cancha por hora</h3>
+            <p>Solo o con quien tú quieras.
+              <span class="price">$300 prepagada · $330 casual</span></p></div>
+        </article>
+        <article class="serv">
+          <picture>
+            <source srcset="assets/images/comunidad-equipo.webp" type="image/webp">
+            <img src="assets/images/comunidad-equipo.jpg" alt="Jugadores de PeriSquash listos para las retadoras" width="960" height="1280" loading="lazy" decoding="async">
+          </picture>
+          <div class="veil" aria-hidden="true"></div>
+          <div class="txt"><h3>Retadoras</h3>
+            <p>Competencia informal para medirte con otros jugadores del club.
+              <span class="price">Lunes y miércoles · 7:00 PM</span></p></div>
+        </article>
+        <article class="serv">
+          <picture>
+            <source srcset="assets/images/cancha-clase.webp" type="image/webp">
+            <img src="assets/images/cancha-clase.jpg" alt="Clase de squash junto a la pared de vidrio" width="1368" height="626" loading="lazy" decoding="async">
+          </picture>
+          <div class="veil" aria-hidden="true"></div>
+          <div class="txt"><h3>Clases particulares</h3>
+            <p>Técnica, ritmo y lectura de juego, uno a uno. Principiantes y avanzados.</p></div>
+        </article>
+        <article class="serv">
+          <picture>
+            <source srcset="assets/images/raquetas-vidrio.webp" type="image/webp">
+            <img src="assets/images/raquetas-vidrio.jpg" alt="Raquetas de squash junto a la pared de vidrio" width="960" height="1180" loading="lazy" decoding="async">
+          </picture>
+          <div class="veil" aria-hidden="true"></div>
+          <div class="txt"><h3>Iniciación y desarrollo</h3>
+            <p>Formación progresiva desde cero, con raqueta de cortesía mientras empiezas.</p></div>
+        </article>
       </div>
-    </article>
-
-    <article class="card">
-      <img class="card__shot" src="assets/images/accion-pro.jpg" style="object-position:center 55%"
-           alt="Vista de la propuesta 2: editorial deportivo, como una revista impresa del club." loading="lazy">
-      <div class="card__body">
-        <span class="card__tag">Propuesta 2 · Nueva dirección</span>
-        <h2>La revista</h2>
-        <p class="card__sub">Editorial deportivo, como revista impresa: serif con carácter en los titulares,
-          filetes finos, fotos con pie de foto y secciones numeradas. Los 17 años del club como protagonista.</p>
-        <p class="card__meta"><b>Sensación:</b> con historia, sobria, de colección.</p>
-        <a class="btn" href="propuesta-2.html">Ver propuesta 2 →</a>
-      </div>
-    </article>
-
-    <article class="card">
-      <img class="card__shot" src="assets/images/comunidad-equipo.jpg" style="object-position:center 40%"
-           alt="Vista de la propuesta 3: neobrutalista, directa y con carácter." loading="lazy">
-      <div class="card__body">
-        <span class="card__tag">Propuesta 3 · Nueva dirección</span>
-        <h2>Sin pose</h2>
-        <p class="card__sub">Neobrutalista y con actitud: bordes negros gruesos, sombras duras, stickers
-          con el amarillo de la fachada y el azul del logo. El tono honesto del club vuelto diseño.</p>
-        <p class="card__meta"><b>Sensación:</b> joven, con humor, de calle.</p>
-        <a class="btn" href="propuesta-3.html">Ver propuesta 3 →</a>
-      </div>
-    </article>
-
+    </div>
   </section>
 
-  <section class="wrap">
-    <div class="invest">
-      <div>
-        <h2>Inversión y alcances</h2>
-        <p>Qué incluye el proyecto, las dos opciones de pago, hosting, dominio, el acuerdo de la
-           App Marcador y tiempos de entrega — todo por escrito para decidir con calma.</p>
+  <section class="torneos" id="torneos">
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Torneo de aniversario · Agosto · Todas las categorías · Retadoras lunes y miércoles · Dos torneos al año · </span>
+        <span>Torneo de aniversario · Agosto · Todas las categorías · Retadoras lunes y miércoles · Dos torneos al año · </span>
       </div>
-      <a class="btn" href="inversion.html">Ver la propuesta comercial →</a>
+    </div>
+    <div class="wrap torneos__in">
+      <div>
+        <p class="kicker">Torneos</p>
+        <h2>Squash de verdad: ven a competir o a echar porra.</h2>
+        <p>Dos torneos al año, en todas las categorías — del que va empezando al que
+           no perdona un punto. Y entre torneo y torneo, retadoras los lunes y miércoles para llegar afilado.</p>
+        <div class="torneos__badge">
+          <span class="mes">AGO</span>
+          <span><b>Torneo de Aniversario</b><br>El más grande del año. Aparta tu lugar con tiempo.</span>
+        </div>
+        <a class="btn" href="https://wa.me/525554545578?text=Hola%2C%20quiero%20informes%20de%20los%20torneos%20de%20PeriSquash" target="_blank" rel="noopener">Pregunta por el próximo torneo</a>
+      </div>
+      <picture>
+        <source srcset="assets/images/comunidad-selfie.webp" type="image/webp">
+        <img src="assets/images/comunidad-selfie.jpg" alt="Jugadores de PeriSquash celebrando después de un torneo" width="1280" height="960" loading="lazy" decoding="async">
+      </picture>
+    </div>
+  </section>
+
+  <section class="block block--alt" id="tienda">
+    <div class="wrap casa">
+      <picture>
+        <source srcset="assets/images/raquetas.webp" type="image/webp">
+        <img src="assets/images/raquetas.jpg" alt="Raquetas y accesorios de la tienda de PeriSquash" width="960" height="1180" loading="lazy" decoding="async">
+      </picture>
+      <div>
+        <p class="kicker">Tienda</p>
+        <h2>Pro shop dentro del club</h2>
+        <p class="lead">Lo que necesitas, sin salir de la cancha.</p>
+        <div class="shop">
+          <div class="shop__item"><h3>Raquetas</h3><p>De las mejores marcas, para cada nivel de juego.</p></div>
+          <div class="shop__item"><h3>Accesorios</h3><p>Grips, pelotas, calcetas y bandas.</p></div>
+          <div class="shop__item"><h3>Encordado</h3><p>Servicio en el club, sin vueltas.</p></div>
+          <div class="shop__item"><h3>Raqueta de cortesía</h3><p>Si vas empezando, te prestamos una — sin costo.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="info">
+    <div class="wrap">
+      <p class="kicker">Lo práctico</p>
+      <h2>Tarifas y horarios</h2>
+      <p class="lead">Todo por escrito, sin letras chiquitas. Para reservar solo escribe por WhatsApp.</p>
+
+      <div class="acc" id="acc">
+        <div class="acc__item open">
+          <button class="acc__btn" aria-expanded="true">Horarios <span class="plus" aria-hidden="true">+</span></button>
+          <div class="acc__panel"><div class="acc__body">
+            <dl>
+              <div><dt>Lunes a viernes</dt><dd>6:00 — 22:00</dd></div>
+              <div><dt>Sábado y domingo</dt><dd>7:00 — 18:00</dd></div>
+              <div><dt>Retadoras</dt><dd>Lunes y miércoles · 7:00 PM</dd></div>
+            </dl>
+          </div></div>
+        </div>
+        <div class="acc__item">
+          <button class="acc__btn" aria-expanded="false">Tarifas de cancha <span class="plus" aria-hidden="true">+</span></button>
+          <div class="acc__panel"><div class="acc__body">
+            <dl>
+              <div><dt>Hora prepagada</dt><dd class="price">$300 MXN</dd></div>
+              <div><dt>Hora casual</dt><dd class="price">$330 MXN</dd></div>
+            </dl>
+            <p>Se aparta por WhatsApp y se paga al llegar o por adelantado.</p>
+          </div></div>
+        </div>
+        <div class="acc__item">
+          <button class="acc__btn" aria-expanded="false">Clases <span class="plus" aria-hidden="true">+</span></button>
+          <div class="acc__panel"><div class="acc__body">
+            <ul>
+              <li>Clases particulares: técnica, ritmo y lectura de juego, uno a uno.</li>
+              <li>Iniciación desde cero — te prestamos una raqueta de cortesía.</li>
+              <li>Pregunta horarios y costos por WhatsApp.</li>
+            </ul>
+          </div></div>
+        </div>
+        <div class="acc__item">
+          <button class="acc__btn" aria-expanded="false">Torneos <span class="plus" aria-hidden="true">+</span></button>
+          <div class="acc__panel"><div class="acc__body">
+            <ul>
+              <li>Dos torneos al año, en todas las categorías.</li>
+              <li>El Torneo de Aniversario en agosto es el más grande del año.</li>
+              <li>Retadoras lunes y miércoles a las 7:00 PM.</li>
+            </ul>
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block block--navy" id="reservar">
+    <div class="wrap">
+      <p class="kicker">Reserva</p>
+      <h2>Reserva tu cancha</h2>
+      <p class="lead">Elige cancha, día y hora — armamos el mensaje y lo mandas por WhatsApp.
+         Te confirmamos disponibilidad por el mismo medio. Sin cobros en línea.</p>
+      <form class="reserva" id="formReserva">
+        <div class="reserva__grid">
+          <div>
+            <label for="rCancha">Cancha</label>
+            <select id="rCancha" name="cancha" autocomplete="off">
+              <option>Cancha 1</option>
+              <option>Cancha 2</option>
+              <option>Cancha 3</option>
+              <option selected>La que esté libre</option>
+            </select>
+          </div>
+          <div>
+            <label for="rDia">Día</label>
+            <input type="date" id="rDia" name="dia" autocomplete="off" required>
+          </div>
+          <div>
+            <label for="rHora">Hora</label>
+            <select id="rHora" name="hora" autocomplete="off">
+              <option>6:00</option><option>7:00</option><option>8:00</option><option>9:00</option>
+              <option>10:00</option><option>11:00</option><option>12:00</option><option>13:00</option>
+              <option>14:00</option><option>15:00</option><option>16:00</option><option>17:00</option>
+              <option selected>18:00</option><option>19:00</option><option>20:00</option><option>21:00</option>
+            </select>
+          </div>
+          <div>
+            <label for="rNombre">Tu nombre</label>
+            <input type="text" id="rNombre" name="nombre" autocomplete="name" spellcheck="false" placeholder="¿Cómo te llamas?" required>
+          </div>
+        </div>
+        <button class="btn" type="submit">Enviar solicitud por WhatsApp</button>
+        <p class="reserva__note">Horario de juego: L–V 6:00–22:00 · Sáb y Dom 7:00–18:00.</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="block block--alt" id="galeria">
+    <div class="wrap">
+      <p class="kicker">Galería</p>
+      <h2>El club por dentro</h2>
+      <p class="lead">Las canchas, los partidos y la gente que las llena. Fotos reales del club.</p>
+      <!-- TODO: foto de las 3 canchas juntas cuando el cliente la comparta -->
+      <div class="galeria">
+        <figure>
+          <picture>
+            <source srcset="assets/images/hero-cancha.webp" type="image/webp">
+            <img src="assets/images/hero-cancha.jpg" alt="Partido de squash en la Cancha 2 de PeriSquash" width="1200" height="1600" loading="lazy" decoding="async">
+          </picture>
+          <figcaption>Partido en Cancha 2</figcaption>
+        </figure>
+        <figure>
+          <picture>
+            <source srcset="assets/images/comunidad.webp" type="image/webp">
+            <img src="assets/images/comunidad.jpg" alt="Jugadores de PeriSquash reunidos en la cancha" width="960" height="1280" loading="lazy" decoding="async">
+          </picture>
+          <figcaption>La comunidad del club</figcaption>
+        </figure>
+        <figure>
+          <picture>
+            <source srcset="assets/images/clase-particular.webp" type="image/webp">
+            <img src="assets/images/clase-particular.jpg" alt="Clase particular de squash en PeriSquash" width="1019" height="720" loading="lazy" decoding="async">
+          </picture>
+          <figcaption>Clase particular</figcaption>
+        </figure>
+        <figure>
+          <picture>
+            <source srcset="assets/images/cancha-clase.webp" type="image/webp">
+            <img src="assets/images/cancha-clase.jpg" alt="Clase de iniciación junto a la pared de vidrio" width="1368" height="626" loading="lazy" decoding="async">
+          </picture>
+          <figcaption>Iniciación desde cero</figcaption>
+        </figure>
+        <figure>
+          <picture>
+            <source srcset="assets/images/raquetas-vidrio.webp" type="image/webp">
+            <img src="assets/images/raquetas-vidrio.jpg" alt="Raquetas de squash recargadas en la pared de vidrio" width="960" height="1180" loading="lazy" decoding="async">
+          </picture>
+          <figcaption>Raquetas listas</figcaption>
+        </figure>
+        <figure>
+          <picture>
+            <source srcset="assets/images/fachada.webp" type="image/webp">
+            <img src="assets/images/fachada.jpg" alt="Fachada amarilla de PeriSquash en Vicente Guerrero 7, Coapa" width="1094" height="736" loading="lazy" decoding="async">
+          </picture>
+          <figcaption>La fachada, en Coapa</figcaption>
+        </figure>
+        <div class="galeria__video">
+          <video controls preload="none" playsinline poster="assets/images/accion-pro.jpg"
+                 aria-label="Video de PeriSquash en acción">
+            <source src="assets/video/perisquash-action.mp4" type="video/mp4">
+            Tu navegador no puede reproducir el video.
+          </video>
+        </div>
+      </div>
+      <p class="galeria__nota">¿Quieres ver más? Publicamos partidos y torneos en
+        <a href="https://www.instagram.com/perisquash_club/" target="_blank" rel="noopener">Instagram</a> y
+        <a href="https://www.tiktok.com/@perisquash" target="_blank" rel="noopener">TikTok</a>.</p>
+    </div>
+  </section>
+
+  <section class="block reviews" id="resenas">
+    <div class="wrap">
+      <p class="kicker">Reseñas de Google</p>
+      <h2>¿Qué dicen los jugadores?</h2>
+    </div>
+    <div class="rail" aria-label="Reseñas de jugadores">
+      <!-- juego duplicado para loop -->
+      <article class="rev"><p class="stars" aria-label="5 estrellas">★★★★★</p><blockquote>“Canchas con duela de madera y una gran atención al público. Si eres novato, te dan tips para mejorar.”</blockquote><cite>IFF</cite></article>
+      <article class="rev"><p class="stars" aria-label="5 estrellas">★★★★★</p><blockquote>“Las canchas tienen piso de duela y excelente servicio al cliente. Si eres principiante, te dan tips para mejorar.”</blockquote><cite>Reseña en Google</cite></article>
+      <article class="rev"><p class="stars" aria-label="5 estrellas">★★★★★</p><blockquote>“Excelente lugar para practicar este deporte. Piso de duela, limpieza y buen ambiente. Grandes partidos.”</blockquote><cite>Felipe Maldonado</cite></article>
+      <article class="rev"><p class="stars" aria-label="5 estrellas">★★★★★</p><blockquote>“Excelente lugar para practicar este deporte. Piso de duela, limpieza, servicio, grandes partidos. Todo en un solo lugar.”</blockquote><cite>Reseña en Google</cite></article>
+      <article class="rev" aria-hidden="true"><p class="stars">★★★★★</p><blockquote>“Canchas con duela de madera y una gran atención al público. Si eres novato, te dan tips para mejorar.”</blockquote><cite>IFF</cite></article>
+      <article class="rev" aria-hidden="true"><p class="stars">★★★★★</p><blockquote>“Las canchas tienen piso de duela y excelente servicio al cliente. Si eres principiante, te dan tips para mejorar.”</blockquote><cite>Reseña en Google</cite></article>
+      <article class="rev" aria-hidden="true"><p class="stars">★★★★★</p><blockquote>“Excelente lugar para practicar este deporte. Piso de duela, limpieza y buen ambiente. Grandes partidos.”</blockquote><cite>Felipe Maldonado</cite></article>
+      <article class="rev" aria-hidden="true"><p class="stars">★★★★★</p><blockquote>“Excelente lugar para practicar este deporte. Piso de duela, limpieza, servicio, grandes partidos. Todo en un solo lugar.”</blockquote><cite>Reseña en Google</cite></article>
+    </div>
+  </section>
+
+  <section class="block block--alt" id="faq">
+    <div class="wrap">
+      <p class="kicker">Preguntas frecuentes</p>
+      <h2>Antes de tu primer partido</h2>
+      <div class="acc">
+        <div class="acc__item">
+          <button class="acc__btn" aria-expanded="false">¿Dónde puedo jugar squash cerca de Coapa, en el sur de la CDMX? <span class="plus" aria-hidden="true">+</span></button>
+          <div class="acc__panel"><div class="acc__body">
+            <p>PeriSquash está en Vicente Guerrero 7, San Bartolo el Chico, Tlalpan, a pasos del
+               Periférico Sur — a unos minutos de Coapa, Villa Coapa, Coyoacán y Xochimilco.
+               Tenemos tres canchas inglesas profesionales con piso de duela y pared de vidrio.</p>
+          </div></div>
+        </div>
+        <div class="acc__item">
+          <button class="acc__btn" aria-expanded="false">¿Cuánto cuesta rentar una cancha de squash? <span class="plus" aria-hidden="true">+</span></button>
+          <div class="acc__panel"><div class="acc__body">
+            <p>La hora de cancha cuesta <b>$300 MXN prepagada</b> o <b>$330 MXN casual</b>.
+               Se aparta por <a href="https://wa.me/525554545578" target="_blank" rel="noopener">WhatsApp al 55 5454 5578</a>
+               y se paga al llegar o por adelantado.</p>
+          </div></div>
+        </div>
+        <div class="acc__item">
+          <button class="acc__btn" aria-expanded="false">¿Necesito raqueta propia para jugar? <span class="plus" aria-hidden="true">+</span></button>
+          <div class="acc__panel"><div class="acc__body">
+            <p>No. Si vas empezando te <b>prestamos una raqueta de cortesía</b> sin costo, y en el
+               pro shop del club encuentras raquetas, pelotas, grips y servicio de encordado.</p>
+          </div></div>
+        </div>
+        <div class="acc__item">
+          <button class="acc__btn" aria-expanded="false">¿Dan clases si nunca he jugado squash? <span class="plus" aria-hidden="true">+</span></button>
+          <div class="acc__panel"><div class="acc__body">
+            <p>Sí. Hay <b>iniciación desde cero</b> y clases particulares de técnica, ritmo y
+               lectura de juego, para principiantes y avanzados. Pregunta horarios y costos por WhatsApp.</p>
+          </div></div>
+        </div>
+        <div class="acc__item">
+          <button class="acc__btn" aria-expanded="false">¿Cuál es el horario del club? <span class="plus" aria-hidden="true">+</span></button>
+          <div class="acc__panel"><div class="acc__body">
+            <p>Lunes a viernes de <b>6:00 a 22:00</b> y sábado y domingo de <b>7:00 a 18:00</b>.
+               Las retadoras son lunes y miércoles a las 7:00 PM, para jugar contra otros miembros del club.</p>
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="ubicacion">
+    <div class="wrap loc">
+      <div>
+        <p class="kicker">Ubicación</p>
+        <h2>Estamos en Coapa</h2>
+        <address>
+          <b>Vicente Guerrero 7</b>, San Bartolo el Chico,<br>Tlalpan, 14380, CDMX.<br>
+          A pasos del Periférico Sur.<br><br>
+          Tel: <a href="tel:+525541739456">55 4173 9456</a><br>
+          WhatsApp: <a href="https://wa.me/525554545578" target="_blank" rel="noopener">55 5454 5578</a>
+        </address>
+        <a class="btn" href="https://maps.google.com/maps?q=PeriSquash%2C%20Vicente%20Guerrero%207%2C%20San%20Bartolo%20el%20Chico%2C%20Tlalpan%2014380" target="_blank" rel="noopener">Cómo llegar</a>
+        <p class="loc__cerca">¿Buscas dónde jugar squash cerca de ti? Nos queda a unos minutos a quien viene
+           de Coapa, Villa Coapa, Tlalpan centro, Coyoacán o Xochimilco, por Periférico Sur o Canal de Miramontes.</p>
+      </div>
+      <iframe src="https://maps.google.com/maps?q=PeriSquash%2C%20Vicente%20Guerrero%207%2C%20San%20Bartolo%20el%20Chico%2C%20Tlalpan%2014380&ll=19.2836816,-99.1316249&hl=es&z=16&output=embed"
+        title="Ubicación de PeriSquash en Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </section>
 </main>
 
-<footer class="foot">
-  <div class="wrap">PeriSquash · Coapa, Tlalpan, CDMX · Selector de propuestas de diseño.
-    Desarrollado por BridgeNode.</div>
+<footer>
+  <div class="wrap foot__grid">
+    <div>
+      <img class="foot__logo" src="assets/images/logo-perisquash-v2.png" alt="PeriSquash" width="753" height="658" loading="lazy" decoding="async">
+      <p>Squash en Coapa, Tlalpan, desde hace más de 17 años.<br>No es lujo — es squash bien hecho.</p>
+    </div>
+    <div>
+      <h4>Explora</h4>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#info">Tarifas y horarios</a>
+      <a href="#galeria">Galería</a>
+      <a href="#faq">Preguntas frecuentes</a>
+      <a href="#reservar">Reservar</a>
+    </div>
+    <div>
+      <h4>Contacto</h4>
+      <a href="tel:+525541739456">Tel: 55 4173 9456</a>
+      <a href="https://wa.me/525554545578" target="_blank" rel="noopener">WhatsApp: 55 5454 5578</a>
+      <p>Vicente Guerrero 7, Tlalpan, CDMX</p>
+    </div>
+    <div>
+      <h4>Síguenos</h4>
+      <a class="soc soc--ig" href="https://www.instagram.com/perisquash_club/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.13 1.38A5.9 5.9 0 0 0 .63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.13a5.9 5.9 0 0 0 2.13 1.38c.76.3 1.64.5 2.91.56 1.28.06 1.69.07 4.95.07s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.9 5.9 0 0 0 2.13-1.38 5.9 5.9 0 0 0 1.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.9 5.9 0 0 0-1.38-2.13A5.9 5.9 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0Zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm7.85-10.4a1.44 1.44 0 1 1-1.44-1.44 1.44 1.44 0 0 1 1.44 1.44Z"/></svg>Instagram</a>
+      <a class="soc soc--tt" href="https://www.tiktok.com/@perisquash" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07Z"/></svg>TikTok</a>
+      <a class="soc soc--fb" href="https://www.facebook.com/profile.php?id=100063724986177" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.45 18.63.07 12 .07S0 5.45 0 12.07c0 5.99 4.39 10.95 10.13 11.85v-8.38H7.08v-3.47h3.05V9.43c0-3.01 1.79-4.67 4.53-4.67 1.31 0 2.69.23 2.69.23v2.95h-1.51c-1.49 0-1.96.93-1.96 1.87v2.25h3.33l-.53 3.47h-2.8v8.38C19.61 23.03 24 18.06 24 12.07Z"/></svg>Facebook</a>
+    </div>
+  </div>
+  <div class="wrap foot__base">
+    <span>© 2026 PeriSquash</span>
+    <span>Desarrollado por <a href="https://bridgenode.mx" target="_blank" rel="noopener">BridgeNode</a></span>
+  </div>
 </footer>
 
-<div class="bn-badge" aria-hidden="true">
-  <img src="assets/images/logo-bn.png" alt="">
-  <span>Propuesta · BridgeNode</span>
-</div>
+<script>
+  document.getElementById('navToggle').addEventListener('click',function(){
+    var l=document.getElementById('navLinks');
+    var open=l.classList.toggle('open');
+    this.setAttribute('aria-expanded',open);
+  });
+  document.querySelectorAll('.nav__links a').forEach(function(a){
+    a.addEventListener('click',function(){
+      var l=document.getElementById('navLinks');
+      if(l.classList.contains('open')){
+        l.classList.remove('open');
+        document.getElementById('navToggle').setAttribute('aria-expanded','false');
+      }
+    });
+  });
+  document.querySelectorAll('.acc .acc__item').forEach(function(item){
+    var btn=item.querySelector('.acc__btn'),panel=item.querySelector('.acc__panel');
+    if(item.classList.contains('open')) panel.style.maxHeight=panel.scrollHeight+'px';
+    btn.addEventListener('click',function(){
+      var open=item.classList.toggle('open');
+      btn.setAttribute('aria-expanded',open);
+      panel.style.maxHeight=open?panel.scrollHeight+'px':'0';
+    });
+  });
+  document.getElementById('formReserva').addEventListener('submit',function(e){
+    e.preventDefault();
+    var cancha=document.getElementById('rCancha').value;
+    var dia=document.getElementById('rDia').value;
+    var hora=document.getElementById('rHora').value;
+    var nombre=document.getElementById('rNombre').value.trim();
+    if(!dia||!nombre){return}
+    var partes=dia.split('-');
+    var fecha=partes[2]+'/'+partes[1]+'/'+partes[0];
+    var msg='Hola, soy '+nombre+'. Quiero reservar '+cancha.toLowerCase()+
+      ' el '+fecha+' a las '+hora+'. ¿Hay disponibilidad?';
+    window.open('https://wa.me/525554545578?text='+encodeURIComponent(msg),'_blank','noopener');
+  });
+
+  // Aparición sutil de secciones al hacer scroll
+  (function(){
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window)) return;
+    var els=document.querySelectorAll('main .wrap, .facts__in');
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
+      });
+    },{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(el){el.classList.add('reveal');io.observe(el);});
+  })();
+</script>
+
+<!-- Google Analytics 4 (carga diferida para no afectar el LCP). Reemplaza G-XXXXXXXXXX por el ID real. -->
+<script>
+  window.addEventListener('load', function () {
+    var GA_ID = 'G-XXXXXXXXXX';
+    if (GA_ID.indexOf('XXXX') !== -1) return; // no carga hasta poner el ID real
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', GA_ID);
+  });
+</script>
 </body>
 </html>

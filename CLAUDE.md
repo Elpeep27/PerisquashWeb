@@ -98,7 +98,7 @@ perisquash-web/
 >
 > Secciones de contenido añadidas en la pasada de retroalimentación de Don Roger:
 > - **`#nosotros`** — intro del club (16 años, 3 canchas inglesas, atención de Don Roger, comunidad).
-> - **`#servicios`** — 4 tarjetas con íconos SVG: renta por hora ($300 prepagada / $330 casual), retadoras diarias, clases particulares, iniciación y desarrollo técnico.
+> - **`#servicios`** — 4 tarjetas con íconos SVG: renta por hora ($300 prepagada / $330 casual), retadoras (lunes y miércoles 7:00 PM), clases particulares, iniciación y desarrollo técnico.
 > - **`#torneos`** — banner: 2 torneos al año, todas las categorías; agosto = mes de aniversario.
 > - **`#tienda`** — pro shop: raquetas, grips, pelotas, calcetas, bandas y servicio de encordado.
 > - **`#galeria`** — grid responsivo con el material real de `assets/images/` (webp + fallback, `loading="lazy"`) + video `assets/video/perisquash-action.mp4` (`preload="none"`, controles). Botón "Síguenos en Instagram" (solo enlace, sin widget). TODO: foto de las 3 canchas cuando Don Roger la comparta.
@@ -217,6 +217,7 @@ Horarios:
   Sáb-Dom:  7:00 AM — 6:00 PM
 Tarifas:    Cancha por hora — $300 MXN prepagada · $330 MXN casual
 Torneos:    2 al año, todas las categorías; agosto = mes de aniversario
+Retadoras:  Lunes y miércoles, 7:00 PM (NO son todos los días — corregido 2026-07-28)
 Coords:     19.2836816, -99.1316249
 Maps ID:    ChIJiyMb_Q4BzoURCgK5ocWZmtk
 Redes:      Instagram https://www.instagram.com/perisquash_club/

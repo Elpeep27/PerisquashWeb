@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://perisquash.mx/</loc>
-    <lastmod>2026-06-15</lastmod>
+    <loc>https://perisquash.com/</loc>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://perisquash.com/assets/images/hero-cancha.jpg</image:loc>
+      <image:title>Canchas de squash con piso de duela en PeriSquash, Coapa</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://perisquash.com/assets/images/cancha-clase.jpg</image:loc>
+      <image:title>Clase de squash en PeriSquash, Tlalpan</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://perisquash.com/assets/images/accion-pro.jpg</image:loc>
+      <image:title>Partido de squash en PeriSquash</image:title>
+    </image:image>
   </url>
 </urlset>
