@@ -11,3 +11,6 @@ Thumbs.db
 *.msi
 *.exe
 SESION-*-notas.md
+
+# Copia autocontenida para revisar en celular (se regenera con deploy/empaquetar-para-celular.py)
+PeriSquash-propuesta-celular.html
