@@ -307,12 +307,14 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "SportsActivityLocation",
+  "@type": ["SportsActivityLocation", "SportsClub", "SportsOrganization"],
   "@id": "https://perisquash.com/#club",
   "name": "PeriSquash",
+  "alternateName": ["Peri Squash", "PeriSquash Coapa"],
+  "foundingDate": "2009",
   "description": "Club de squash en Coapa, Tlalpan: tres canchas inglesas con piso de duela y pared de vidrio, clases, torneos y retadoras.",
   "url": "https://perisquash.com/",
-  "telephone": "+525541739456",
+  "telephone": "+525554545578",
   "logo": "https://perisquash.com/assets/favicon/icon-512.png",
   "image": [
     "https://perisquash.com/assets/images/hero-cancha.jpg",
@@ -322,7 +324,18 @@
   ],
   "priceRange": "$300–$330 MXN por hora",
   "currenciesAccepted": "MXN",
+  "paymentAccepted": "Efectivo, transferencia",
+  "publicAccess": true,
+  "isAccessibleForFree": false,
   "sport": "Squash",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Reservaciones",
+    "telephone": "+525554545578",
+    "url": "https://wa.me/525554545578",
+    "availableLanguage": "es-MX",
+    "description": "Único número del club: WhatsApp y llamadas. Para apartar cancha y pedir informes."
+  },
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Vicente Guerrero 7, San Bartolo el Chico",
@@ -351,12 +364,100 @@
     { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "06:00", "closes": "22:00" },
     { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday","Sunday"], "opens": "07:00", "closes": "18:00" }
   ],
-  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.6", "reviewCount": "68", "bestRating": "5" },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Servicios de PeriSquash",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "price": "300",
+        "priceCurrency": "MXN",
+        "availability": "https://schema.org/InStock",
+        "url": "https://perisquash.com/#info",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Renta de cancha por hora — prepagada",
+          "serviceType": "Renta de cancha de squash",
+          "description": "Una hora de cancha inglesa con piso de duela y pared de vidrio, pagada por adelantado."
+        }
+      },
+      {
+        "@type": "Offer",
+        "price": "330",
+        "priceCurrency": "MXN",
+        "availability": "https://schema.org/InStock",
+        "url": "https://perisquash.com/#info",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Renta de cancha por hora — casual",
+          "serviceType": "Renta de cancha de squash",
+          "description": "Una hora de cancha inglesa con piso de duela y pared de vidrio, pagada al llegar."
+        }
+      },
+      {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        "url": "https://wa.me/525554545578",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Clases particulares de squash",
+          "serviceType": "Clase de squash",
+          "description": "Clases de técnica, ritmo y lectura de juego para principiantes y avanzados. Costo y horarios por WhatsApp."
+        }
+      },
+      {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        "url": "https://wa.me/525554545578",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Iniciación al squash desde cero",
+          "serviceType": "Clase de squash para principiantes",
+          "description": "Programa de iniciación para quienes nunca han jugado; incluye raqueta de cortesía."
+        }
+      },
+      {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        "url": "https://perisquash.com/#info",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Retadoras",
+          "serviceType": "Juego libre de retadoras",
+          "description": "Retadoras abiertas a la comunidad del club, lunes y miércoles a las 7:00 PM."
+        }
+      },
+      {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        "url": "https://perisquash.com/#tienda",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Pro shop y encordado",
+          "serviceType": "Venta de equipo y encordado",
+          "description": "Venta de raquetas, pelotas, grips, calcetas y bandas, más servicio de encordado en el club."
+        }
+      }
+    ]
+  },
   "sameAs": [
     "https://www.instagram.com/perisquash_club/",
     "https://www.tiktok.com/@perisquash",
     "https://www.facebook.com/profile.php?id=100063724986177"
   ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://perisquash.com/#website",
+  "url": "https://perisquash.com/",
+  "name": "PeriSquash",
+  "description": "Sitio oficial de PeriSquash, club de squash en Coapa, Tlalpan, sur de la Ciudad de México.",
+  "inLanguage": "es-MX",
+  "publisher": { "@id": "https://perisquash.com/#club" },
+  "about": { "@id": "https://perisquash.com/#club" }
 }
 </script>
 <script type="application/ld+json">
@@ -456,9 +557,8 @@
         <p class="kicker">Nosotros</p>
         <h2>Squash de barrio,<br>nivel de club.</h2>
         <p>Llevamos <b>más de 17 años</b> promoviendo el squash en el sur de la CDMX.
-           Tres canchas inglesas profesionales con piso de duela y pared de vidrio,
-           mantenidas todos los días.</p>
-        <p>Lo que nos distingue no es el lujo: es la <b>limpieza</b>, una <b>excelente atención</b>
+           Tres canchas inglesas profesionales con piso de duela y pared trasera de vidrio.</p>
+        <p>Lo que nos distingue no es el lujo: es una <b>excelente atención</b>
            y una <b>comunidad activa</b> de jugadores de todos los niveles que hace que
            siempre haya con quién jugar.</p>
       </div>
@@ -475,7 +575,7 @@
     <div class="wrap">
       <p class="kicker">Servicios</p>
       <h2>Todo para jugar</h2>
-      <p class="lead">Canchas cuidadas todos los días, retadoras para medir tu nivel
+      <p class="lead">Tres canchas inglesas, retadoras para medir tu nivel
          y clases para cada nivel. Llegas, juegas.</p>
       <div class="servicios">
         <article class="serv">
@@ -729,13 +829,15 @@
     <div class="rail" aria-label="Reseñas de jugadores">
       <!-- juego duplicado para loop -->
       <article class="rev"><p class="stars" aria-label="5 estrellas">★★★★★</p><blockquote>“Canchas con duela de madera y una gran atención al público. Si eres novato, te dan tips para mejorar.”</blockquote><cite>IFF</cite></article>
-      <article class="rev"><p class="stars" aria-label="5 estrellas">★★★★★</p><blockquote>“Las canchas tienen piso de duela y excelente servicio al cliente. Si eres principiante, te dan tips para mejorar.”</blockquote><cite>Reseña en Google</cite></article>
-      <article class="rev"><p class="stars" aria-label="5 estrellas">★★★★★</p><blockquote>“Excelente lugar para practicar este deporte. Piso de duela, limpieza y buen ambiente. Grandes partidos.”</blockquote><cite>Felipe Maldonado</cite></article>
-      <article class="rev"><p class="stars" aria-label="5 estrellas">★★★★★</p><blockquote>“Excelente lugar para practicar este deporte. Piso de duela, limpieza, servicio, grandes partidos. Todo en un solo lugar.”</blockquote><cite>Reseña en Google</cite></article>
+      <article class="rev"><p class="stars" aria-label="5 estrellas">★★★★★</p><blockquote>“Excelente lugar para practicar este deporte. Piso de duela… grandes partidos. Todo en un solo lugar.”</blockquote><cite>Felipe Maldonado</cite></article>
+      <article class="rev"><p class="stars" aria-label="5 estrellas">★★★★★</p><blockquote>“Las canchas tienen piso de duela y excelente servicio al cliente…”</blockquote><cite>Reseña en Google</cite></article>
+      <article class="rev"><p class="stars" aria-label="5 estrellas">★★★★★</p><blockquote>“Muy buen lugar y muy buena atención…”</blockquote><cite>Ángel Ramírez</cite></article>
+      <article class="rev"><p class="stars" aria-label="5 estrellas">★★★★★</p><blockquote>“…Canchas en buen estado. Gran ambiente deportivo.”</blockquote><cite>Luis Ignacio Plascencia</cite></article>
       <article class="rev" aria-hidden="true"><p class="stars">★★★★★</p><blockquote>“Canchas con duela de madera y una gran atención al público. Si eres novato, te dan tips para mejorar.”</blockquote><cite>IFF</cite></article>
-      <article class="rev" aria-hidden="true"><p class="stars">★★★★★</p><blockquote>“Las canchas tienen piso de duela y excelente servicio al cliente. Si eres principiante, te dan tips para mejorar.”</blockquote><cite>Reseña en Google</cite></article>
-      <article class="rev" aria-hidden="true"><p class="stars">★★★★★</p><blockquote>“Excelente lugar para practicar este deporte. Piso de duela, limpieza y buen ambiente. Grandes partidos.”</blockquote><cite>Felipe Maldonado</cite></article>
-      <article class="rev" aria-hidden="true"><p class="stars">★★★★★</p><blockquote>“Excelente lugar para practicar este deporte. Piso de duela, limpieza, servicio, grandes partidos. Todo en un solo lugar.”</blockquote><cite>Reseña en Google</cite></article>
+      <article class="rev" aria-hidden="true"><p class="stars">★★★★★</p><blockquote>“Excelente lugar para practicar este deporte. Piso de duela… grandes partidos. Todo en un solo lugar.”</blockquote><cite>Felipe Maldonado</cite></article>
+      <article class="rev" aria-hidden="true"><p class="stars">★★★★★</p><blockquote>“Las canchas tienen piso de duela y excelente servicio al cliente…”</blockquote><cite>Reseña en Google</cite></article>
+      <article class="rev" aria-hidden="true"><p class="stars">★★★★★</p><blockquote>“Muy buen lugar y muy buena atención…”</blockquote><cite>Ángel Ramírez</cite></article>
+      <article class="rev" aria-hidden="true"><p class="stars">★★★★★</p><blockquote>“…Canchas en buen estado. Gran ambiente deportivo.”</blockquote><cite>Luis Ignacio Plascencia</cite></article>
     </div>
   </section>
 
@@ -793,8 +895,7 @@
         <address>
           <b>Vicente Guerrero 7</b>, San Bartolo el Chico,<br>Tlalpan, 14380, CDMX.<br>
           A pasos del Periférico Sur.<br><br>
-          Tel: <a href="tel:+525541739456">55 4173 9456</a><br>
-          WhatsApp: <a href="https://wa.me/525554545578" target="_blank" rel="noopener">55 5454 5578</a>
+          Tel y WhatsApp: <a href="https://wa.me/525554545578" target="_blank" rel="noopener">55 5454 5578</a>
         </address>
         <a class="btn" href="https://maps.google.com/maps?q=PeriSquash%2C%20Vicente%20Guerrero%207%2C%20San%20Bartolo%20el%20Chico%2C%20Tlalpan%2014380" target="_blank" rel="noopener">Cómo llegar</a>
         <p class="loc__cerca">¿Buscas dónde jugar squash cerca de ti? Nos queda a unos minutos a quien viene
@@ -823,8 +924,7 @@
     </div>
     <div>
       <h4>Contacto</h4>
-      <a href="tel:+525541739456">Tel: 55 4173 9456</a>
-      <a href="https://wa.me/525554545578" target="_blank" rel="noopener">WhatsApp: 55 5454 5578</a>
+      <a href="https://wa.me/525554545578" target="_blank" rel="noopener">Tel y WhatsApp: 55 5454 5578</a>
       <p>Vicente Guerrero 7, Tlalpan, CDMX</p>
     </div>
     <div>

@@ -207,11 +207,11 @@ perisquash-web/
 ```
 Nombre:     PeriSquash
 Dirección:  Vicente Guerrero 7, Coapa, San Bartolo el Chico, Tlalpan 14380, CDMX
-Antigüedad: Más de 16 años de operación
+Antigüedad: Más de 17 años de operación (confirmado por el cliente)
 Canchas:    3 canchas inglesas profesionales (piso de madera)
-Teléfono:   55 4173 9456  (SOLO "Tel:", nunca como WhatsApp)
-WhatsApp:   55 5454 5578  → https://wa.me/525554545578
-Google:     4.6 estrellas, 67+ reseñas
+Contacto:   55 5454 5578 — ÚNICO número, sirve para tel y WhatsApp
+            → https://wa.me/525554545578
+Google:     4.6 estrellas, 68 reseñas
 Horarios:
   L-V:      6:00 AM — 10:00 PM
   Sáb-Dom:  7:00 AM — 6:00 PM
@@ -225,16 +225,39 @@ Redes:      Instagram https://www.instagram.com/perisquash_club/
             Facebook  https://www.facebook.com/profile.php?id=100063724986177
 ```
 
-> **Importante — dos números, nunca mezclar:** WhatsApp = `5554545578` (único destino de botones `wa.me`/`525554545578`). Teléfono = `5541739456` (solo como "Tel:", nunca como WhatsApp).
+> **UN SOLO número (corregido 2026-07-29):** `5554545578` es el único número del club y sirve
+> para llamadas y WhatsApp. Se muestra como **"Tel y WhatsApp: 55 5454 5578"** y siempre enlaza a
+> `https://wa.me/525554545578`. **El número `5541739456` ya NO se usa** — la regla anterior de
+> "dos números, nunca mezclar" quedó obsoleta.
 >
-> **Raquetas:** Don Roger **presta** una raqueta de cortesía a quienes van empezando (no es renta). La **venta** de raquetas y accesorios se detalla en la sección Tienda.
+> **Raquetas:** el club **presta** una raqueta de cortesía a quienes van empezando (no es renta).
+> La **venta** de raquetas y accesorios se detalla en la sección Tienda.
+
+### ⛔ Prohibido: limpieza y mantenimiento (regla del cliente, 2026-07-29)
+
+**NO mencionar** limpieza, aseo, baños, "mantenido al día", "canchas cuidadas" ni nada
+equivalente — ni en copy propio, ni en reseñas citadas. **Razón:** el lugar ya tiene sus años y
+aunque se mantenga al día, el tiempo se nota; presumir limpieza invita a comparar y expone al club.
+Lo que sí se vende: **calidad de las canchas** (duela + vidrio), **atención**, **comunidad**,
+**torneos** y **accesibilidad**. Va en la misma línea que la prohibición de "última generación".
 
 ### Reseñas reales (Google, textualmente)
-1. "Instalaciones de primer nivel, las canchas están en excelentes condiciones, los baños muy limpios y Don Roger le agrega amenidades que le dan ese toque de comodidad que difícilmente ves en otro lado. Altamente recomendado."
-2. "Las canchas tienen piso de duela y excelente servicio al cliente. Si eres principiante, te dan tips para mejorar."
-3. "Excelente servicio con Don Roier. Canchas en buen estado. Gran ambiente deportivo."
-4. "Gran lugar y excelente servicio de Roger. Las canchas están geniales y los baños de primera."
-5. "Excelente lugar para practicar este deporte. Piso de duela, limpieza, servicio, grandes partidos. Todo en un solo lugar."
+
+Marcadas las que **no se pueden publicar** por la regla de arriba o por nombrar al cliente:
+
+1. ⛔ "Instalaciones de primer nivel, las canchas están en excelentes condiciones, los baños muy limpios y [cliente] le agrega amenidades…" — limpieza + nombre
+2. ✅ "Las canchas tienen piso de duela y excelente servicio al cliente. Si eres principiante, te dan tips para mejorar."
+3. ⚠️ "Excelente servicio con Don Roier. Canchas en buen estado. Gran ambiente deportivo." — Luis Ignacio Plascencia. Usable cortada: "…Canchas en buen estado. Gran ambiente deportivo."
+4. ⛔ "Gran lugar y excelente servicio de [cliente]. Las canchas están geniales y los baños de primera." — limpieza + nombre
+5. ⚠️ "Excelente lugar para practicar este deporte. Piso de duela, limpieza, servicio, grandes partidos. Todo en un solo lugar." — Felipe Maldonado. Usable **solo con elipsis**: "Piso de duela… grandes partidos."
+6. ✅ "Canchas con duela de madera y una gran atención al público. Si eres novato, te dan tips para mejorar." — IFF
+7. ⚠️ "Muy buen lugar y muy buena atención por parte de [cliente]…" — Ángel Ramírez. Usable cortada: "Muy buen lugar y muy buena atención…"
+8. ⛔ "Lugar muy limpio… Tres canchas, baño con regadera." — Loreley Campos. Limpieza.
+
+> **El pozo de reseñas publicables está casi seco:** quedan **5 utilizables** (2, 3, 5, 6, 7) y
+> tres de ellas requieren elipsis. Con 5 el carrusel ya no repite a la vista en pantallas hasta
+> ~1500 px, pero sí en monitores anchos. Si hace falta, pedir al cliente 2–3 reseñas nuevas que
+> hablen de **juego, comunidad o torneos** (no de instalaciones).
 
 ## Optimizaciones para Producción
 
