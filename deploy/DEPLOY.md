@@ -16,10 +16,9 @@ JS van embebidos; lo único externo son los assets.
 | `assets/images/` | Fotos `.jpg` + `.webp`, logo y `og-image.jpg` |
 | `assets/fonts/` | `archivo-latin-var.woff2` y `archivo-black-latin.woff2` (autoalojadas) |
 | `assets/favicon/` | `favicon.ico`, 16/32, `apple-touch-icon`, iconos 192/512 |
+| `assets/video/` | Video de la galería; usa `preload="none"` para no cargarlo hasta reproducir |
 | `site.webmanifest` | Nombre e iconos al "Agregar a pantalla de inicio" |
 | `robots.txt`, `sitemap.xml` | Indexación |
-
-`assets/video/` no se usa en esta versión — no hace falta subirlo.
 
 ## Fase 1 — Revisión (subdominio de BridgeNode)
 
@@ -43,15 +42,15 @@ Dos cosas del subdominio de revisión:
    (mientras tenga el placeholder, el script no carga nada — hay guard).
 3. Nginx: `deploy/nginx-perisquash.conf` (`server_name perisquash.com`, SSL para el VPS +
    Cloudflare, caché larga para fuentes/imágenes y `no-cache` para el HTML).
-4. Verificar: `https://perisquash.com/` carga el rediseño, WhatsApp `wa.me/525554545578`
-   abre bien, tel `55 4173 9456` solo como Tel, y **ninguna mención de nombres propios**.
+4. Verificar: `https://perisquash.com/` carga el rediseño; llamar y WhatsApp usan el único
+   número `55 5454 5578`; y **no aparece ninguna mención de nombres propios**.
 
 ## Después del deploy — SEO
 
 1. **Google Search Console** (`search.google.com/search-console`): dar de alta la propiedad de
    dominio, verificar con registro TXT en Cloudflare y enviar `https://perisquash.com/sitemap.xml`.
-2. **Rich Results Test** (`search.google.com/test/rich-results`): confirmar que se detectan
-   `SportsActivityLocation` y `FAQPage`.
+2. **Validación de Schema** (`validator.schema.org`) y **Rich Results Test**
+   (`search.google.com/test/rich-results`): confirmar que el JSON-LD es válido.
 3. **Vista previa social**: pasar la URL por el depurador de Facebook
    (`developers.facebook.com/tools/debug/`) para forzar el refresco de caché de la miniatura, y
    probar el link en un chat de WhatsApp real.
@@ -62,8 +61,8 @@ Dos cosas del subdominio de revisión:
 
 - Title, meta description, `canonical`, `lang="es-MX"`, `robots` con `max-image-preview:large`.
 - Open Graph completo (`og:image` 1200×630 con `width`/`height`/`type`/`alt`) + Twitter Card.
-- Datos estructurados: `SportsActivityLocation` (dirección, geo, horarios, tarifas, rating,
-  `sameAs` de redes) y `FAQPage` con las 5 preguntas de la página.
+- Datos estructurados: `SportsActivityLocation` + `SportsClub` (dirección, geo, horarios,
+  catálogo de servicios y `sameAs`), `WebSite` y `FAQPage` con las 5 preguntas visibles.
 - Señales locales: `geo.*`, `ICBM`, `areaServed` (Coapa, Villa Coapa, Tlalpan, Coyoacán,
   Xochimilco), `hasMap` con el place ID de Google.
 - Rendimiento: WebP con fallback JPG, `width`/`height` en todas las imágenes (evita CLS),
@@ -72,8 +71,8 @@ Dos cosas del subdominio de revisión:
 
 ## Datos canónicos
 
-- WhatsApp (único CTA): 55 5454 5578 → `wa.me/525554545578`
-- Teléfono (solo "Tel:"): 55 4173 9456
+- Teléfono y WhatsApp (único número): 55 5454 5578 → `tel:+525554545578` y
+  `wa.me/525554545578`
 - Antigüedad confirmada por el cliente: **17 años**
   (⚠️ el brief original de INICIO.docx dice "más de 16" — confirmar cuál se publica)
 - Tarifas: $300 prepagada · $330 casual (por hora)
