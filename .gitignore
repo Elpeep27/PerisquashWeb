@@ -14,3 +14,6 @@ SESION-*-notas.md
 
 # Copia autocontenida para revisar en celular (se regenera con deploy/empaquetar-para-celular.py)
 PeriSquash-propuesta-celular.html
+
+# Copia del index.html que consume revision.html (se regenera con deploy/gen-revision.ps1)
+revision-data.js

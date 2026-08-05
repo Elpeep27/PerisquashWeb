@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>PeriSquash — Hoja de revisión por bloques</title>
+<style>
+  :root{
+    --tinta:#14181f; --tinta2:#4a5361; --tinta3:#8b95a3;
+    --papel:#f5f6f8; --papel2:#ffffff; --linea:#dfe3e9;
+    --azul:#2E5FBF; --verde:#1d8a52; --ambar:#b8770a; --rojo:#c0392b;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--papel); color:var(--tinta);
+    font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+
+  /* ---------- barra superior ---------- */
+  .top{position:sticky; top:0; z-index:20; background:var(--papel2); border-bottom:1px solid var(--linea);
+       box-shadow:0 1px 8px rgba(20,24,31,.05)}
+  .top__in{max-width:1400px; margin:0 auto; padding:12px 20px; display:flex; gap:16px; align-items:center; flex-wrap:wrap}
+  .top h1{font-size:16px; margin:0; letter-spacing:-.2px}
+  .top h1 small{display:block; font-weight:400; font-size:12px; color:var(--tinta3)}
+  .prog{font-size:13px; color:var(--tinta2); background:var(--papel); border:1px solid var(--linea);
+        border-radius:99px; padding:5px 12px; white-space:nowrap}
+  .top__acc{margin-left:auto; display:flex; gap:8px; flex-wrap:wrap}
+  button, .lnk{font:inherit; font-size:13px; cursor:pointer; border-radius:8px; padding:8px 13px;
+       border:1px solid var(--linea); background:var(--papel2); color:var(--tinta); text-decoration:none}
+  button:hover,.lnk:hover{border-color:var(--tinta3)}
+  .b-prim{background:var(--azul); border-color:var(--azul); color:#fff; font-weight:600}
+  .b-prim:hover{background:#24499a; border-color:#24499a}
+  .b-peli{color:var(--rojo)}
+
+  main{max-width:1400px; margin:0 auto; padding:22px 20px 120px}
+
+  .aviso{background:#fff8e1; border:1px solid #f0d999; border-radius:10px; padding:14px 16px; margin-bottom:22px; font-size:14px}
+  .aviso > b{display:block; margin-bottom:4px}
+  .aviso ol{margin:8px 0 0 18px; padding:0}
+  .aviso li{margin:3px 0}
+
+  .general{background:var(--papel2); border:1px solid var(--linea); border-radius:12px; padding:16px; margin-bottom:26px}
+  .general h2{margin:0 0 4px; font-size:15px}
+  .general p{margin:0 0 10px; font-size:13px; color:var(--tinta3)}
+
+  /* ---------- secciones ---------- */
+  .sec{margin:0 0 34px}
+  .sec__head{position:sticky; top:57px; z-index:10; background:var(--papel);
+    padding:10px 0 8px; border-bottom:2px solid var(--tinta); display:flex; gap:12px; align-items:center; flex-wrap:wrap}
+  .sec__n{font-size:12px; font-weight:700; color:#fff; background:var(--tinta); border-radius:6px; padding:2px 8px}
+  .sec__head h2{margin:0; font-size:18px; letter-spacing:-.3px}
+  .sec__head code{font-size:12px; color:var(--tinta3); font-weight:400}
+  .sec__kill{margin-left:auto; font-size:13px; display:flex; align-items:center; gap:7px; color:var(--rojo); cursor:pointer}
+  .sec.muerta .bloques{opacity:.35; filter:grayscale(1)}
+
+  /* ---------- bloques ---------- */
+  .bloques{display:flex; flex-direction:column; gap:16px; padding-top:16px}
+  .bq{display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,1fr); gap:0;
+      background:var(--papel2); border:1px solid var(--linea); border-radius:12px; overflow:hidden}
+  .bq.st-igual{border-color:#a9d8bf; box-shadow:inset 4px 0 0 var(--verde)}
+  .bq.st-cambiar{border-color:#f0d999; box-shadow:inset 4px 0 0 var(--ambar)}
+  .bq.st-quitar{border-color:#eec0ba; box-shadow:inset 4px 0 0 var(--rojo)}
+  .bq.st-quitar .vista{opacity:.4}
+
+  .vista{background:var(--papel); position:relative; min-height:90px; border-right:1px solid var(--linea)}
+  .vista iframe{display:block; width:100%; border:0; height:120px; transition:height .15s}
+  .vista__ph{position:absolute; inset:0; display:grid; place-items:center; color:var(--tinta3); font-size:12px}
+
+  .ficha{padding:14px 16px; display:flex; flex-direction:column; gap:10px; min-width:0}
+  .ficha__top{display:flex; gap:8px; align-items:baseline; flex-wrap:wrap}
+  .ficha__t{font-weight:700; font-size:14px; margin:0}
+  .ficha__id{font-size:11px; color:var(--tinta3); font-family:ui-monospace,Consolas,monospace}
+
+  .estados{display:flex; gap:6px; flex-wrap:wrap}
+  .estados label{font-size:12.5px; border:1px solid var(--linea); border-radius:99px; padding:5px 11px; cursor:pointer; user-select:none}
+  .estados input{display:none}
+  .estados label:hover{border-color:var(--tinta3)}
+  .estados input:checked+span{font-weight:700}
+  label.e-igual:has(input:checked){background:#e7f5ee; border-color:var(--verde); color:var(--verde)}
+  label.e-cambiar:has(input:checked){background:#fdf4e0; border-color:var(--ambar); color:var(--ambar)}
+  label.e-quitar:has(input:checked){background:#fbecea; border-color:var(--rojo); color:var(--rojo)}
+
+  .campo{display:flex; flex-direction:column; gap:4px}
+  .campo > label{font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--tinta3); font-weight:600}
+  textarea{font:inherit; font-size:13.5px; line-height:1.5; width:100%; border:1px solid var(--linea);
+    border-radius:8px; padding:9px 10px; resize:vertical; background:var(--papel2); color:var(--tinta)}
+  textarea:focus{outline:2px solid var(--azul); outline-offset:-1px; border-color:var(--azul)}
+  textarea.txt{background:#fcfcfd}
+  textarea.txt.cambiado{background:#fffdf3; border-color:#e8c76a}
+  .campo__ayuda{font-size:11.5px; color:var(--tinta3)}
+  .sinTexto{font-size:12.5px; color:var(--tinta3); font-style:italic}
+
+  .filtros{display:flex; gap:14px; align-items:center; flex-wrap:wrap; font-size:13px; color:var(--tinta2); margin-bottom:18px}
+  .filtros label{display:flex; align-items:center; gap:6px; cursor:pointer}
+
+  .bq.oculto{display:none}
+  .sec.oculta{display:none}
+
+  @media (max-width:1000px){
+    .bq{grid-template-columns:1fr}
+    .sec__head{position:static}
+  }
+  @media print{
+    .top,.filtros,.aviso{display:none}
+    .bq{break-inside:avoid; page-break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="top__in">
+    <h1>Hoja de revisión — PeriSquash <small id="fechaDatos"></small></h1>
+    <span class="prog" id="prog">0 bloques marcados</span>
+    <div class="top__acc">
+      <a class="lnk" href="index.html" target="_blank" rel="noopener">Ver página completa ↗</a>
+      <button id="btnCopiar">Copiar notas</button>
+      <button class="b-prim" id="btnBajar">Descargar notas</button>
+      <button class="b-peli" id="btnBorrar">Borrar todo</button>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="aviso">
+    <b>Cómo usar esta hoja</b>
+    Cada bloque de la página aparece aquí por separado, tal como se ve en la web.
+    <ol>
+      <li>Marca <b>Dejar igual</b>, <b>Cambiar</b> o <b>Quitar bloque</b>.</li>
+      <li>Si quieres cambiar el texto, edítalo directo en el recuadro <i>Texto actual</i> — escríbelo como quieras que quede.</li>
+      <li>En <i>Notas</i> pon lo que no sea texto: cambiar la foto, moverlo de lugar, lo que te dijeron.</li>
+      <li>Todo se guarda solo en este navegador. Al terminar dale <b>Descargar notas</b> y pásame el archivo.</li>
+    </ol>
+  </div>
+
+  <div class="general">
+    <h2>Notas generales</h2>
+    <p>Lo que aplica a toda la página, o lo que falta y no existe todavía como bloque.</p>
+    <textarea id="notaGeneral" rows="4" placeholder="Ej.: falta una sección de precios de clases; cambiar el teléfono en toda la página; agregar foto de las 3 canchas..."></textarea>
+  </div>
+
+  <div class="filtros">
+    <label><input type="checkbox" id="fSoloPend"> Mostrar solo lo que no he marcado</label>
+    <label><input type="checkbox" id="fSoloMarc"> Mostrar solo lo que ya marqué</label>
+    <span id="contBloques"></span>
+  </div>
+
+  <div id="salida"></div>
+</main>
+
+<script src="revision-data.js"></script>
+<script>
+(function(){
+  'use strict';
+
+  var salida = document.getElementById('salida');
+
+  if(!window.__REV_HTML){
+    salida.innerHTML = '<div class="aviso"><b>Falta revision-data.js</b>'+
+      'Genera el archivo corriendo en la raíz del proyecto:<br><code>pwsh -File deploy/gen-revision.ps1</code></div>';
+    return;
+  }
+  document.getElementById('fechaDatos').textContent = 'contenido del index.html al ' + (window.__REV_FECHA||'');
+
+  /* ------------------------------------------------------------------
+     1. Parsear el index.html real
+     ------------------------------------------------------------------ */
+  var doc = new DOMParser().parseFromString(window.__REV_HTML, 'text/html');
+
+  // CSS del sitio (index.html trae todo inline en <style>)
+  var ESTILOS = '';
+  doc.querySelectorAll('head style').forEach(function(s){ ESTILOS += '<style>'+s.textContent+'</style>'; });
+
+  // Ajustes solo para la vista previa: nada de animaciones ni alturas de pantalla completa
+  var OVERRIDES = [
+    'html,body{overflow-x:hidden}',
+    'body{margin:0!important;padding:0!important}',
+    '.hero,.block,.torneos,section,header,footer,.facts{min-height:0!important;height:auto!important;',
+    '  padding-top:26px!important;padding-bottom:26px!important}',
+    '.reveal{opacity:1!important;transform:none!important}',
+    '.acc__panel{max-height:none!important;overflow:visible!important}',
+    '.marquee__track,.rail{animation:none!important}',
+    '.rail{overflow:visible!important;flex-wrap:wrap}',
+    '.serv,.galeria figure,.about__fig,.casa>picture,.torneos__in>picture{max-width:430px}',
+    '.about img{min-height:0!important;max-height:340px}',
+    '.nav{position:static!important}',
+    'iframe{max-width:100%}'
+  ].join('\n');
+
+  /* ------------------------------------------------------------------
+     2. Mapa de bloques — qué se corta y cómo se llama
+     ------------------------------------------------------------------ */
+  var MAPA = [
+    {id:'nav', sel:'nav.nav', titulo:'Barra de navegación', partes:[
+      {q:':self', et:'Barra completa (logo, menú, botón)'}
+    ]},
+    {id:'hero', sel:'header.hero', titulo:'Portada — lo primero que se ve', partes:[
+      {q:'.hero__tag', et:'Frase de arriba'},
+      {q:'h1', et:'Título principal'},
+      {q:'.hero__in > p:not(.hero__tag)', et:'Párrafo de presentación'},
+      {q:'.hero__ctas', et:'Botones'},
+      {q:'.hero__chips', et:'Etiquetas de abajo'}
+    ]},
+    {id:'facts', sel:'.facts', titulo:'Barra de datos (17 años · 3 canchas · 4.6★)', partes:[
+      {q:'.facts__in > div', et:'Dato'}
+    ]},
+    {id:'nosotros', sel:'#nosotros', titulo:'Nosotros', partes:[
+      {q:'.about > div > *', et:'Texto'},
+      {q:'.about__fig', et:'Foto de la cancha'}
+    ]},
+    {id:'servicios', sel:'#servicios', titulo:'Servicios', partes:[
+      {q:'.wrap > .kicker', et:'Etiqueta'},
+      {q:'.wrap > h2', et:'Título'},
+      {q:'.wrap > .lead', et:'Bajada'},
+      {q:'.serv', et:'Tarjeta'}
+    ]},
+    {id:'torneos', sel:'#torneos', titulo:'Torneos', partes:[
+      {q:'.marquee', et:'Cintillo que se mueve'},
+      {q:'.torneos__in > div > *', et:'Texto'},
+      {q:'.torneos__in > picture', et:'Foto'}
+    ]},
+    {id:'tienda', sel:'#tienda', titulo:'Tienda (pro shop)', partes:[
+      {q:'.casa > picture', et:'Foto'},
+      {q:'.casa > div > .kicker', et:'Etiqueta'},
+      {q:'.casa > div > h2', et:'Título'},
+      {q:'.casa > div > .lead', et:'Bajada'},
+      {q:'.shop__item', et:'Producto'}
+    ]},
+    {id:'info', sel:'#info', titulo:'Tarifas y horarios', partes:[
+      {q:'.wrap > .kicker', et:'Etiqueta'},
+      {q:'.wrap > h2', et:'Título'},
+      {q:'.wrap > .lead', et:'Bajada'},
+      {q:'.acc__item', et:'Desplegable'}
+    ]},
+    {id:'reservar', sel:'#reservar', titulo:'Reservar cancha', partes:[
+      {q:'.wrap > .kicker', et:'Etiqueta'},
+      {q:'.wrap > h2', et:'Título'},
+      {q:'.wrap > .lead', et:'Bajada'},
+      {q:'form', et:'Formulario que arma el WhatsApp'}
+    ]},
+    {id:'galeria', sel:'#galeria', titulo:'Galería', partes:[
+      {q:'.wrap > .kicker', et:'Etiqueta'},
+      {q:'.wrap > h2', et:'Título'},
+      {q:'.wrap > .lead', et:'Bajada'},
+      {q:'.galeria figure', et:'Foto'},
+      {q:'.galeria__video', et:'Video'},
+      {q:'.galeria__nota', et:'Nota de redes sociales'}
+    ]},
+    {id:'resenas', sel:'#resenas', titulo:'Reseñas de Google', partes:[
+      {q:'.wrap > .kicker', et:'Etiqueta'},
+      {q:'.wrap > h2', et:'Título'},
+      {q:'.rev:not([aria-hidden])', et:'Reseña'}
+    ]},
+    {id:'faq', sel:'#faq', titulo:'Preguntas frecuentes', partes:[
+      {q:'.wrap > .kicker', et:'Etiqueta'},
+      {q:'.wrap > h2', et:'Título'},
+      {q:'.acc__item', et:'Pregunta'}
+    ]},
+    {id:'ubicacion', sel:'#ubicacion', titulo:'Ubicación', partes:[
+      {q:'.loc > div > *', et:'Texto'},
+      {q:'.loc > iframe', et:'Mapa de Google'}
+    ]},
+    {id:'footer', sel:'body > footer', titulo:'Pie de página', partes:[
+      {q:'.foot__grid > div', et:'Columna'},
+      {q:'.foot__base', et:'Línea final (© y BridgeNode)'}
+    ]}
+  ];
+
+  /* ------------------------------------------------------------------
+     3. Utilidades
+     ------------------------------------------------------------------ */
+
+  // Texto plano legible del bloque, respetando saltos de línea
+  var BLOQUE_TXT = 'h1,h2,h3,h4,h5,p,li,dt,dd,blockquote,cite,address,figcaption,div,section,article,button,label,span,br';
+  function texto(el){
+    var c = el.cloneNode(true);
+    // fuera lo decorativo: iconos, el "+" de los desplegables, etc.
+    c.querySelectorAll('svg,script,style,noscript,[aria-hidden="true"]').forEach(function(n){ n.remove(); });
+    c.querySelectorAll('br').forEach(function(n){ n.replaceWith('\n'); });
+    c.querySelectorAll(BLOQUE_TXT).forEach(function(n){ n.prepend('\n'); n.append('\n'); });
+    return c.textContent.split('\n')
+      .map(function(s){ return s.replace(/\s+/g,' ').trim(); })
+      .filter(Boolean).join('\n');
+  }
+
+  // Reconstruye la cadena de padres para que el bloque se vea con su contexto de estilos
+  function conAncestros(el, tope){
+    var nodo = el.cloneNode(true), p = el.parentElement;
+    while(p && p !== tope.parentElement){
+      var capa = p.cloneNode(false);
+      capa.appendChild(nodo);
+      nodo = capa;
+      p = p.parentElement;
+    }
+    var caja = document.createElement('div');
+    caja.appendChild(nodo);
+    return caja.innerHTML;
+  }
+
+  function recorta(s, n){
+    s = (s||'').replace(/\s+/g,' ').trim();
+    return s.length > n ? s.slice(0,n-1)+'…' : s;
+  }
+
+  /* ------------------------------------------------------------------
+     4. Construir la lista de bloques
+     ------------------------------------------------------------------ */
+  var SECCIONES = [], TOTAL = 0;
+
+  MAPA.forEach(function(m){
+    var raiz = doc.querySelector(m.sel);
+    if(!raiz){ console.warn('No encontré la sección', m.sel); return; }
+    var sec = {id:m.id, titulo:m.titulo, sel:m.sel, bloques:[]};
+
+    m.partes.forEach(function(parte, iParte){
+      var nodos = parte.q === ':self' ? [raiz] : Array.prototype.slice.call(raiz.querySelectorAll(parte.q));
+      nodos.forEach(function(nodo, i){
+        var t = texto(nodo);
+        var titulo = parte.et;
+        if(nodos.length > 1) titulo += ' ' + (i+1);
+        var pista = recorta(t.split('\n')[0], 46);
+        if(pista && pista.toLowerCase() !== titulo.toLowerCase()) titulo += ' — ' + pista;
+        sec.bloques.push({
+          id: m.id+'.'+iParte+'.'+i,
+          titulo: titulo,
+          texto: t,
+          markup: conAncestros(nodo, raiz)
+        });
+        TOTAL++;
+      });
+    });
+    SECCIONES.push(sec);
+  });
+
+  /* ------------------------------------------------------------------
+     5. Estado guardado
+     ------------------------------------------------------------------ */
+  var LLAVE = 'perisquash-revision-v1';
+  var datos = {};
+  try{ datos = JSON.parse(localStorage.getItem(LLAVE) || '{}'); }catch(e){ datos = {}; }
+
+  var guardarPend = null;
+  function guardar(){
+    clearTimeout(guardarPend);
+    guardarPend = setTimeout(function(){
+      try{ localStorage.setItem(LLAVE, JSON.stringify(datos)); }catch(e){}
+    }, 350);
+  }
+  function reg(id){ return datos[id] || (datos[id] = {}); }
+
+  /* ------------------------------------------------------------------
+     6. Pintar
+     ------------------------------------------------------------------ */
+  var frag = document.createDocumentFragment();
+
+  SECCIONES.forEach(function(sec, iSec){
+    var dSec = reg('SEC:'+sec.id);
+
+    var box = document.createElement('section');
+    box.className = 'sec';
+    box.dataset.sec = sec.id;
+
+    var head = document.createElement('div');
+    head.className = 'sec__head';
+    head.innerHTML =
+      '<span class="sec__n">'+(iSec+1)+'</span>'+
+      '<h2></h2><code></code>'+
+      '<label class="sec__kill"><input type="checkbox"> Quitar toda esta sección</label>';
+    head.querySelector('h2').textContent = sec.titulo;
+    head.querySelector('code').textContent = sec.sel;
+
+    var kill = head.querySelector('.sec__kill input');
+    kill.checked = !!dSec.quitar;
+    if(dSec.quitar) box.classList.add('muerta');
+    kill.addEventListener('change', function(){
+      dSec.quitar = kill.checked;
+      box.classList.toggle('muerta', kill.checked);
+      guardar(); actualizarProgreso();
+    });
+    box.appendChild(head);
+
+    var lista = document.createElement('div');
+    lista.className = 'bloques';
+
+    sec.bloques.forEach(function(b){
+      var d = reg(b.id);
+
+      var card = document.createElement('article');
+      card.className = 'bq';
+      card.dataset.id = b.id;
+
+      // ---- vista previa (iframe perezoso) ----
+      var vista = document.createElement('div');
+      vista.className = 'vista';
+      vista.innerHTML = '<div class="vista__ph">cargando vista…</div>';
+      vista._markup = b.markup;
+      vista._id = b.id;
+      card.appendChild(vista);
+
+      // ---- ficha de anotación ----
+      var ficha = document.createElement('div');
+      ficha.className = 'ficha';
+
+      var top = document.createElement('div');
+      top.className = 'ficha__top';
+      var h3 = document.createElement('h3'); h3.className = 'ficha__t'; h3.textContent = b.titulo;
+      var idsp = document.createElement('span'); idsp.className = 'ficha__id'; idsp.textContent = b.id;
+      top.appendChild(h3); top.appendChild(idsp);
+      ficha.appendChild(top);
+
+      // estados
+      var est = document.createElement('div');
+      est.className = 'estados';
+      [['igual','Dejar igual'],['cambiar','Cambiar'],['quitar','Quitar bloque']].forEach(function(par){
+        var lab = document.createElement('label');
+        lab.className = 'e-'+par[0];
+        var inp = document.createElement('input');
+        inp.type = 'radio'; inp.name = 'e-'+b.id; inp.value = par[0];
+        inp.checked = d.e === par[0];
+        var sp = document.createElement('span'); sp.textContent = par[1];
+        lab.appendChild(inp); lab.appendChild(sp);
+        inp.addEventListener('change', function(){
+          d.e = par[0];
+          pintaEstado();
+          guardar(); actualizarProgreso(); aplicarFiltros();
+        });
+        est.appendChild(lab);
+      });
+      // limpiar estado
+      var limpiar = document.createElement('button');
+      limpiar.textContent = '×';
+      limpiar.title = 'Quitar la marca';
+      limpiar.style.padding = '4px 9px';
+      limpiar.addEventListener('click', function(){
+        delete d.e;
+        est.querySelectorAll('input').forEach(function(i){ i.checked = false; });
+        pintaEstado(); guardar(); actualizarProgreso(); aplicarFiltros();
+      });
+      est.appendChild(limpiar);
+      ficha.appendChild(est);
+
+      // texto editable
+      if(b.texto){
+        var campoT = document.createElement('div');
+        campoT.className = 'campo';
+        var labT = document.createElement('label');
+        labT.textContent = 'Texto actual — edítalo como quieres que quede';
+        var ta = document.createElement('textarea');
+        ta.className = 'txt';
+        ta.rows = Math.min(10, Math.max(2, b.texto.split('\n').length + 1));
+        ta.value = (typeof d.t === 'string') ? d.t : b.texto;
+        var ayuda = document.createElement('div');
+        ayuda.className = 'campo__ayuda';
+        function marcaCambio(){
+          var cambiado = ta.value.trim() !== b.texto.trim();
+          ta.classList.toggle('cambiado', cambiado);
+          ayuda.textContent = cambiado ? '✎ Texto modificado — se guarda el cambio' : '';
+          return cambiado;
+        }
+        ta.addEventListener('input', function(){
+          if(marcaCambio()) d.t = ta.value; else delete d.t;
+          guardar(); actualizarProgreso();
+        });
+        marcaCambio();
+        campoT.appendChild(labT); campoT.appendChild(ta); campoT.appendChild(ayuda);
+        ficha.appendChild(campoT);
+      } else {
+        var st = document.createElement('p');
+        st.className = 'sinTexto';
+        st.textContent = 'Este bloque no tiene texto (es una imagen, un video o un mapa).';
+        ficha.appendChild(st);
+      }
+
+      // notas
+      var campoN = document.createElement('div');
+      campoN.className = 'campo';
+      var labN = document.createElement('label');
+      labN.textContent = 'Notas — qué quitar, qué poner, qué cambiar';
+      var tn = document.createElement('textarea');
+      tn.rows = 2;
+      tn.placeholder = 'Ej.: cambiar la foto por una de la cancha 3 · quitar el precio · ponerlo antes de Servicios…';
+      tn.value = d.n || '';
+      tn.addEventListener('input', function(){
+        if(tn.value.trim()) d.n = tn.value; else delete d.n;
+        guardar(); actualizarProgreso();
+      });
+      campoN.appendChild(labN); campoN.appendChild(tn);
+      ficha.appendChild(campoN);
+
+      function pintaEstado(){
+        card.classList.remove('st-igual','st-cambiar','st-quitar');
+        if(d.e) card.classList.add('st-'+d.e);
+      }
+      pintaEstado();
+
+      card.appendChild(ficha);
+      lista.appendChild(card);
+    });
+
+    box.appendChild(lista);
+    frag.appendChild(box);
+  });
+
+  salida.appendChild(frag);
+
+  /* ------------------------------------------------------------------
+     7. Vistas previas perezosas + alto automático
+     ------------------------------------------------------------------ */
+  function montaVista(vista){
+    if(vista._listo) return;
+    vista._listo = true;
+    var f = document.createElement('iframe');
+    f.setAttribute('scrolling','no');
+    f.setAttribute('title','Vista previa del bloque');
+    f.setAttribute('loading','lazy');
+    f.dataset.id = vista._id;
+    f.srcdoc =
+      '<!doctype html><html lang="es"><head><meta charset="utf-8">'+
+      '<meta name="viewport" content="width=device-width, initial-scale=1">'+
+      ESTILOS + '<style>' + OVERRIDES + '</style></head><body>' + vista._markup +
+      '<script>(function(){function h(){var e=document.body.firstElementChild;'+
+      'var alto=e?Math.ceil(e.getBoundingClientRect().bottom):document.documentElement.scrollHeight;'+
+      'parent.postMessage({rev:1,id:'+JSON.stringify(vista._id)+',h:alto},"*")}window.addEventListener("load",h);'+
+      'if(window.ResizeObserver){new ResizeObserver(h).observe(document.documentElement)}'+
+      'setTimeout(h,120);setTimeout(h,600);setTimeout(h,1600);})();<\/script></body></html>';
+    vista.innerHTML = '';
+    vista.appendChild(f);
+  }
+
+  var ioVistas = new IntersectionObserver(function(ents){
+    ents.forEach(function(e){
+      if(e.isIntersecting){ montaVista(e.target); ioVistas.unobserve(e.target); }
+    });
+  }, {rootMargin:'900px 0px'});
+  document.querySelectorAll('.vista').forEach(function(v){ ioVistas.observe(v); });
+
+  window.addEventListener('message', function(e){
+    var d = e.data;
+    if(!d || d.rev !== 1) return;
+    var f = document.querySelector('iframe[data-id="'+d.id+'"]');
+    if(f) f.style.height = Math.max(80, Math.min(1400, d.h)) + 'px';
+  });
+
+  /* ------------------------------------------------------------------
+     8. Progreso y filtros
+     ------------------------------------------------------------------ */
+  function marcado(id){
+    var d = datos[id];
+    return !!(d && (d.e || typeof d.t === 'string' || (d.n && d.n.trim())));
+  }
+  function actualizarProgreso(){
+    var n = 0;
+    SECCIONES.forEach(function(s){ s.bloques.forEach(function(b){ if(marcado(b.id)) n++; }); });
+    document.getElementById('prog').textContent = n + ' de ' + TOTAL + ' bloques revisados';
+    document.getElementById('contBloques').textContent = TOTAL + ' bloques en ' + SECCIONES.length + ' secciones';
+  }
+
+  var fPend = document.getElementById('fSoloPend'), fMarc = document.getElementById('fSoloMarc');
+  function aplicarFiltros(){
+    var soloPend = fPend.checked, soloMarc = fMarc.checked;
+    document.querySelectorAll('.sec').forEach(function(box){
+      var visibles = 0;
+      box.querySelectorAll('.bq').forEach(function(card){
+        var m = marcado(card.dataset.id);
+        var ocultar = (soloPend && m) || (soloMarc && !m);
+        card.classList.toggle('oculto', ocultar);
+        if(!ocultar) visibles++;
+      });
+      box.classList.toggle('oculta', visibles === 0);
+    });
+  }
+  fPend.addEventListener('change', function(){ if(fPend.checked) fMarc.checked = false; aplicarFiltros(); });
+  fMarc.addEventListener('change', function(){ if(fMarc.checked) fPend.checked = false; aplicarFiltros(); });
+
+  // nota general
+  var ng = document.getElementById('notaGeneral');
+  ng.value = datos.__general || '';
+  ng.addEventListener('input', function(){
+    if(ng.value.trim()) datos.__general = ng.value; else delete datos.__general;
+    guardar();
+  });
+
+  actualizarProgreso();
+
+  /* ------------------------------------------------------------------
+     9. Exportar
+     ------------------------------------------------------------------ */
+  var ETIQ = {igual:'DEJAR IGUAL', cambiar:'CAMBIAR', quitar:'QUITAR'};
+
+  function construirNotas(){
+    var hoy = new Date().toISOString().slice(0,10);
+    var L = [];
+    L.push('# Notas de revisión — PeriSquash');
+    L.push('');
+    L.push('Fecha: ' + hoy);
+    L.push('Base: index.html generado el ' + (window.__REV_FECHA||'?'));
+    L.push('');
+
+    if(datos.__general && datos.__general.trim()){
+      L.push('## Notas generales');
+      L.push('');
+      L.push(datos.__general.trim());
+      L.push('');
+    }
+
+    var conAlgo = 0;
+
+    SECCIONES.forEach(function(sec){
+      var dSec = datos['SEC:'+sec.id] || {};
+      var bloquesConAlgo = sec.bloques.filter(function(b){ return marcado(b.id); });
+      if(!dSec.quitar && !bloquesConAlgo.length) return;
+
+      L.push('## ' + sec.titulo + '  (`' + sec.sel + '`)');
+      L.push('');
+      if(dSec.quitar){
+        L.push('> **QUITAR LA SECCIÓN COMPLETA.**');
+        L.push('');
+        conAlgo++;
+      }
+
+      bloquesConAlgo.forEach(function(b){
+        var d = datos[b.id];
+        var cabeza = d.e ? '['+ETIQ[d.e]+'] ' : '[NOTA] ';
+        L.push('### ' + cabeza + b.titulo);
+        L.push('');
+        L.push('- id: `' + b.id + '`');
+        if(b.texto){
+          L.push('- Texto actual:');
+          L.push('  ```');
+          b.texto.split('\n').forEach(function(l){ L.push('  ' + l); });
+          L.push('  ```');
+        }
+        if(typeof d.t === 'string' && d.t.trim() !== (b.texto||'').trim()){
+          L.push('- **Texto nuevo (así lo quiero):**');
+          L.push('  ```');
+          d.t.split('\n').forEach(function(l){ L.push('  ' + l); });
+          L.push('  ```');
+        }
+        if(d.n && d.n.trim()){
+          L.push('- **Nota:** ' + d.n.trim().replace(/\n/g,'\n  '));
+        }
+        L.push('');
+        conAlgo++;
+      });
+    });
+
+    if(!conAlgo && !(datos.__general||'').trim()){
+      L.push('_(Todavía no hay nada marcado.)_');
+    }
+    return L.join('\n');
+  }
+
+  document.getElementById('btnBajar').addEventListener('click', function(){
+    var txt = construirNotas();
+    var blob = new Blob([txt], {type:'text/markdown;charset=utf-8'});
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'notas-revision-perisquash-' + new Date().toISOString().slice(0,10) + '.md';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function(){ URL.revokeObjectURL(a.href); }, 4000);
+  });
+
+  document.getElementById('btnCopiar').addEventListener('click', function(){
+    var txt = construirNotas(), btn = this;
+    function ok(){ btn.textContent = '¡Copiado!'; setTimeout(function(){ btn.textContent = 'Copiar notas'; }, 1600); }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(ok, fallback);
+    } else fallback();
+    function fallback(){
+      var ta = document.createElement('textarea');
+      ta.value = txt; document.body.appendChild(ta); ta.select();
+      try{ document.execCommand('copy'); ok(); }catch(e){ alert('No pude copiar — usa Descargar notas.'); }
+      ta.remove();
+    }
+  });
+
+  document.getElementById('btnBorrar').addEventListener('click', function(){
+    if(!confirm('¿Borrar TODAS las marcas y notas de esta hoja? No se puede deshacer.')) return;
+    localStorage.removeItem(LLAVE);
+    location.reload();
+  });
+
+})();
+</script>
+</body>
+</html>
