@@ -154,7 +154,7 @@
   .about__fig figcaption b{color:var(--ink)}
 
   /* Servicios: tarjetas con foto de fondo */
-  .servicios{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .servicios{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
   .serv{position:relative;border-radius:10px;overflow:hidden;min-height:400px;
     display:flex;align-items:flex-end;color:#fff;background:var(--navy)}
   .serv img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
@@ -197,6 +197,16 @@
   .galeria__video{grid-column:1/-1;border-radius:10px;overflow:hidden;background:var(--ink);line-height:0}
   .galeria__video video{width:100%;max-height:460px;display:block}
   .galeria__nota{margin:1.5rem 0 0;color:var(--ink-soft);font-size:.95rem}
+  .galeria__redes{margin:1.8rem 0 0;display:flex;flex-wrap:wrap;align-items:center;gap:.8rem 1.2rem}
+  .galeria__redes p{margin:0;color:var(--ink-soft);font-size:.95rem}
+  .galeria__socs{display:flex;flex-wrap:wrap;gap:.55rem}
+  .galeria__socs .soc{display:inline-flex;align-items:center;gap:.5em;padding:.55em 1em;
+    border:1px solid var(--line);border-radius:99px;color:var(--ink);text-decoration:none;
+    font-weight:600;font-size:.9rem;transition:color .18s,background .18s,border-color .18s}
+  .galeria__socs .soc svg{width:19px;height:19px}
+  .galeria__socs .soc--ig:hover{background:#E4405F;border-color:#E4405F;color:var(--white)}
+  .galeria__socs .soc--tt:hover{background:#111;border-color:#111;color:var(--white)}
+  .galeria__socs .soc--fb:hover{background:#1877F2;border-color:#1877F2;color:var(--white)}
 
   /* Tienda */
   .casa{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:center}
@@ -278,6 +288,7 @@
 
   @media (max-width:900px){
     .servicios{grid-template-columns:1fr 1fr}
+    .servicios .serv:last-child{grid-column:1 / -1}
     .galeria{grid-template-columns:1fr 1fr}
     .about,.casa,.torneos__in,.loc,.reserva__grid{grid-template-columns:1fr}
     .foot__grid{grid-template-columns:1fr 1fr}
@@ -361,8 +372,8 @@
     { "@type": "LocationFeatureSpecification", "name": "Raqueta de cortesía para principiantes", "value": true }
   ],
   "openingHoursSpecification": [
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "06:00", "closes": "22:00" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday","Sunday"], "opens": "07:00", "closes": "18:00" }
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "06:00", "closes": "23:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday","Sunday"], "opens": "07:00", "closes": "15:00" }
   ],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
@@ -424,7 +435,7 @@
           "@type": "Service",
           "name": "Retadoras",
           "serviceType": "Juego libre de retadoras",
-          "description": "Retadoras abiertas a la comunidad del club, lunes y miércoles a las 7:00 PM."
+          "description": "Retadoras abiertas a la comunidad del club: lunes y miércoles de 19:00 a 23:00, y domingos de 10:00 a 15:00."
         }
       },
       {
@@ -488,7 +499,7 @@
     {
       "@type": "Question",
       "name": "¿Cuál es el horario del club?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Lunes a viernes de 6:00 a 22:00 y sábado y domingo de 7:00 a 18:00. Las retadoras son lunes y miércoles a las 7:00 PM." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Lunes a viernes de 6:00 a 23:00 y sábado y domingo de 7:00 a 15:00. Las retadoras son lunes y miércoles de 19:00 a 23:00, y domingos de 10:00 a 15:00." }
     }
   ]
 }
@@ -528,7 +539,7 @@
     <p class="hero__tag">No es lujo — es squash bien hecho.</p>
     <h1>La mejor opción<br><span class="sur">del sur.</span></h1>
     <p>Squash en Coapa desde hace 17 años: tres canchas inglesas con piso de duela,
-       pared de vidrio y una comunidad que juega en serio. Sin vueltas — llegas, juegas.</p>
+       contra frontis de vidrio.</p>
     <div class="hero__ctas">
       <a class="btn" href="#reservar">Entra a la cancha</a>
       <a class="btn btn--ghost" href="#info">Tarifas y horarios</a>
@@ -537,7 +548,7 @@
       <li>Clases para principiantes</li>
       <li>Renta por hora</li>
       <li>Dos torneos al año</li>
-      <li>Ambiente familiar</li>
+      <li>El mejor ambiente</li>
     </ul>
   </div>
 </header>
@@ -555,9 +566,9 @@
     <div class="wrap about">
       <div>
         <p class="kicker">Nosotros</p>
-        <h2>Squash de barrio,<br>nivel de club.</h2>
+        <h2>Un buen nivel de juego.</h2>
         <p>Llevamos <b>más de 17 años</b> promoviendo el squash en el sur de la CDMX.
-           Tres canchas inglesas profesionales con piso de duela y pared trasera de vidrio.</p>
+           Tres canchas inglesas profesionales con piso de duela y contra frontis de vidrio.</p>
         <p>Lo que nos distingue no es el lujo: es una <b>excelente atención</b>
            y una <b>comunidad activa</b> de jugadores de todos los niveles que hace que
            siempre haya con quién jugar.</p>
@@ -573,10 +584,8 @@
 
   <section class="block block--alt" id="servicios">
     <div class="wrap">
-      <p class="kicker">Servicios</p>
-      <h2>Todo para jugar</h2>
-      <p class="lead">Tres canchas inglesas, retadoras para medir tu nivel
-         y clases para cada nivel. Llegas, juegas.</p>
+      <p class="kicker">Lugar</p>
+      <h2>Canchas</h2>
       <div class="servicios">
         <article class="serv">
           <picture>
@@ -596,25 +605,17 @@
           <div class="veil" aria-hidden="true"></div>
           <div class="txt"><h3>Retadoras</h3>
             <p>Competencia informal para medirte con otros jugadores del club.
-              <span class="price">Lunes y miércoles · 7:00 PM</span></p></div>
+              <span class="price">Lunes y miércoles 19:00–23:00 · Domingos 10:00–15:00</span></p></div>
         </article>
         <article class="serv">
           <picture>
-            <source srcset="assets/images/cancha-clase.webp" type="image/webp">
-            <img src="assets/images/cancha-clase.jpg" alt="Clase de squash junto a la pared de vidrio" width="1368" height="626" loading="lazy" decoding="async">
+            <source srcset="assets/images/clases-entrenadores.webp" type="image/webp">
+            <img src="assets/images/clases-entrenadores.jpg" alt="Entrenador dando una clase particular de squash en la Cancha 1 de PeriSquash" width="1086" height="1448" loading="lazy" decoding="async">
           </picture>
           <div class="veil" aria-hidden="true"></div>
           <div class="txt"><h3>Clases particulares</h3>
-            <p>Técnica, ritmo y lectura de juego, uno a uno. Principiantes y avanzados.</p></div>
-        </article>
-        <article class="serv">
-          <picture>
-            <source srcset="assets/images/raquetas-vidrio.webp" type="image/webp">
-            <img src="assets/images/raquetas-vidrio.jpg" alt="Raquetas de squash junto a la pared de vidrio" width="960" height="1180" loading="lazy" decoding="async">
-          </picture>
-          <div class="veil" aria-hidden="true"></div>
-          <div class="txt"><h3>Iniciación y desarrollo</h3>
-            <p>Formación progresiva desde cero, con raqueta de cortesía mientras empiezas.</p></div>
+            <p>Técnica, ritmo y lectura de juego, uno a uno. Principiantes y avanzados.
+              <span class="price">Entrenadores calificados</span></p></div>
         </article>
       </div>
     </div>
@@ -623,8 +624,8 @@
   <section class="torneos" id="torneos">
     <div class="marquee" aria-hidden="true">
       <div class="marquee__track">
-        <span>Torneo de aniversario · Agosto · Todas las categorías · Retadoras lunes y miércoles · Dos torneos al año · </span>
-        <span>Torneo de aniversario · Agosto · Todas las categorías · Retadoras lunes y miércoles · Dos torneos al año · </span>
+        <span>Torneo de aniversario · Agosto · Todas las categorías · Retadoras lunes, miércoles y domingos · Dos torneos al año · </span>
+        <span>Torneo de aniversario · Agosto · Todas las categorías · Retadoras lunes, miércoles y domingos · Dos torneos al año · </span>
       </div>
     </div>
     <div class="wrap torneos__in">
@@ -677,9 +678,10 @@
           <button class="acc__btn" aria-expanded="true">Horarios <span class="plus" aria-hidden="true">+</span></button>
           <div class="acc__panel"><div class="acc__body">
             <dl>
-              <div><dt>Lunes a viernes</dt><dd>6:00 — 22:00</dd></div>
-              <div><dt>Sábado y domingo</dt><dd>7:00 — 18:00</dd></div>
-              <div><dt>Retadoras</dt><dd>Lunes y miércoles · 7:00 PM</dd></div>
+              <div><dt>Lunes a viernes</dt><dd>6:00 — 23:00</dd></div>
+              <div><dt>Sábado y domingo</dt><dd>7:00 — 15:00</dd></div>
+              <div><dt>Retadoras</dt><dd>Lunes y miércoles · 19:00 — 23:00</dd></div>
+              <div><dt>Retadoras en domingo</dt><dd>10:00 — 15:00</dd></div>
             </dl>
           </div></div>
         </div>
@@ -709,7 +711,7 @@
             <ul>
               <li>Dos torneos al año, en todas las categorías.</li>
               <li>El Torneo de Aniversario en agosto es el más grande del año.</li>
-              <li>Retadoras lunes y miércoles a las 7:00 PM.</li>
+              <li>Retadoras lunes y miércoles de 19:00 a 23:00, y domingos de 10:00 a 15:00.</li>
             </ul>
           </div></div>
         </div>
@@ -745,6 +747,7 @@
               <option>10:00</option><option>11:00</option><option>12:00</option><option>13:00</option>
               <option>14:00</option><option>15:00</option><option>16:00</option><option>17:00</option>
               <option selected>18:00</option><option>19:00</option><option>20:00</option><option>21:00</option>
+              <option>22:00</option>
             </select>
           </div>
           <div>
@@ -753,7 +756,7 @@
           </div>
         </div>
         <button class="btn" type="submit">Enviar solicitud por WhatsApp</button>
-        <p class="reserva__note">Horario de juego: L–V 6:00–22:00 · Sáb y Dom 7:00–18:00.</p>
+        <p class="reserva__note" id="reservaNota">Horario de juego: L–V 6:00–23:00 · Sáb y Dom 7:00–15:00.</p>
       </form>
     </div>
   </section>
@@ -767,8 +770,8 @@
       <div class="galeria">
         <figure>
           <picture>
-            <source srcset="assets/images/hero-cancha.webp" type="image/webp">
-            <img src="assets/images/hero-cancha.jpg" alt="Partido de squash en la Cancha 2 de PeriSquash" width="1200" height="1600" loading="lazy" decoding="async">
+            <source srcset="assets/images/cancha-2.webp" type="image/webp">
+            <img src="assets/images/cancha-2.jpg" alt="Partido de squash en la Cancha 2 de PeriSquash" width="1086" height="1448" loading="lazy" decoding="async">
           </picture>
           <figcaption>Partido en Cancha 2</figcaption>
         </figure>
@@ -781,15 +784,15 @@
         </figure>
         <figure>
           <picture>
-            <source srcset="assets/images/clase-particular.webp" type="image/webp">
-            <img src="assets/images/clase-particular.jpg" alt="Clase particular de squash en PeriSquash" width="1019" height="720" loading="lazy" decoding="async">
+            <source srcset="assets/images/clases-tecnica.webp" type="image/webp">
+            <img src="assets/images/clases-tecnica.jpg" alt="Entrenador corrigiendo la técnica de una jugadora en la Cancha 1" width="1086" height="1448" loading="lazy" decoding="async">
           </picture>
           <figcaption>Clase particular</figcaption>
         </figure>
         <figure>
           <picture>
-            <source srcset="assets/images/cancha-clase.webp" type="image/webp">
-            <img src="assets/images/cancha-clase.jpg" alt="Clase de iniciación junto a la pared de vidrio" width="1368" height="626" loading="lazy" decoding="async">
+            <source srcset="assets/images/clases-entrenadores.webp" type="image/webp">
+            <img src="assets/images/clases-entrenadores.jpg" alt="Clase de iniciación con entrenador en la Cancha 1 de PeriSquash" width="1086" height="1448" loading="lazy" decoding="async">
           </picture>
           <figcaption>Iniciación desde cero</figcaption>
         </figure>
@@ -815,9 +818,14 @@
           </video>
         </div>
       </div>
-      <p class="galeria__nota">¿Quieres ver más? Publicamos partidos y torneos en
-        <a href="https://www.instagram.com/perisquash_club/" target="_blank" rel="noopener">Instagram</a> y
-        <a href="https://www.tiktok.com/@perisquash" target="_blank" rel="noopener">TikTok</a>.</p>
+      <div class="galeria__redes">
+        <p>Para más, entra a nuestras redes sociales — ahí publicamos partidos y torneos.</p>
+        <div class="galeria__socs">
+          <a class="soc soc--ig" href="https://www.instagram.com/perisquash_club/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.13 1.38A5.9 5.9 0 0 0 .63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.13a5.9 5.9 0 0 0 2.13 1.38c.76.3 1.64.5 2.91.56 1.28.06 1.69.07 4.95.07s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.9 5.9 0 0 0 2.13-1.38 5.9 5.9 0 0 0 1.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.9 5.9 0 0 0-1.38-2.13A5.9 5.9 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0Zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm7.85-10.4a1.44 1.44 0 1 1-1.44-1.44 1.44 1.44 0 0 1 1.44 1.44Z"/></svg>Instagram</a>
+          <a class="soc soc--tt" href="https://www.tiktok.com/@perisquash" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07Z"/></svg>TikTok</a>
+          <a class="soc soc--fb" href="https://www.facebook.com/profile.php?id=100063724986177" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.45 18.63.07 12 .07S0 5.45 0 12.07c0 5.99 4.39 10.95 10.13 11.85v-8.38H7.08v-3.47h3.05V9.43c0-3.01 1.79-4.67 4.53-4.67 1.31 0 2.69.23 2.69.23v2.95h-1.51c-1.49 0-1.96.93-1.96 1.87v2.25h3.33l-.53 3.47h-2.8v8.38C19.61 23.03 24 18.06 24 12.07Z"/></svg>Facebook</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -879,8 +887,9 @@
         <div class="acc__item">
           <button class="acc__btn" aria-expanded="false">¿Cuál es el horario del club? <span class="plus" aria-hidden="true">+</span></button>
           <div class="acc__panel"><div class="acc__body">
-            <p>Lunes a viernes de <b>6:00 a 22:00</b> y sábado y domingo de <b>7:00 a 18:00</b>.
-               Las retadoras son lunes y miércoles a las 7:00 PM, para jugar contra otros miembros del club.</p>
+            <p>Lunes a viernes de <b>6:00 a 23:00</b> y sábado y domingo de <b>7:00 a 15:00</b>.
+               Las retadoras son lunes y miércoles de <b>19:00 a 23:00</b> y domingos de <b>10:00 a 15:00</b>,
+               para jugar contra otros miembros del club.</p>
           </div></div>
         </div>
       </div>
@@ -911,7 +920,7 @@
   <div class="wrap foot__grid">
     <div>
       <img class="foot__logo" src="assets/images/logo-perisquash-v2.png" alt="PeriSquash" width="753" height="658" loading="lazy" decoding="async">
-      <p>Squash en Coapa, Tlalpan, desde hace más de 17 años.<br>No es lujo — es squash bien hecho.</p>
+      <p>Squash en Coapa, Tlalpan, desde hace más de 17 años.<br>El deporte de los reflejos.</p>
     </div>
     <div>
       <h4>Explora</h4>
@@ -936,7 +945,7 @@
   </div>
   <div class="wrap foot__base">
     <span>© 2026 PeriSquash</span>
-    <span>Desarrollado por <a href="https://bridgenode.mx" target="_blank" rel="noopener">BridgeNode</a></span>
+    <span>Desarrollado por <a href="https://bridgenode.mx" target="_blank" rel="noopener">BridgeNode.com</a></span>
   </div>
 </footer>
 
@@ -964,6 +973,36 @@
       panel.style.maxHeight=open?panel.scrollHeight+'px':'0';
     });
   });
+  // Reserva: solo fechas de hoy en adelante y solo horas dentro del horario de ese dia.
+  // Entre semana 6:00-22:00 (cierra 23:00); sabado y domingo 7:00-14:00 (cierra 15:00).
+  (function(){
+    var elDia=document.getElementById('rDia'), elHora=document.getElementById('rHora');
+    function aISO(d){
+      return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2);
+    }
+    elDia.min=aISO(new Date());
+    function rango(valor){
+      if(!valor) return {desde:6,hasta:22};
+      var p=valor.split('-');
+      var d=new Date(+p[0],+p[1]-1,+p[2]).getDay(); // 0 domingo, 6 sabado
+      return (d===0||d===6) ? {desde:7,hasta:14} : {desde:6,hasta:22};
+    }
+    function pintarHoras(){
+      var r=rango(elDia.value), previa=elHora.value, disponibles=[];
+      elHora.innerHTML='';
+      for(var h=r.desde;h<=r.hasta;h++){
+        var o=document.createElement('option');
+        o.value=o.textContent=h+':00';
+        elHora.appendChild(o);
+        disponibles.push(o.value);
+      }
+      elHora.value = disponibles.indexOf(previa)>-1 ? previa
+        : (disponibles.indexOf('18:00')>-1 ? '18:00' : disponibles[0]);
+    }
+    elDia.addEventListener('change',pintarHoras);
+    pintarHoras();
+  })();
+
   document.getElementById('formReserva').addEventListener('submit',function(e){
     e.preventDefault();
     var cancha=document.getElementById('rCancha').value;
@@ -971,6 +1010,8 @@
     var hora=document.getElementById('rHora').value;
     var nombre=document.getElementById('rNombre').value.trim();
     if(!dia||!nombre){return}
+    var elDia=document.getElementById('rDia');
+    if(elDia.min && dia<elDia.min){ elDia.focus(); return }
     var partes=dia.split('-');
     var fecha=partes[2]+'/'+partes[1]+'/'+partes[0];
     var msg='Hola, soy '+nombre+'. Quiero reservar '+cancha.toLowerCase()+
