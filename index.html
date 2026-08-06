@@ -180,18 +180,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .marquee__track span{font-family:var(--font-display);text-transform:uppercase;letter-spacing:.14em;
     font-size:.85rem;color:var(--cyan);padding-right:.5em}
   @keyframes mq{to{transform:translateX(-50%)}}
-  .torneos__in{display:grid;grid-template-columns:1.2fr 1fr;gap:34px;align-items:center;padding-block:64px}
   .torneos p{color:rgba(255,255,255,.9)}
-  .torneos__badge{display:flex;align-items:center;gap:14px;max-width:430px;border:1px solid rgba(255,255,255,.3);
-    border-radius:12px;padding:12px 18px 12px 12px;margin:1.4em 0 1.7em;background:rgba(255,255,255,.06)}
-  .torneos__badge .mes{font-family:var(--font-display);font-size:1.4rem;color:var(--navy);background:var(--cyan);
-    border-radius:8px;padding:.4em .5em;line-height:1;flex:none}
-  .torneos__badge b{color:#fff}
-  .torneos__badge span:last-child{font-size:.92rem;color:rgba(255,255,255,.85)}
-  .torneos img{border-radius:6px;width:100%;height:100%;object-fit:cover;min-height:280px;
-    border:6px solid #fff;box-shadow:0 24px 48px -24px rgba(0,0,0,.6);
-    transform:rotate(-1.4deg);transition:transform .35s}
-  .torneos__in:hover img{transform:rotate(0)}
+  /* Cartel: la foto ocupa toda la franja y el texto va encima. Es la única sección
+     que rompe la retícula de dos columnas — por eso resalta. */
+  .cartel{position:relative;overflow:hidden;background:var(--navy);
+    min-height:clamp(470px,74vh,680px);display:flex;align-items:flex-end}
+  .cartel__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 38%}
+  .cartel__veil{position:absolute;inset:0;background:
+    linear-gradient(180deg,rgba(27,58,122,.42) 0%,rgba(16,20,27,.55) 42%,rgba(16,20,27,.93) 100%)}
+  .cartel__in{position:relative;width:100%;padding-block:70px 54px}
+  .cartel__title{font-family:var(--font-display);font-size:clamp(2.45rem,8.4vw,6rem);line-height:.93;
+    text-transform:uppercase;letter-spacing:-.015em;margin:0 0 .55rem;max-width:12ch;
+    text-shadow:0 2px 34px rgba(0,0,0,.4)}
+  .cartel__title .ani{color:var(--cyan)}
+  .cartel__meta{display:flex;align-items:center;gap:16px;max-width:56ch;margin:1.5em 0 1.8em}
+  .cartel__mes{font-family:var(--font-display);font-size:1.5rem;color:var(--navy);background:var(--cyan);
+    border-radius:8px;padding:.36em .55em;line-height:1;flex:none;letter-spacing:.02em}
+  .cartel__meta p{margin:0;font-size:1.02rem}
+  .cartel__foot{display:flex;flex-wrap:wrap;gap:.6em 1em;list-style:none;margin:2em 0 0;padding:1.25em 0 0;
+    border-top:1px solid rgba(255,255,255,.24);font-size:.82rem;font-weight:700;
+    text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.85)}
+  .cartel__foot li{display:flex;align-items:center;gap:1em}
+  .cartel__foot li+li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--cyan);flex:none}
 
   /* Galería */
   .galeria{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:2rem}
@@ -295,7 +305,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .servicios{grid-template-columns:1fr 1fr}
     .servicios .serv:last-child{grid-column:1 / -1}
     .galeria{grid-template-columns:1fr 1fr}
-    .about,.casa,.torneos__in,.loc,.reserva__grid{grid-template-columns:1fr}
+    .about,.casa,.loc,.reserva__grid{grid-template-columns:1fr}
     .foot__grid{grid-template-columns:1fr 1fr}
     .nav__links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--white);
       flex-direction:column;align-items:flex-start;padding:18px 22px;border-bottom:1px solid var(--line);gap:1.1rem}
@@ -309,13 +319,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .servicios{grid-template-columns:1fr}
     .serv{min-height:320px}
     .galeria{grid-template-columns:1fr}
+    /* En móvil la foto pierde detalle: se oscurece más para que el titular respire */
+    .cartel{min-height:430px}
+    .cartel__veil{background:linear-gradient(180deg,rgba(16,20,27,.6) 0%,rgba(16,20,27,.95) 100%)}
+    .cartel__meta{align-items:flex-start}
   }
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto}
     .rail{animation:none;width:auto;flex-wrap:wrap}
     .rev{width:100%;max-width:330px}
     .marquee__track{animation:none}
-    .torneos img{transform:none}
     .reveal{opacity:1;transform:none;transition:none}
     .serv,.serv::before{transition:none}
   }
@@ -333,9 +346,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   "telephone": "+525554545578",
   "logo": "https://perisquash.com/assets/favicon/icon-512.png",
   "image": [
-    "https://perisquash.com/assets/images/hero-cancha.jpg",
-    "https://perisquash.com/assets/images/cancha-clase.jpg",
-    "https://perisquash.com/assets/images/accion-pro.jpg",
+    "https://perisquash.com/assets/images/cancha-2.jpg",
+    "https://perisquash.com/assets/images/fondo-inicio_cancha.jpg",
+    "https://perisquash.com/assets/images/fachada.jpg",
     "https://perisquash.com/assets/images/og-image.jpg"
   ],
   "priceRange": "$300–$330 MXN por hora",
@@ -597,8 +610,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="servicios">
         <article class="serv">
           <picture>
-            <source srcset="assets/images/accion-pro.webp" type="image/webp">
-            <img src="assets/images/accion-pro.jpg" alt="Dos jugadores en un partido de squash en PeriSquash" width="960" height="1280" loading="lazy" decoding="async">
+            <source srcset="assets/images/cancha-2.webp" type="image/webp">
+            <img src="assets/images/cancha-2.jpg" alt="Partido de squash en la Cancha 2 de PeriSquash, con piso de duela y frontis de vidrio" width="1086" height="1448" loading="lazy" decoding="async">
           </picture>
           <div class="veil" aria-hidden="true"></div>
           <div class="txt"><h3>Renta de cancha por hora</h3>
@@ -636,22 +649,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span>Torneo de aniversario · Agosto · Todas las categorías · Retadoras lunes, miércoles y domingos · Dos torneos al año · </span>
       </div>
     </div>
-    <div class="wrap torneos__in">
-      <div>
-        <p class="kicker">Torneos</p>
-        <h2>Squash de verdad: ven a competir o a echar porra.</h2>
-        <p>Dos torneos al año, en todas las categorías — del que va empezando al que
-           no perdona un punto. Y entre torneo y torneo, retadoras los lunes y miércoles para llegar afilado.</p>
-        <div class="torneos__badge">
-          <span class="mes">AGO</span>
-          <span><b>Torneo de Aniversario</b><br>El más grande del año. Aparta tu lugar con tiempo.</span>
-        </div>
-        <a class="btn" href="https://wa.me/525554545578?text=Hola%2C%20quiero%20informes%20de%20los%20torneos%20de%20PeriSquash" target="_blank" rel="noopener">Pregunta por el próximo torneo</a>
-      </div>
+    <div class="cartel">
       <picture>
         <source srcset="assets/images/comunidad-selfie.webp" type="image/webp">
-        <img src="assets/images/comunidad-selfie.jpg" alt="Jugadores de PeriSquash celebrando después de un torneo" width="1280" height="960" loading="lazy" decoding="async">
+        <img class="cartel__img" src="assets/images/comunidad-selfie.jpg" alt="Jugadores de PeriSquash celebrando después de un torneo" width="1280" height="960" loading="lazy" decoding="async">
       </picture>
+      <div class="cartel__veil"></div>
+      <div class="wrap cartel__in">
+        <p class="kicker">Torneos</p>
+        <h2 class="cartel__title">Torneo de <span class="ani">Aniversario</span></h2>
+        <div class="cartel__meta">
+          <span class="cartel__mes">AGO</span>
+          <p>El más grande del año, en todas las categorías — del que va empezando
+             al que no perdona un punto. Aparta tu lugar con tiempo.</p>
+        </div>
+        <a class="btn" href="https://wa.me/525554545578?text=Hola%2C%20quiero%20informes%20de%20los%20torneos%20de%20PeriSquash" target="_blank" rel="noopener">Pregunta por el próximo torneo</a>
+        <ul class="cartel__foot">
+          <li>Dos torneos al año</li>
+          <li>Todas las categorías</li>
+          <li>Retadoras L y M 19:00—23:00 · Dom 10:00—15:00</li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -796,13 +814,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <img src="assets/images/clases-tecnica.jpg" alt="Entrenador corrigiendo la técnica de una jugadora en la Cancha 1" width="1086" height="1448" loading="lazy" decoding="async">
           </picture>
           <figcaption>Clase particular</figcaption>
-        </figure>
-        <figure>
-          <picture>
-            <source srcset="assets/images/hero-cancha.webp" type="image/webp">
-            <img src="assets/images/hero-cancha.jpg" alt="Dos jugadores durante un partido en una cancha de duela de PeriSquash" width="1200" height="1600" loading="lazy" decoding="async">
-          </picture>
-          <figcaption>En pleno partido</figcaption>
         </figure>
         <figure>
           <picture>
@@ -1033,10 +1044,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   })();
 </script>
 
-<!-- Google Analytics 4 (carga diferida para no afectar el LCP). Reemplaza G-XXXXXXXXXX por el ID real. -->
+<!-- Google Analytics 4 (carga diferida para no afectar el LCP).
+     Propiedad PeriSquash en la cuenta de BridgeNode. Si algún día se publica una etiqueta
+     de GA4 dentro de GTM-TMTL7CJJ, hay que borrar este bloque o se cuenta doble cada visita. -->
 <script>
   window.addEventListener('load', function () {
-    var GA_ID = 'G-XXXXXXXXXX';
+    var GA_ID = 'G-35GGEQYQQ1';
     if (GA_ID.indexOf('XXXX') !== -1) return; // no carga hasta poner el ID real
     var s = document.createElement('script');
     s.async = true;
