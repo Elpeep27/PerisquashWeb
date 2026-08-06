@@ -3,20 +3,20 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://perisquash.com/</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://perisquash.com/assets/images/hero-cancha.jpg</image:loc>
-      <image:title>Canchas de squash con piso de duela en PeriSquash, Coapa</image:title>
+      <image:loc>https://perisquash.com/assets/images/cancha-2.jpg</image:loc>
+      <image:title>Cancha de squash con piso de duela y frontis de vidrio en PeriSquash, Coapa</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://perisquash.com/assets/images/cancha-clase.jpg</image:loc>
-      <image:title>Clase de squash en PeriSquash, Tlalpan</image:title>
+      <image:loc>https://perisquash.com/assets/images/clases-entrenadores.jpg</image:loc>
+      <image:title>Clase de squash con entrenador en PeriSquash, Tlalpan</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://perisquash.com/assets/images/accion-pro.jpg</image:loc>
-      <image:title>Partido de squash en PeriSquash</image:title>
+      <image:loc>https://perisquash.com/assets/images/fachada.jpg</image:loc>
+      <image:title>Fachada de PeriSquash en Vicente Guerrero 7, Coapa</image:title>
     </image:image>
   </url>
 </urlset>
