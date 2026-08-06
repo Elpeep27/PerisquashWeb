@@ -16,7 +16,6 @@ JS van embebidos; lo único externo son los assets.
 | `assets/images/` | Fotos `.jpg` + `.webp`, logo y `og-image.jpg` |
 | `assets/fonts/` | `archivo-latin-var.woff2` y `archivo-black-latin.woff2` (autoalojadas) |
 | `assets/favicon/` | `favicon.ico`, 16/32, `apple-touch-icon`, iconos 192/512 |
-| `assets/video/` | Video de la galería; usa `preload="none"` para no cargarlo hasta reproducir |
 | `site.webmanifest` | Nombre e iconos al "Agregar a pantalla de inicio" |
 | `robots.txt`, `sitemap.xml` | Indexación |
 
