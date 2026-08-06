@@ -21,7 +21,7 @@ echo "Destino    : $DESTINO_SSH:$DOCROOT"
 echo
 
 # --- 1. Verificación previa: que exista lo indispensable ---
-for f in index.html site.webmanifest robots.txt sitemap.xml \
+for f in index.html site.webmanifest robots.txt sitemap.xml llms.txt \
          assets/images/og-image.jpg assets/favicon/favicon.ico \
          assets/fonts/archivo-latin-var.woff2; do
   [ -f "$REPO/$f" ] || { echo "FALTA: $f"; exit 1; }
@@ -35,6 +35,7 @@ RSYNC_OPTS=(
   --include='site.webmanifest'
   --include='robots.txt'
   --include='sitemap.xml'
+  --include='llms.txt'
   --include='assets/'
   --include='assets/images/***'
   --include='assets/fonts/***'

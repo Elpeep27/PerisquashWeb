@@ -76,8 +76,8 @@ Dos cosas del subdominio de revisión:
 - Antigüedad confirmada por el cliente: **17 años**
   (⚠️ el brief original de INICIO.docx dice "más de 16" — confirmar cuál se publica)
 - Tarifas: $300 prepagada · $330 casual (por hora)
-- **Retadoras: lunes y miércoles, 7:00 PM** — NO son todos los días. El brief viejo decía
-  "retadoras todos los días"; el dato correcto viene del TikTok del club y lo confirmó el
-  cliente (2026-07-28). Corregido en tarjeta de servicios, marquesina, acordeón de horarios,
-  FAQ visible y FAQ del JSON-LD.
-- Horarios: L-V 6:00–22:00 · Sáb y Dom 7:00–18:00
+- **Retadoras: lunes y miércoles 19:00–23:00 · domingos 10:00–15:00** — NO son todos los días.
+  El domingo se agregó el 2026-08-05. Está en la tarjeta de servicios, la marquesina, el
+  acordeón de horarios, el FAQ visible y el FAQ del JSON-LD.
+- Horarios: **L-V 6:00–23:00 · Sáb y Dom 7:00–15:00** (corregido 2026-08-05)
+- Formato de hora: **24 h en toda la página**, sin AM/PM.
