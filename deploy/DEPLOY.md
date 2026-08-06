@@ -18,6 +18,7 @@ JS van embebidos; lo único externo son los assets.
 | `assets/favicon/` | `favicon.ico`, 16/32, `apple-touch-icon`, iconos 192/512 |
 | `site.webmanifest` | Nombre e iconos al "Agregar a pantalla de inicio" |
 | `robots.txt`, `sitemap.xml` | Indexación |
+| `llms.txt` | Resumen del club para LLMs y buscadores con IA (se sirve como texto plano) |
 
 ## Fase 1 — Revisión (subdominio de BridgeNode)
 
