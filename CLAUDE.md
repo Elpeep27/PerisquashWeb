@@ -341,8 +341,13 @@ Min SDK: 24 (Android 7.0), Target SDK: 35 (Android 15)
 
 - **NO usar Tailwind CSS.** El sitio usa CSS vanilla para zero-dependency.
 - **NO usar frameworks JS.** Vanilla JS con IntersectionObserver y requestAnimationFrame.
-- **NO usar imágenes stock.** Solo las fotos reales proporcionadas del club.
+- **NO usar imágenes stock.** Solo material que venga del cliente (`material/`).
+  Desde 2026-08-05 parte de ese material es **generado con IA sobre las canchas reales
+  del club**, no fotografía. Por eso el copy **NO puede afirmar que son fotos reales**
+  (se quitó "Fotos reales del club" de la bajada de la galería). Describir lo que se ve,
+  sin asegurar el origen de la imagen. Revisar siempre que no traigan marca de agua.
 - **NO vender lo que no es.** El club tiene sus años, las instalaciones no son nuevas, pero las canchas sí están en buen estado y el servicio es excelente.
-- **El video se reproduce en autoplay, muted, loop, playsinline** dentro del carrusel.
+- **La galería NO lleva video** (quitado 2026-08-05). `assets/video/perisquash-action.mp4`
+  sigue en el repo pero no se monta; el cliente lo va a regenerar por su cuenta.
 - **WhatsApp es el único CTA de contacto.** No hay formulario de contacto porque no hay backend todavía.
 - **La app Marcador se presenta como "la app oficial de PeriSquash"**, no como un producto de BridgeNode.
