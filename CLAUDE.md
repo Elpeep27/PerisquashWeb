@@ -212,12 +212,13 @@ Canchas:    3 canchas inglesas profesionales (piso de madera)
 Contacto:   55 5454 5578 — ÚNICO número, sirve para tel y WhatsApp
             → https://wa.me/525554545578
 Google:     4.6 estrellas, 68 reseñas
-Horarios:
-  L-V:      6:00 AM — 10:00 PM
-  Sáb-Dom:  7:00 AM — 6:00 PM
+Horarios:   (corregido 2026-08-05 — TODA la página usa formato de 24 h)
+  L-V:      6:00 — 23:00
+  Sáb-Dom:  7:00 — 15:00
 Tarifas:    Cancha por hora — $300 MXN prepagada · $330 MXN casual
 Torneos:    2 al año, todas las categorías; agosto = mes de aniversario
-Retadoras:  Lunes y miércoles, 7:00 PM (NO son todos los días — corregido 2026-07-28)
+Retadoras:  Lunes y miércoles 19:00 — 23:00 · Domingos 10:00 — 15:00
+            (se agregó el domingo el 2026-08-05; NO son todos los días)
 Coords:     19.2836816, -99.1316249
 Maps ID:    ChIJiyMb_Q4BzoURCgK5ocWZmtk
 Redes:      Instagram https://www.instagram.com/perisquash_club/
@@ -229,6 +230,16 @@ Redes:      Instagram https://www.instagram.com/perisquash_club/
 > para llamadas y WhatsApp. Se muestra como **"Tel y WhatsApp: 55 5454 5578"** y siempre enlaza a
 > `https://wa.me/525554545578`. **El número `5541739456` ya NO se usa** — la regla anterior de
 > "dos números, nunca mezclar" quedó obsoleta.
+>
+> **Terminología de la cancha (cliente, 2026-08-05):** en el copy visible se dice
+> **"contra frontis de vidrio"**, no "pared de vidrio" — es el término correcto de squash.
+> En `<meta description>`, Open Graph y schema.org se mantiene **"pared de vidrio"** a propósito:
+> es lo que la gente escribe en Google, y ahí manda la búsqueda, no la jerga.
+>
+> **Formato de hora:** todo el sitio usa **24 h** (`19:00`, no `7:00 PM`) — unificado el 2026-08-05.
+>
+> **Servicios son 3 tarjetas** desde el 2026-08-05: renta por hora, retadoras y clases particulares.
+> Se eliminó "Iniciación y desarrollo" (la iniciación sigue viva en el desplegable de Clases y en el FAQ).
 >
 > **Raquetas:** el club **presta** una raqueta de cortesía a quienes van empezando (no es renta).
 > La **venta** de raquetas y accesorios se detalla en la sección Tienda.
