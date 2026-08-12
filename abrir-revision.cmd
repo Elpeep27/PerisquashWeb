@@ -17,9 +17,23 @@ if errorlevel 1 (
   exit /b 1
 )
 
-start "" http://127.0.0.1:8765/revision.html
 echo.
 echo   Hoja de revision de PeriSquash corriendo en http://127.0.0.1:8765/revision.html
 echo   NO cierres esta ventana mientras revisas.
 echo.
-python -m http.server 8765 --bind 127.0.0.1
+
+where node >nul 2>&1
+if %errorlevel%==0 (
+  start "" http://127.0.0.1:8765/revision.html
+  node deploy\revision-server.cjs
+) else (
+  where python >nul 2>&1
+  if %errorlevel%==0 (
+    start "" http://127.0.0.1:8765/revision.html
+    python -m http.server 8765 --bind 127.0.0.1
+  ) else (
+    echo   ERROR: se necesita Node.js o Python para abrir la hoja de revision.
+    pause
+    exit /b 1
+  )
+)
