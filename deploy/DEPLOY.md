@@ -13,7 +13,7 @@ JS van embebidos; lo único externo son los assets.
 | Archivo / carpeta | Para qué |
 |---|---|
 | `index.html` | La página completa (CSS y JS embebidos) |
-| `assets/images/` | Fotos `.jpg` + `.webp`, logo y `og-image.jpg` |
+| `assets/images/` | Fotos `.jpg` + `.webp`, logo y `og-image-v2.png` |
 | `assets/fonts/` | `archivo-latin-var.woff2` y `archivo-black-latin.woff2` (autoalojadas) |
 | `assets/favicon/` | `favicon.ico`, 16/32, `apple-touch-icon`, iconos 192/512 |
 | `site.webmanifest` | Nombre e iconos al "Agregar a pantalla de inicio" |
@@ -28,7 +28,7 @@ badge flotante, sin enlaces a otras propuestas, sin link a la cotización.
 Dos cosas del subdominio de revisión:
 
 1. **Vista previa de WhatsApp/redes.** Las etiquetas Open Graph apuntan en absoluto a
-   `https://perisquash.com/assets/images/og-image.jpg` (así deben quedar en producción). Para
+   `https://perisquash.com/assets/images/og-image-v2.png` (así deben quedar en producción). Para
    que la miniatura ya se vea durante la revisión, sube **solo ese archivo** al docroot actual de
    perisquash.com — es aditivo, no toca nada del sitio vivo.
 2. **No indexar la copia.** `robots.txt` con `Disallow: /` o header `X-Robots-Tag: noindex` en el
@@ -38,8 +38,9 @@ Dos cosas del subdominio de revisión:
 
 1. Subir todos los archivos de la tabla al docroot (`/var/www/perisquash`). No requiere edición
    previa: el HTML ya sale listo para producción.
-2. GA4: reemplazar `G-XXXXXXXXXX` por el Measurement ID real cuando el cliente lo entregue
-   (mientras tenga el placeholder, el script no carga nada — hay guard).
+2. Medición: verificar que Google Tag Manager use `GTM-TMTL7CJJ` y que la carga diferida de
+   Google Analytics use `G-35GGEQYQQ1`. No crear otra etiqueta GA4 dentro de GTM para evitar
+   contabilizar dos veces cada visita.
 3. Nginx: `deploy/nginx-perisquash.conf` (`server_name perisquash.com`, SSL para el VPS +
    Cloudflare, caché larga para fuentes/imágenes y `no-cache` para el HTML).
 4. Verificar: `https://perisquash.com/` carga el rediseño; llamar y WhatsApp usan el único

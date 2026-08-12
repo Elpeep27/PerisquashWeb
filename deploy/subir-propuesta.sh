@@ -22,7 +22,7 @@ echo
 
 # --- 1. Verificación previa: que exista lo indispensable ---
 for f in index.html site.webmanifest robots.txt sitemap.xml llms.txt \
-         assets/images/og-image.jpg assets/favicon/favicon.ico \
+         assets/images/og-image-v2.png assets/favicon/favicon.ico \
          assets/fonts/archivo-latin-var.woff2; do
   [ -f "$REPO/$f" ] || { echo "FALTA: $f"; exit 1; }
 done
@@ -62,6 +62,6 @@ echo
 echo "Listo. Abre el subdominio con Ctrl+Shift+R (recarga dura)."
 echo
 echo "Recuerda, para que la miniatura de WhatsApp se vea durante la revisión:"
-echo "  las etiquetas Open Graph apuntan a https://perisquash.com/assets/images/og-image.jpg"
+echo "  las etiquetas Open Graph apuntan a https://perisquash.com/assets/images/og-image-v2.png"
 echo "  Sube ese archivo también al docroot de perisquash.com (es aditivo, no toca el sitio vivo):"
-echo "  rsync -av assets/images/og-image.jpg $DESTINO_SSH:/var/www/perisquash/assets/images/"
+echo "  rsync -av assets/images/og-image-v2.png $DESTINO_SSH:/var/www/perisquash/assets/images/"
