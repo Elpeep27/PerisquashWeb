@@ -368,9 +368,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
       transition:opacity .32s ease,transform .32s ease}
     .hero__scroll-cue::before{content:"";width:34px;height:1px;background:var(--cyan)}
-    .hero__details{display:block;margin-top:auto;opacity:0;transform:translateY(22px);pointer-events:none;
-      transition:opacity .45s ease,transform .45s ease}
+    .hero__details{display:block;margin-top:auto;opacity:0;transform:translateY(30px);pointer-events:none;
+      transition:opacity .58s ease,transform .68s cubic-bezier(.22,1,.36,1)}
+    .hero__details>p,.hero__details .hero__ctas,.hero__details .hero__chips{
+      opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .62s cubic-bezier(.22,1,.36,1)}
     .hero.is-entered .hero__details{opacity:1;transform:none;pointer-events:auto}
+    .hero.is-entered .hero__details>p{opacity:1;transform:none;transition-delay:.08s}
+    .hero.is-entered .hero__details .hero__ctas{opacity:1;transform:none;transition-delay:.2s}
+    .hero.is-entered .hero__details .hero__chips{opacity:1;transform:none;transition-delay:.32s}
     .hero.is-entered .hero__scroll-cue{opacity:0;transform:translateY(-7px)}
 
     /* Galería compacta: una imagen de apertura y cuatro piezas en mosaico. */
@@ -443,7 +448,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .reveal{opacity:1;transform:none;transition:none}
     .serv,.serv::before{transition:none}
     .rev{transition:none}
-    .hero__details{animation:none!important;opacity:1;transform:none;pointer-events:auto}
+    .hero__details,.hero__details>p,.hero__details .hero__ctas,.hero__details .hero__chips{
+      animation:none!important;opacity:1;transform:none;transition:none;pointer-events:auto}
     .hero__scroll-cue{display:none}
   }
 </style>
@@ -1166,18 +1172,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       lastY=y;
       paintHero();
     }
-    hero.addEventListener('touchstart',function(e){
+    document.addEventListener('touchstart',function(e){
       touchY=e.touches&&e.touches.length ? e.touches[0].clientY : null;
     },{passive:true});
-    hero.addEventListener('touchmove',function(e){
+    document.addEventListener('touchmove',function(e){
       if(!mobile.matches||reduced.matches||touchY===null||!e.touches.length) return;
       var delta=touchY-e.touches[0].clientY;
       if(delta>10) entered=true;
       else if(delta<-10&&window.scrollY<=8) entered=false;
       paintHero();
     },{passive:true});
-    hero.addEventListener('touchend',function(){touchY=null;},{passive:true});
-    hero.addEventListener('touchcancel',function(){touchY=null;},{passive:true});
+    document.addEventListener('touchend',function(){touchY=null;},{passive:true});
+    document.addEventListener('touchcancel',function(){touchY=null;},{passive:true});
     window.addEventListener('scroll',syncHero,{passive:true});
     window.addEventListener('resize',syncHero);
     syncHero();
