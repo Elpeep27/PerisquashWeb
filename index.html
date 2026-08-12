@@ -1154,10 +1154,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     if(!hero) return;
     var mobile=window.matchMedia('(max-width:560px)');
     var reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
+    var entered=false;
+    var lastY=window.scrollY;
+    var touchY=null;
+    function paintHero(){hero.classList.toggle('is-entered',entered);}
     function syncHero(){
       if(!mobile.matches||reduced.matches){hero.classList.add('is-entered');return;}
-      hero.classList.toggle('is-entered',window.scrollY>40);
+      var y=window.scrollY;
+      if(y>8) entered=true;
+      else if(lastY>8&&y===0) entered=false;
+      lastY=y;
+      paintHero();
     }
+    hero.addEventListener('touchstart',function(e){
+      touchY=e.touches&&e.touches.length ? e.touches[0].clientY : null;
+    },{passive:true});
+    hero.addEventListener('touchmove',function(e){
+      if(!mobile.matches||reduced.matches||touchY===null||!e.touches.length) return;
+      var delta=touchY-e.touches[0].clientY;
+      if(delta>10) entered=true;
+      else if(delta<-10&&window.scrollY<=8) entered=false;
+      paintHero();
+    },{passive:true});
+    hero.addEventListener('touchend',function(){touchY=null;},{passive:true});
+    hero.addEventListener('touchcancel',function(){touchY=null;},{passive:true});
     window.addEventListener('scroll',syncHero,{passive:true});
     window.addEventListener('resize',syncHero);
     syncHero();
