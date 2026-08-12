@@ -94,7 +94,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .nav__in{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:12px}
   .nav__logo{display:flex;align-items:center;gap:.6rem;text-decoration:none}
   .nav__logo img{height:44px;width:auto}
-  .nav__links{display:flex;align-items:center;gap:1.4rem}
+  .nav__links{display:flex;align-items:center;gap:1.4rem;margin-left:auto}
   .nav__links a{color:var(--ink);text-decoration:none;font-weight:600;font-size:.93rem}
   .nav__links a:hover{color:var(--blue)}
   .btn{display:inline-block;background:var(--blue);color:#fff;text-decoration:none;font-weight:700;
@@ -134,6 +134,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .hero__chips li{font-size:.83rem;font-weight:600;color:#fff;padding:.42em 1em;border-radius:999px;
     background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(2px)}
   .hero__rule{width:120px;height:5px;background:var(--cyan);margin-bottom:1.2em}
+  .hero__details{display:contents}
+  .hero__scroll-cue{display:none}
 
   /* ── Franja de datos ── */
   .facts{background:var(--navy);color:#fff}
@@ -263,6 +265,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .reserva select,.reserva input{width:100%;padding:.7em .8em;border:1px solid var(--line);border-radius:6px;
     font:inherit;background:var(--white);color:var(--ink)}
   .reserva__note{font-size:.88rem;color:var(--ink-soft);margin-top:1em}
+  #formReserva .btn{display:inline-flex;align-items:center;gap:.65em}
+  #formReserva .btn::before{content:"";width:9px;height:9px;border-radius:50%;background:#25D366;
+    box-shadow:0 0 0 3px rgba(37,211,102,.16);flex:none}
 
   /* Reseñas: carrusel */
   .reviews{overflow:hidden}
@@ -270,6 +275,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .reviews:hover .rail{animation-play-state:paused}
   @keyframes rail{to{transform:translateX(-50%)}}
   .rev{width:330px;flex:none;background:var(--navy);color:#fff;border-radius:10px;padding:24px 22px}
+  .rev{transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease}
+  .rev:hover,.rev:focus-visible{transform:translateY(-4px);background:#234B91;
+    box-shadow:0 14px 30px -18px rgba(16,20,27,.75)}
   .rev .stars{color:#FFD93D;letter-spacing:.15em;margin:0 0 .7em;font-size:.95rem}
   .rev blockquote{margin:0 0 1em;font-size:.96rem;line-height:1.55;color:rgba(255,255,255,.92)}
   .rev cite{font-style:normal;font-weight:700;font-size:.88rem;color:var(--cyan)}
@@ -307,22 +315,125 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .galeria{grid-template-columns:1fr 1fr}
     .about,.casa,.loc,.reserva__grid{grid-template-columns:1fr}
     .foot__grid{grid-template-columns:1fr 1fr}
-    .nav__links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--white);
-      flex-direction:column;align-items:flex-start;padding:18px 22px;border-bottom:1px solid var(--line);gap:1.1rem}
+    .nav__links{display:none;position:absolute;top:calc(100% + 7px);left:12px;right:12px;
+      background:rgba(255,255,255,.82);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.68);
+      border-radius:12px;box-shadow:0 18px 42px -24px rgba(16,20,27,.6);
+      flex-direction:column;align-items:flex-start;padding:13px 16px;gap:.72rem}
+    .nav__links .btn{padding:.6em 1em;font-size:.85rem}
     .nav__links.open{display:flex}
-    .nav__soc{border-left:0;padding-left:0;margin-left:-4px;gap:1.1rem}
+    .nav__soc{border-left:0;padding-left:0;margin-left:auto;gap:.3rem}
+    .nav__soc a{padding:8px}
     .nav__toggle{display:block}
     .facts__in{grid-template-columns:1fr 1fr 1fr;gap:4px}
     .facts b{font-size:1.3rem}
   }
   @media (max-width:560px){
-    .servicios{grid-template-columns:1fr}
-    .serv{min-height:320px}
-    .galeria{grid-template-columns:1fr}
-    /* En móvil la foto pierde detalle: se oscurece más para que el titular respire */
-    .cartel{min-height:430px}
-    .cartel__veil{background:linear-gradient(180deg,rgba(16,20,27,.6) 0%,rgba(16,20,27,.95) 100%)}
+    body{font-size:.98rem}
+    .wrap{padding-inline:18px}
+    section.block{padding-block:48px 52px}
+    .lead{margin-bottom:1.35em}
+    .about,.casa{gap:24px}
+    .about img,.casa img{height:230px;min-height:0;object-position:center 48%}
+
+    .nav__logo img{height:38px}
+    .nav__in{padding-block:8px;gap:.15rem}
+    .nav__soc a{padding:7px}
+    .nav__soc svg{width:17px;height:17px}
+    .nav__toggle{margin-left:2px}
+
+    /* Canchas se lee como un solo panel: tres filas completas, sin contenido cortado. */
+    .servicios{display:grid;grid-template-columns:1fr;gap:10px;margin:0;padding:0;overflow:visible}
+    .serv{display:grid;grid-template-columns:38% 1fr;min-height:0;height:152px;
+      color:var(--ink);background:var(--white);border:1.5px solid #D3D9E2;
+      box-shadow:0 10px 24px -20px rgba(16,20,27,.65)}
+    .serv picture{display:block;grid-column:1;grid-row:1;height:100%;min-width:0;overflow:hidden}
+    .serv img{position:static;display:block;width:100%;height:100%;object-fit:cover;transition:none}
+    .serv .veil{display:none}
+    .serv .txt{grid-column:2;grid-row:1;padding:15px 14px;align-self:center}
+    .serv h3{font-size:.86rem;color:var(--ink)}
+    .serv p{font-size:.78rem;line-height:1.38;color:var(--ink-soft)}
+    .serv .price{margin-top:.45em;color:var(--blue);font-size:.74rem;line-height:1.3}
+
+    .facts__in{padding-block:17px;gap:0}
+    .facts__in>div{padding-inline:7px;border-right:1px solid rgba(255,255,255,.16)}
+    .facts__in>div:last-child{border-right:0}
+    .facts b{font-size:1.03rem;white-space:nowrap}
+    .facts span{display:block;font-size:.61rem;line-height:1.25;letter-spacing:.06em;margin-top:.35em}
+
+    /* Portada en dos tiempos: primero la cancha; la información entra al deslizar. */
+    .hero{min-height:82svh;align-items:stretch;background-size:cover;background-position:center 45%}
+    .hero__in{min-height:82svh;display:flex;flex-direction:column;padding-block:48px 32px}
+    .hero h1{font-size:2.7rem;max-width:8ch}
+    .hero__scroll-cue{display:flex;align-items:center;gap:9px;margin-top:.9rem;color:rgba(255,255,255,.82);
+      font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+      transition:opacity .32s ease,transform .32s ease}
+    .hero__scroll-cue::before{content:"";width:34px;height:1px;background:var(--cyan)}
+    .hero__details{display:block;margin-top:auto;opacity:0;transform:translateY(22px);pointer-events:none;
+      transition:opacity .45s ease,transform .45s ease}
+    .hero.is-entered .hero__details{opacity:1;transform:none;pointer-events:auto}
+    .hero.is-entered .hero__scroll-cue{opacity:0;transform:translateY(-7px)}
+
+    /* Galería compacta: una imagen de apertura y cuatro piezas en mosaico. */
+    .galeria{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:1.3rem}
+    .galeria figure:first-child{grid-column:1 / -1}
+    .galeria figure:first-child img{aspect-ratio:16/9}
+    .galeria figure:not(:first-child) img{aspect-ratio:1/1}
+    .galeria figcaption{padding:22px 10px 8px;font-size:.76rem}
+    .galeria__redes{margin-top:1.25rem}
+    .galeria__socs{gap:.45rem}
+    .galeria__socs .soc{padding:.5em .8em;font-size:.82rem}
+
+    .shop__item{padding:15px 14px}
+    /* El contenido usa la pared vacía y deja libre al grupo de jugadores. */
+    .cartel{min-height:clamp(560px,76svh,650px);align-items:stretch}
+    .cartel__in{padding-block:30px;display:flex;flex-direction:column;justify-content:flex-start}
+    .cartel__title{font-size:2.38rem;margin-bottom:.35rem}
+    .cartel__meta{margin:.55em 0 .8em;gap:9px;max-width:34ch}
+    .cartel__meta p{font-size:.8rem;line-height:1.34}
+    .cartel .btn{padding:.62em 1em;font-size:.82rem}
+    .cartel__foot{display:none}
+    .cartel__veil{background:linear-gradient(180deg,rgba(16,20,27,.82) 0%,rgba(16,20,27,.56) 35%,rgba(16,20,27,.08) 72%,rgba(16,20,27,.2) 100%)}
     .cartel__meta{align-items:flex-start}
+    .marquee{padding:.38em 0}
+    .marquee__track span{font-size:.62rem;letter-spacing:.075em}
+
+    /* Reseñas en una retícula estable: todas caben en el ancho y dejan de pasar solas. */
+    .reviews .rail{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:auto;
+      gap:9px;margin:1.15em 18px 0;animation:none}
+    .reviews .rev{width:auto;padding:15px 13px;border-radius:8px}
+    .reviews .rev[aria-hidden="true"]{display:none}
+    .reviews .rev:nth-child(5){grid-column:1 / -1}
+    .rev .stars{font-size:.72rem;margin-bottom:.45em}
+    .rev blockquote{font-size:.77rem;line-height:1.42;margin-bottom:.65em}
+    .rev cite{font-size:.7rem}
+
+    /* En móvil, primero se explica la tienda y después se muestra la fotografía. */
+    .casa>picture{display:block;order:2}
+    .casa>picture img{width:100%}
+    .casa>div{order:1}
+
+    /* Preguntas en tarjetas breves y respirables. */
+    #faq .acc{border-top:0;display:grid;gap:8px}
+    #faq .acc__item{background:var(--white);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+    #faq .acc__btn{padding:12px;font-size:.88rem;line-height:1.35}
+    #faq .acc__btn .plus{font-size:1rem}
+    #faq .acc__body{padding:0 12px 12px;font-size:.86rem}
+
+    #info .acc__item.open{border-color:rgba(46,95,191,.34);box-shadow:inset 3px 0 var(--cyan)}
+    #info .acc__item.open .acc__btn{color:var(--blue)}
+
+    .reserva{background:linear-gradient(145deg,#fff 0%,#F2F7FF 100%);
+      border:1px solid rgba(46,95,191,.2)}
+
+    /* Dirección y mapa forman una sola tarjeta. */
+    #ubicacion{background:var(--paper)}
+    .loc{display:block;background:var(--white);border:1px solid var(--line);border-radius:12px;
+      padding:18px;overflow:hidden;box-shadow:0 16px 32px -28px rgba(16,20,27,.65)}
+    .loc address{margin-bottom:1em;line-height:1.55}
+    .loc .btn{padding:.62em 1em;font-size:.85rem}
+    .loc__cerca{margin:.9em 0 0;font-size:.8rem;line-height:1.5}
+    .loc iframe{height:225px;width:calc(100% + 36px);margin:18px -18px -18px;border-radius:0}
+
   }
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto}
@@ -331,6 +442,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .marquee__track{animation:none}
     .reveal{opacity:1;transform:none;transition:none}
     .serv,.serv::before{transition:none}
+    .rev{transition:none}
+    .hero__details{animation:none!important;opacity:1;transform:none;pointer-events:auto}
+    .hero__scroll-cue{display:none}
   }
 </style>
 <script type="application/ld+json">
@@ -535,9 +649,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <a class="nav__logo" href="#" aria-label="PeriSquash inicio">
       <img src="assets/images/logo-perisquash-v2.png" alt="PeriSquash" width="753" height="658" fetchpriority="high">
     </a>
-    <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Abrir menú">
-      <span></span><span></span><span></span>
-    </button>
     <div class="nav__links" id="navLinks">
       <a href="#nosotros">Nosotros</a>
       <a href="#servicios">Servicios</a>
@@ -545,13 +656,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="#info">Tarifas y horarios</a>
       <a href="#galeria">Galería</a>
       <a href="#ubicacion">Ubicación</a>
-      <div class="nav__soc">
-        <a class="soc soc--ig" href="https://www.instagram.com/perisquash_club/" target="_blank" rel="noopener" aria-label="PeriSquash en Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.13 1.38A5.9 5.9 0 0 0 .63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.13a5.9 5.9 0 0 0 2.13 1.38c.76.3 1.64.5 2.91.56 1.28.06 1.69.07 4.95.07s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.9 5.9 0 0 0 2.13-1.38 5.9 5.9 0 0 0 1.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.9 5.9 0 0 0-1.38-2.13A5.9 5.9 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0Zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm7.85-10.4a1.44 1.44 0 1 1-1.44-1.44 1.44 1.44 0 0 1 1.44 1.44Z"/></svg></a>
-        <a class="soc soc--tt" href="https://www.tiktok.com/@perisquash" target="_blank" rel="noopener" aria-label="PeriSquash en TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07Z"/></svg></a>
-        <a class="soc soc--fb" href="https://www.facebook.com/profile.php?id=100063724986177" target="_blank" rel="noopener" aria-label="PeriSquash en Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.45 18.63.07 12 .07S0 5.45 0 12.07c0 5.99 4.39 10.95 10.13 11.85v-8.38H7.08v-3.47h3.05V9.43c0-3.01 1.79-4.67 4.53-4.67 1.31 0 2.69.23 2.69.23v2.95h-1.51c-1.49 0-1.96.93-1.96 1.87v2.25h3.33l-.53 3.47h-2.8v8.38C19.61 23.03 24 18.06 24 12.07Z"/></svg></a>
-      </div>
       <a class="btn" href="#reservar">Reserva tu cancha</a>
     </div>
+    <div class="nav__soc">
+      <a class="soc soc--ig" href="https://www.instagram.com/perisquash_club/" target="_blank" rel="noopener" aria-label="PeriSquash en Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.13 1.38A5.9 5.9 0 0 0 .63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.13a5.9 5.9 0 0 0 2.13 1.38c.76.3 1.64.5 2.91.56 1.28.06 1.69.07 4.95.07s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.9 5.9 0 0 0 2.13-1.38 5.9 5.9 0 0 0 1.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.9 5.9 0 0 0-1.38-2.13A5.9 5.9 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0Zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm7.85-10.4a1.44 1.44 0 1 1-1.44-1.44 1.44 1.44 0 0 1 1.44 1.44Z"/></svg></a>
+      <a class="soc soc--tt" href="https://www.tiktok.com/@perisquash" target="_blank" rel="noopener" aria-label="PeriSquash en TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07Z"/></svg></a>
+      <a class="soc soc--fb" href="https://www.facebook.com/profile.php?id=100063724986177" target="_blank" rel="noopener" aria-label="PeriSquash en Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.45 18.63.07 12 .07S0 5.45 0 12.07c0 5.99 4.39 10.95 10.13 11.85v-8.38H7.08v-3.47h3.05V9.43c0-3.01 1.79-4.67 4.53-4.67 1.31 0 2.69.23 2.69.23v2.95h-1.51c-1.49 0-1.96.93-1.96 1.87v2.25h3.33l-.53 3.47h-2.8v8.38C19.61 23.03 24 18.06 24 12.07Z"/></svg></a>
+    </div>
+    <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
@@ -559,18 +673,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="wrap hero__in">
     <div class="hero__rule" aria-hidden="true"></div>
     <h1>La mejor opción<br><span class="sur">del sur.</span></h1>
-    <p>Squash en Coapa desde hace 17 años: tres canchas inglesas con piso de duela,
-       contra frontis de vidrio.</p>
-    <div class="hero__ctas">
-      <a class="btn" href="#reservar">Entra a la cancha</a>
-      <a class="btn btn--ghost" href="#info">Tarifas y horarios</a>
+    <span class="hero__scroll-cue" aria-hidden="true">Desliza para entrar a la cancha</span>
+    <div class="hero__details" id="heroDetails">
+      <p>Squash en Coapa desde hace 17 años: tres canchas inglesas con piso de duela,
+         contra frontis de vidrio.</p>
+      <div class="hero__ctas">
+        <a class="btn" href="#reservar">Entra a la cancha</a>
+        <a class="btn btn--ghost" href="#info">Tarifas y horarios</a>
+      </div>
+      <ul class="hero__chips">
+        <li>Clases para principiantes</li>
+        <li>Renta por hora</li>
+        <li>Dos torneos al año</li>
+        <li>El mejor ambiente</li>
+      </ul>
     </div>
-    <ul class="hero__chips">
-      <li>Clases para principiantes</li>
-      <li>Renta por hora</li>
-      <li>Dos torneos al año</li>
-      <li>El mejor ambiente</li>
-    </ul>
   </div>
 </header>
 
@@ -848,11 +965,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="rail" aria-label="Reseñas de jugadores">
       <!-- juego duplicado para loop -->
-      <article class="rev"><p class="stars" aria-label="5 estrellas">★★★★★</p><blockquote>“Canchas con duela de madera y una gran atención al público. Si eres novato, te dan tips para mejorar.”</blockquote><cite>IFF</cite></article>
-      <article class="rev"><p class="stars" aria-label="5 estrellas">★★★★★</p><blockquote>“Excelente lugar para practicar este deporte. Piso de duela… grandes partidos. Todo en un solo lugar.”</blockquote><cite>Felipe Maldonado</cite></article>
-      <article class="rev"><p class="stars" aria-label="5 estrellas">★★★★★</p><blockquote>“Las canchas tienen piso de duela y excelente servicio al cliente…”</blockquote><cite>Reseña en Google</cite></article>
-      <article class="rev"><p class="stars" aria-label="5 estrellas">★★★★★</p><blockquote>“Muy buen lugar y muy buena atención…”</blockquote><cite>Ángel Ramírez</cite></article>
-      <article class="rev"><p class="stars" aria-label="5 estrellas">★★★★★</p><blockquote>“…Canchas en buen estado. Gran ambiente deportivo.”</blockquote><cite>Luis Ignacio Plascencia</cite></article>
+      <article class="rev" tabindex="0"><p class="stars" aria-label="5 estrellas">★★★★★</p><blockquote>“Canchas con duela de madera y una gran atención al público. Si eres novato, te dan tips para mejorar.”</blockquote><cite>IFF</cite></article>
+      <article class="rev" tabindex="0"><p class="stars" aria-label="5 estrellas">★★★★★</p><blockquote>“Excelente lugar para practicar este deporte. Piso de duela… grandes partidos. Todo en un solo lugar.”</blockquote><cite>Felipe Maldonado</cite></article>
+      <article class="rev" tabindex="0"><p class="stars" aria-label="5 estrellas">★★★★★</p><blockquote>“Las canchas tienen piso de duela y excelente servicio al cliente…”</blockquote><cite>Reseña en Google</cite></article>
+      <article class="rev" tabindex="0"><p class="stars" aria-label="5 estrellas">★★★★★</p><blockquote>“Muy buen lugar y muy buena atención…”</blockquote><cite>Ángel Ramírez</cite></article>
+      <article class="rev" tabindex="0"><p class="stars" aria-label="5 estrellas">★★★★★</p><blockquote>“…Canchas en buen estado. Gran ambiente deportivo.”</blockquote><cite>Luis Ignacio Plascencia</cite></article>
       <article class="rev" aria-hidden="true"><p class="stars">★★★★★</p><blockquote>“Canchas con duela de madera y una gran atención al público. Si eres novato, te dan tips para mejorar.”</blockquote><cite>IFF</cite></article>
       <article class="rev" aria-hidden="true"><p class="stars">★★★★★</p><blockquote>“Excelente lugar para practicar este deporte. Piso de duela… grandes partidos. Todo en un solo lugar.”</blockquote><cite>Felipe Maldonado</cite></article>
       <article class="rev" aria-hidden="true"><p class="stars">★★★★★</p><blockquote>“Las canchas tienen piso de duela y excelente servicio al cliente…”</blockquote><cite>Reseña en Google</cite></article>
@@ -1030,6 +1147,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       ' el '+fecha+' a las '+hora+'. ¿Hay disponibilidad?';
     window.open('https://wa.me/525554545578?text='+encodeURIComponent(msg),'_blank','noopener');
   });
+
+  // En móvil, la portada deja ver primero el club y revela la información al comenzar a bajar.
+  (function(){
+    var hero=document.querySelector('.hero');
+    if(!hero) return;
+    var mobile=window.matchMedia('(max-width:560px)');
+    var reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
+    function syncHero(){
+      if(!mobile.matches||reduced.matches){hero.classList.add('is-entered');return;}
+      hero.classList.toggle('is-entered',window.scrollY>40);
+    }
+    window.addEventListener('scroll',syncHero,{passive:true});
+    window.addEventListener('resize',syncHero);
+    syncHero();
+  })();
 
   // Aparición sutil de secciones al hacer scroll
   (function(){
